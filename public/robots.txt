@@ -1,0 +1,11 @@
+# Allow all web crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://rafiqdev.com/sitemap.xml
+
+# Disallow crawling of admin or sensitive areas (if any)
+# User-agent: *
+# Disallow: /admin/
+# Disallow: /private/

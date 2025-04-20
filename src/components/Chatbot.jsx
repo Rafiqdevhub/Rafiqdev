@@ -138,7 +138,7 @@ function Chatbot() {
 
     // Process the message with AI and add the response with a delay for natural feel
     try {
-      setTimeout(async () => {
+      const timeoutId = setTimeout(async () => {
         try {
           // Use our AI-powered message processor (with fallback mechanism)
           const response = await processUserMessage(
@@ -146,13 +146,17 @@ function Chatbot() {
             portfolioContext
           );
 
+          if (!response || response.trim() === "") {
+            throw new Error("Empty response received");
+          }
+
           setMessages((prev) => [...prev, { text: response, sender: "bot" }]);
         } catch (error) {
           console.error("Error processing message:", error);
           setMessages((prev) => [
             ...prev,
             {
-              text: "I'm having trouble processing your request right now. Please try again later.",
+              text: "I'm having trouble processing your request right now. Please try again later or contact me directly through the contact form.",
               sender: "bot",
             },
           ]);
@@ -160,9 +164,19 @@ function Chatbot() {
           setIsTyping(false);
         }
       }, 1200);
+
+      // Cleanup timeout if component unmounts
+      return () => clearTimeout(timeoutId);
     } catch (error) {
       console.error("Error in handleSend:", error);
       setIsTyping(false);
+      setMessages((prev) => [
+        ...prev,
+        {
+          text: "Sorry, there was an unexpected error. Please try again or use the contact form.",
+          sender: "bot",
+        },
+      ]);
     }
   }, [inputText, portfolioContext]);
 

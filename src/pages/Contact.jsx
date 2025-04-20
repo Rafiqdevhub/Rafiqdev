@@ -1,12 +1,10 @@
 import { useState, useRef, useEffect } from "react";
-import { FaPaperPlane, FaArrowLeft } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
 import emailjs from "@emailjs/browser";
 import { getEnv, validateEnv } from "../utils/env";
-import { useNavigate } from "react-router-dom";
 
 const Contact = () => {
   const formRef = useRef();
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -87,16 +85,6 @@ const Contact = () => {
 
   return (
     <div className="w-full pb-6 xxs:pb-10 xs:pb-16">
-      <div
-        onClick={() => {
-          navigate(-1);
-        }}
-        className="ml-[5%] hidden gap-2 pt-4 xxs:pt-6 xs:pt-8 text-gray-200 hover:text-white lg:flex lg:items-center cursor-pointer"
-      >
-        <FaArrowLeft />
-        <span>Portfolio</span>
-      </div>
-
       <div className="text-center pb-4 xxs:pb-5 xs:pb-6 mt-4 xxs:mt-6 xs:mt-8">
         <p className="text-2xl xxs:text-3xl xs:text-4xl font-semibold text-[#f0c14b] mb-2 xxs:mb-3 xs:mb-4">
           💬

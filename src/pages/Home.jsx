@@ -1,57 +1,28 @@
-import { useMemo, useCallback, memo, lazy, Suspense } from "react";
-import PropTypes from "prop-types";
-import { UserData } from "../data/UserData";
+import { useCallback, memo, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  FaCode,
-  FaDatabase,
-  FaServer,
-  FaMobile,
-  FaLinkedinIn,
-  FaSquareXTwitter,
-} from "react-icons/fa6";
-import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
+import { FaCode, FaServer, FaDatabase, FaMobile } from "react-icons/fa";
+import TypewriterText from "../components/TypewriterText";
+import { UserData } from "../data/UserData";
 import RafiqImageSrc from "../Assets/images/RafiqImage.svg";
+import PropTypes from "prop-types";
 
-const TypewriterText = lazy(() => import("../components/TypewriterText"));
+// Optimized SkillItem component with memoization
+const SkillItem = memo(({ icon: Icon, text }) => {
+  return (
+    <div className="flex items-center rounded-md border border-[#242442] px-2 py-1 hover:bg-[#f0c14b]/10 transition-all duration-300">
+      <Icon className="mr-1.5 text-[#f0c14b]" />
+      <span>{text}</span>
+    </div>
+  );
+});
 
-const socialMediaIcons = {
-  AiFillGithub,
-  FaLinkedinIn,
-  AiFillInstagram,
-  FaSquareXTwitter,
-};
-
-const SocialMediaButton = memo(({ icon: IconComponent, url }) => (
-  <a
-    href={url}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex items-center justify-center rounded-full border border-[#f0c14b] p-2 bg-transparent hover:bg-[#f0c14b] hover:bg-opacity-10 hover:border-[#e57e31] transition-all duration-300"
-  >
-    <IconComponent className="icon text-[#f0c14b] hover:text-[#e57e31] transition-colors duration-300" />
-  </a>
-));
-
-SocialMediaButton.propTypes = {
-  icon: PropTypes.elementType.isRequired,
-  url: PropTypes.string.isRequired,
-};
-SocialMediaButton.displayName = "SocialMediaButton";
-
-const SkillItem = memo(({ icon: Icon, text }) => (
-  <div className="flex items-center gap-2">
-    <Icon className="text-[#f0c14b]" />
-    <span>{text}</span>
-  </div>
-));
-
+SkillItem.displayName = "SkillItem";
 SkillItem.propTypes = {
   icon: PropTypes.elementType.isRequired,
   text: PropTypes.string.isRequired,
 };
-SkillItem.displayName = "SkillItem";
 
+// Extracted and memoized ProfileImage component for better performance
 const ProfileImage = memo(() => {
   return (
     <div className="mt-4 xxs:mt-6 sm:mt-8 lg:mt-4 relative max-w-[320px] w-full mx-auto">
@@ -65,6 +36,8 @@ const ProfileImage = memo(() => {
           alt="Developer profile"
           loading="lazy"
           decoding="async"
+          width="320"
+          height="320"
         />
       </div>
     </div>
@@ -75,7 +48,6 @@ ProfileImage.displayName = "ProfileImage";
 
 function Home() {
   const navigate = useNavigate();
-  const socialMedia = useMemo(() => UserData.socialMedia, []);
 
   const handleNavigate = useCallback(
     (path) => {
@@ -97,44 +69,34 @@ function Home() {
   return (
     <div className="min-h-[60vh] xxs:min-h-[65vh] md:min-h-[75vh] w-full flex items-center pt-4 pb-0">
       <div className="mx-auto mt-0 mb-0 xxs:mb-2 sm:mb-4 flex w-[94%] xxs:w-[92%] sm:w-[90%] flex-col items-center sm:flex-row lg:w-[85%] xl:w-[80%] lg:justify-between">
-        <div className="w-full max-w-content-md sm:max-w-lg">
-          <h2 className="text-lg xxs:text-xl xs:text-2xl font-semibold leading-tight text-white lg:text-2xl">
-            Welcome <span className="wave">👋</span>
-          </h2>
-          <h2 className="pt-1 text-lg xxs:text-xl xs:text-2xl font-semibold leading-tight text-[#f0c14b]">
-            I&apos;m {UserData.name}
-          </h2>
-
-          <Suspense
-            fallback={<div className="h-[24px] xxs:h-[30px] xs:h-[36px]"></div>}
-          >
-            <TypewriterText />
-          </Suspense>
-
-          <div className="mt-3 xxs:mt-4 xs:mt-5 flex gap-3 xxs:gap-4">
-            {socialMedia.map((data, index) => (
-              <SocialMediaButton
-                key={index}
-                icon={socialMediaIcons[data.icon]}
-                url={data.url}
-              />
-            ))}
+        <div className="w-full lg:w-[55%] flex flex-col lg:pr-8">
+          <h1 className="font-poppins font-bold text-left text-xl xxs:text-2xl xs:text-3xl text-white lg:text-4xl xl:text-5xl">
+            Hello, I&apos;m{" "}
+            <span className="text-[#f0c14b]">{UserData.name}</span>
+          </h1>
+          <div className="h-[50px] xxs:h-[60px] xs:h-[70px] lg:h-[75px] xl:h-[85px] overflow-hidden">
+            <TypewriterText options={UserData.typewriterOptions} />
           </div>
 
-          <div className="mt-3 xxs:mt-4 xs:mt-5 flex flex-wrap gap-2 xs:gap-3">
-            <button
-              onClick={() => handleNavigate("/contact")}
-              className="button-UI px-3 xxs:px-4 xs:px-5 py-1.5 xs:py-2 rounded-lg font-bold text-[#0f0f1a] shadow-xl transition-all duration-300 hover:opacity-90 hover:shadow-[0_8px_30px_rgba(240,193,75,0.15)] text-xs xxs:text-sm"
-            >
-              Hire Me
-            </button>
-
-            <button
+          <div className="mt-2 xxs:mt-3 xs:mt-4 lg:mt-6">
+            <div
               onClick={() => handleNavigate("/projectlist")}
-              className="px-3 xxs:px-4 xs:px-5 py-1.5 xs:py-2 rounded-lg font-bold text-white border border-[#f0c14b] shadow-xl transition-all duration-300 hover:bg-[#f0c14b] hover:bg-opacity-10 hover:border-[#e57e31] text-xs xxs:text-sm"
+              className="relative inline-block cursor-pointer group"
             >
-              View Projects
-            </button>
+              <div className="px-6 py-3 text-white font-bold overflow-hidden rounded-lg border border-[#f0c14b] shadow-lg relative z-10">
+                <span className="relative z-20 group-hover:text-white transition-colors duration-300">
+                  Discover My Portfolio
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#f0c14b] to-[#e57e31] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out z-10"></div>
+              </div>
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#3498db] via-[#f0c14b] to-[#e57e31] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-500"></div>
+
+              <div className="absolute -top-6 -right-6 animate-bounce">
+                <span className="inline-block px-3 py-1 bg-[#3498db] text-white text-xs rounded-full shadow-lg transform rotate-12">
+                  Click me!
+                </span>
+              </div>
+            </div>
           </div>
 
           <div className="mt-3 xxs:mt-4 xs:mt-5 flex flex-wrap gap-2 xxs:gap-3 text-[#a3a3a3] text-xs">

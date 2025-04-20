@@ -53,7 +53,7 @@ const Header = () => {
     };
   }, []);
 
-  // Scroll to top function
+  // Scroll to top function with improved smoothness
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -84,7 +84,7 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <style jsx>{`
+      <style>{`
         @keyframes pulse-subtle {
           0%,
           100% {
@@ -298,7 +298,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="Home-section"
               onMouseEnter={() => setHoverItem("Home-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -319,7 +321,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="About-section"
               onMouseEnter={() => setHoverItem("About-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -339,7 +343,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="Project-section"
               onMouseEnter={() => setHoverItem("Project-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -359,7 +365,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="Contact-section"
               onMouseEnter={() => setHoverItem("Contact-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -463,7 +471,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="Home-section"
               onMouseEnter={() => setHoverItem("Home-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -482,7 +492,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="About-section"
               onMouseEnter={() => setHoverItem("About-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -501,7 +513,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="Project-section"
               onMouseEnter={() => setHoverItem("Project-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -520,7 +534,9 @@ const Header = () => {
               spy={true}
               smooth={true}
               offset={-70}
-              duration={500}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="Contact-section"
               onMouseEnter={() => setHoverItem("Contact-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -560,7 +576,9 @@ const Header = () => {
             spy={true}
             smooth={true}
             offset={-70}
-            duration={500}
+            duration={800}
+            delay={0}
+            isDynamic={true}
             className="flex flex-col items-center cursor-pointer"
           >
             <span className="text-xs text-[#f0c14b] mb-1">Scroll</span>

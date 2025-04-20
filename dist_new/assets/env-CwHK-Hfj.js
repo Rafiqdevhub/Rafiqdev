@@ -1,0 +1,1 @@
+var E={BASE_URL:"/",DEV:!1,MODE:"production",PROD:!0,SSR:!1,VITE_EMAILJS_PUBLIC_KEY:"lGv0RvLjO42RQFA1m",VITE_EMAILJS_SERVICE_ID:"service_e1f0s5k",VITE_EMAILJS_TEMPLATE_ID:"template_pgqpy2y",VITE_GEMINI_API_KEY:"AIzaSyA8p9W3kGOPia-xzQayaawXN2GxQJB6BDM"};const I=(I,_="")=>E[I]||_,_=(I=[])=>{let _=!0;return I.forEach((I=>{void 0===E[I]&&(_=!1)})),_};export{I as g,_ as v};

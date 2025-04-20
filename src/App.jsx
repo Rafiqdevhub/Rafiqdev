@@ -6,14 +6,23 @@ import {
   useLocation,
 } from "react-router-dom";
 import Preloader from "../src/components/Pre";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import Layout from "./pages/Layout";
-import ArchiveProjects from "./pages/ArchiveProjects";
-import NotFound from "./pages/NotFound";
+import ErrorBoundary from "./components/ErrorBoundary";
 import "./App.css";
 
+// Use lazy loading for all route components
+const Layout = lazy(() => import("./pages/Layout"));
+const About = lazy(() => import("./pages/About"));
+const Contact = lazy(() => import("./pages/Contact"));
+const ArchiveProjects = lazy(() => import("./pages/ArchiveProjects"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 const Chatbot = lazy(() => import("./components/Chatbot"));
+
+// Loading component
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-screen bg-[#0f0f1a]">
+    <div className="loader-spinner"></div>
+  </div>
+);
 
 function ScrollToTopOnRouteChange() {
   const { pathname } = useLocation();
@@ -52,26 +61,67 @@ function App() {
   }, []);
 
   return (
-    <div className="App overflow-x-hidden">
-      <Router>
-        <Preloader load={load} />
-        <div className="App" id={load ? "no-scroll" : "scroll"}>
-          <ScrollToTopOnRouteChange />
-          <Routes>
-            <Route path="/" element={<Layout />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projectlist" element={<ArchiveProjects />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/*" element={<NotFound />} />
-          </Routes>
-          <Suspense
-            fallback={<div className="loading-chatbot">Loading...</div>}
-          >
-            <Chatbot />
-          </Suspense>
-        </div>
-      </Router>
-    </div>
+    <ErrorBoundary>
+      <div className="App overflow-x-hidden">
+        <Router>
+          <Preloader load={load} />
+          <div className="App" id={load ? "no-scroll" : "scroll"}>
+            <ScrollToTopOnRouteChange />
+            <Suspense fallback={<PageLoader />}>
+              <Routes>
+                <Route
+                  path="/"
+                  element={
+                    <ErrorBoundary>
+                      <Layout />
+                    </ErrorBoundary>
+                  }
+                />
+                <Route
+                  path="/about"
+                  element={
+                    <ErrorBoundary>
+                      <About />
+                    </ErrorBoundary>
+                  }
+                />
+                <Route
+                  path="/projectlist"
+                  element={
+                    <ErrorBoundary>
+                      <ArchiveProjects />
+                    </ErrorBoundary>
+                  }
+                />
+                <Route
+                  path="/contact"
+                  element={
+                    <ErrorBoundary>
+                      <Contact />
+                    </ErrorBoundary>
+                  }
+                />
+                <Route
+                  path="/*"
+                  element={
+                    <ErrorBoundary>
+                      <NotFound />
+                    </ErrorBoundary>
+                  }
+                />
+              </Routes>
+              <Suspense
+                fallback={<div className="loading-chatbot">Loading...</div>}
+              >
+                <ErrorBoundary>
+                  <Chatbot />
+                </ErrorBoundary>
+              </Suspense>
+            </Suspense>
+          </div>
+        </Router>
+      </div>
+    </ErrorBoundary>
   );
 }
 

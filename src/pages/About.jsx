@@ -12,33 +12,36 @@ function About() {
   const navigate = useNavigate();
   const [animateSkills, setAnimateSkills] = useState(false);
 
-  // Define skill categories
-  const skillCategories = {
-    frontend: [
-      "html",
-      "CSS",
-      "Javascript",
-      "Typescript",
-      "React",
-      "Next JS",
-      "ViteJS",
-      "Tailwind",
-      "Bootstrap",
-      "MaterialUI",
-    ],
-    backend: [
-      "NodeJS",
-      "Express",
-      "Python",
-      "Django",
-      "Flask",
-      "FastAPI",
-      "golang",
-    ],
-    database: ["MongoDB", "MySQL", "PostgreSQL", "Firebase"],
-    devOps: ["Git", "Github", "Docker", "Nginx", "Ubuntu"],
-    tools: ["Figma", "Canva", "Stripe"],
-  };
+  // Define skill categories - memoize to prevent recreation on each render
+  const skillCategories = useMemo(
+    () => ({
+      frontend: [
+        "html",
+        "CSS",
+        "Javascript",
+        "Typescript",
+        "React",
+        "Next JS",
+        "ViteJS",
+        "Tailwind",
+        "Bootstrap",
+        "MaterialUI",
+      ],
+      backend: [
+        "NodeJS",
+        "Express",
+        "Python",
+        "Django",
+        "Flask",
+        "FastAPI",
+        "golang",
+      ],
+      database: ["MongoDB", "MySQL", "PostgreSQL", "Firebase"],
+      devOps: ["Git", "Github", "Docker", "Nginx", "Ubuntu"],
+      tools: ["Figma", "Canva", "Stripe"],
+    }),
+    []
+  );
 
   // Memoize skills to prevent unnecessary recalculations
   const skills = useMemo(
