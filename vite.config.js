@@ -59,7 +59,7 @@ export default defineConfig(({ mode }) => {
     },
     build: {
       // Output directory for production build
-      outDir: "dist",
+      outDir: "dist_new",
 
       // Enable minification for production
       minify: "terser",
