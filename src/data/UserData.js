@@ -2,7 +2,7 @@ export const UserData = {
   name: "Muhammad Rafiq",
   email: "rafkhan9323@gmail.com",
   about:
-    "Innovative Full Stack Developer with a passion for crafting exceptional digital experiences. Specialized in building high-performance, scalable web applications that drive business growth. Expert in modern frontend technologies (React, Next.js) and robust backend solutions (Python, Node.js). Notable achievements include developing enterprise-level applications with 99.9% uptime and reducing load times by 60%. Proven track record in delivering secure, efficient solutions that exceed client expectations. Whether you need a cutting-edge web application, mobile app, or custom software solution, I bring technical excellence and creative problem-solving to every project.",
+    "Versatile Full Stack Developer with expertise in modern web and mobile development. Proficient in building scalable applications using React, Next.js, and Node.js ecosystem. Specialized in crafting robust backend solutions with Express.js, managing diverse databases (MongoDB, PostgreSQL, MySQL), and developing cross-platform mobile apps with React Native. Passionate AI/ML explorer leveraging Python for intelligent solutions. Key strengths include architecting high-performance applications, implementing secure authentication systems, and optimizing database queries. Committed to delivering exceptional user experiences through clean code, innovative solutions, and best practices in software development.",
   resumeUrl:
     "https://drive.google.com/file/d/19ceYAQky1Hq0r5qiQ5nxXG3Xjt05JFJd/view?usp=drive_link",
   FooterLink: "https://www.linkedin.com/in/rafiqdevhub/",

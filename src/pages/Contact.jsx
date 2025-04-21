@@ -84,17 +84,25 @@ const Contact = () => {
   };
 
   return (
-    <div className="w-full pb-6 xxs:pb-10 xs:pb-16">
-      <div className="text-center pb-4 xxs:pb-5 xs:pb-6 mt-4 xxs:mt-6 xs:mt-8">
-        <p className="text-2xl xxs:text-3xl xs:text-4xl font-semibold text-[#f0c14b] mb-2 xxs:mb-3 xs:mb-4">
-          💬
-        </p>
-        <p className="font-poppins mx-auto w-[94%] xxs:w-[90%] md:w-[70%] lg:w-[50%] pt-1 xxs:pt-2 xs:pt-4 text-center text-lg xxs:text-xl xs:text-2xl tracking-wider text-white lg:text-3xl">
-          Let&apos;s Work Together
+    <div className="w-full pb-6 xxs:pb-10 xs:pb-16 relative">
+      {/* Animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#1a1a2e]/50 via-[#f0c14b]/5 to-[#1a1a2e]/50 animate-gradient-slow pointer-events-none"></div>
+
+      <div className="relative text-center pb-4 xxs:pb-5 xs:pb-6 mt-4 xxs:mt-6 xs:mt-8">
+        <div className="animate-float">
+          <p className="text-3xl xxs:text-4xl xs:text-5xl font-semibold text-[#f0c14b] mb-2 xxs:mb-3 xs:mb-4">
+            👋
+          </p>
+        </div>
+        <h1 className="font-poppins mx-auto w-[94%] xxs:w-[90%] md:w-[70%] lg:w-[50%] pt-1 xxs:pt-2 xs:pt-4 text-center text-2xl xxs:text-3xl xs:text-4xl tracking-wider font-bold bg-gradient-to-r from-[#f0c14b] via-[#e57e31] to-[#f0c14b] text-transparent bg-clip-text animate-gradient">
+          Let&apos;s Create Something Amazing
+        </h1>
+        <p className="font-poppins text-[#a3a3a3] text-sm xxs:text-base xs:text-lg mt-2 xxs:mt-3 xs:mt-4">
+          I'm excited to hear about your project and how we can collaborate
         </p>
       </div>
 
-      <div className="mx-auto flex w-[96%] xxs:w-[94%] xs:w-[90%] flex-col justify-between rounded-lg bg-[#1a1a2e] p-3 xxs:p-4 xs:p-6 sm:p-8 border border-[#2a2a4e] hover:border-[#543e07] hover:shadow-[0_8px_30px_rgba(240,193,75,0.15)] transition-all duration-500 transform hover:-translate-y-1 md:flex-row md:items-start lg:w-[85%] xl:w-[80%] mt-2 xxs:mt-3 xs:mt-4">
+      <div className="relative mx-auto flex w-[96%] xxs:w-[94%] xs:w-[90%] flex-col justify-between rounded-lg bg-[#1a1a2e]/90 backdrop-blur-sm p-3 xxs:p-4 xs:p-6 sm:p-8 border border-[#2a2a4e] hover:border-[#f0c14b] hover:shadow-[0_8px_30px_rgba(240,193,75,0.15)] transition-all duration-500 transform hover:-translate-y-2 md:flex-row md:items-start lg:w-[85%] xl:w-[80%] mt-2 xxs:mt-3 xs:mt-4">
         <div className="w-full md:w-[45%]">
           <form
             ref={formRef}

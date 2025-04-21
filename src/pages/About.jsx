@@ -2,7 +2,7 @@ import { useState, useEffect, useMemo } from "react";
 import { UserData } from "../data/UserData";
 import { skillsData } from "../data/SkillsData";
 import { skillsImage } from "../utils/SkillsImage";
-import AboutImage from "../Assets/images/AboutImage.png";
+import AboutImage from "../Assets/images/aboutImg.jpg";
 import { useNavigate } from "react-router-dom";
 
 function About() {
@@ -117,21 +117,30 @@ function About() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 xxs:gap-3 xs:gap-4 mt-3 xxs:mt-4 xs:mt-6">
-              <div className="p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg border-l-4 border-[#f0c14b] shadow-lg hover:shadow-[0_5px_15px_rgba(240,193,75,0.2)] transition-all duration-300">
-                <p className="text-white font-bold mb-0.5 xxs:mb-1 xs:mb-2 text-xs xxs:text-sm xs:text-base">
-                  Full Stack Expert
-                </p>
-                <p className="text-[#a3a3a3] text-xs xxs:text-xs xs:text-sm">
-                  End-to-end development specialist
-                </p>
+              <div className="group relative p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#f0c14b]/10 to-[#3498db]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#f0c14b] to-[#e57e31] group-hover:scale-y-110 transition-transform duration-300 origin-center"></div>
+                <div className="relative z-10">
+                  <p className="font-poppins font-bold mb-0.5 xxs:mb-1 xs:mb-2 text-xs xxs:text-sm xs:text-base text-transparent bg-clip-text bg-gradient-to-r from-[#f0c14b] to-[#e57e31] group-hover:from-[#e57e31] group-hover:to-[#f0c14b] transition-all duration-500">
+                    Full Stack Expert
+                  </p>
+                  <p className="text-[#a3a3a3] text-xs xxs:text-xs xs:text-sm group-hover:text-white transition-colors duration-300">
+                    End-to-end development specialist
+                  </p>
+                </div>
               </div>
-              <div className="p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg border-l-4 border-blue-500 shadow-lg hover:shadow-[0_5px_15px_rgba(52,152,219,0.2)] transition-all duration-300">
-                <p className="text-white font-bold mb-0.5 xxs:mb-1 xs:mb-2 text-xs xxs:text-sm xs:text-base">
-                  Problem Solver
-                </p>
-                <p className="text-[#a3a3a3] text-xs xxs:text-xs xs:text-sm">
-                  Creative solutions architect
-                </p>
+
+              <div className="group relative p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#3498db]/10 to-[#f0c14b]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#3498db] to-[#2980b9] group-hover:scale-y-110 transition-transform duration-300 origin-center"></div>
+                <div className="relative z-10">
+                  <p className="font-poppins font-bold mb-0.5 xxs:mb-1 xs:mb-2 text-xs xxs:text-sm xs:text-base text-transparent bg-clip-text bg-gradient-to-r from-[#3498db] to-[#2980b9] group-hover:from-[#2980b9] group-hover:to-[#3498db] transition-all duration-500">
+                    Problem Solver
+                  </p>
+                  <p className="text-[#a3a3a3] text-xs xxs:text-xs xs:text-sm group-hover:text-white transition-colors duration-300">
+                    Creative solutions architect
+                  </p>
+                </div>
               </div>
             </div>
           </div>
