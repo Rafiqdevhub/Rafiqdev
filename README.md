@@ -234,8 +234,6 @@ Contributions are welcome! If you'd like to contribute:
 
 Muhammad Rafiq - [rafkhan9323@gmail.com](mailto:rafkhan9323@gmail.com)
 
-Project Link: [https://github.com/Rafiqdevhub/Portfolio](https://github.com/Rafiqdevhub/Portfolio)
-
 ## 📜 License
 
 This project is open source and available under the [MIT License](LICENSE).
