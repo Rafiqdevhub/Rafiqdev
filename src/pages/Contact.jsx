@@ -98,7 +98,7 @@ const Contact = () => {
           Let&apos;s Create Something Amazing
         </h1>
         <p className="font-poppins text-[#a3a3a3] text-sm xxs:text-base xs:text-lg mt-2 xxs:mt-3 xs:mt-4">
-          I'm excited to hear about your project and how we can collaborate
+          I&apos;m excited to hear about your project and how we can collaborate
         </p>
       </div>
 
