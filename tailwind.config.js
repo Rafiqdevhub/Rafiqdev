@@ -28,7 +28,9 @@ export default {
         "fade-slide-in": "fadeSlideIn 0.5s ease-in-out",
         "spin-slow": "spinSlow 10s linear infinite",
         bounce: "bounce 1s infinite",
-        "pulse-subtle": "pulseSub 2s infinite ease-in-out", // Adding missing animation that was defined in CSS
+        "pulse-subtle": "pulseSub 2s infinite ease-in-out",
+        fadeInSlide: "fadeInSlide 0.4s ease-out forwards",
+        fillBackground: "fillBackground 0.5s ease-out forwards",
       },
       keyframes: {
         fadeIn: {
@@ -48,9 +50,16 @@ export default {
           "100%": { transform: "rotate(360deg)" },
         },
         pulseSub: {
-          // Adding missing keyframe that was defined in CSS
           "0%, 100%": { transform: "scale(1)" },
           "50%": { transform: "scale(1.05)" },
+        },
+        fadeInSlide: {
+          "0%": { opacity: "0", transform: "translateX(-10px)" },
+          "100%": { opacity: "1", transform: "translateX(0)" },
+        },
+        fillBackground: {
+          "0%": { transform: "scaleX(0)" },
+          "100%": { transform: "scaleX(1)" },
         },
       },
       maxWidth: {
