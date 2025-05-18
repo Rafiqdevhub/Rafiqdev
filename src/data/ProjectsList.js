@@ -1,6 +1,22 @@
 export const ProjectsList = {
   projects: [
     {
+      name: "CarSahulat AI: Smart Car Marketplace",
+      description:
+        "A modern car marketplace platform built with Next.js 15, featuring AI-powered search capabilities, test drive scheduling, and comprehensive car management features. Includes advanced filtering, real-time availability checking, admin dashboard, and user authentication. The platform uses AI for image-based car search and recommendations.",
+      technologies: [
+        "Next.js 15",
+        "React 19",
+        "Prisma ORM",
+        "PostgreSQL",
+        "Clerk Auth",
+        "Google AI",
+        "Radix UI",
+        "Tailwind CSS",
+      ],
+      github: "https://github.com/Rafiqdevhub/AI-Car-Marketplace",
+    },
+    {
       name: "FitTrack Pro: React Fitness Companion",
       description:
         "The React Fitness App is a modern, responsive application designed to help users achieve their fitness goals. Built with the latest web technologies, including React.js, this app provides a seamless and intuitive user experience across all devices..",
@@ -259,6 +275,21 @@ export const ProjectsList = {
         "HuggingFace",
       ],
       github: "https://github.com/Rafiqdevhub/Python_Blog_Generator.git",
+    },
+    {
+      name: "HisabKitab: Personal Budget Tracker",
+      description:
+        "A comprehensive personal budget tracking application built with React Native and Expo. Features include month-wise budget tracking, category management with preset categories, smart features like data persistence, multiple currency support, and an enhanced user experience with beautiful gradient UI design and haptic feedback.",
+      technologies: [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "NativeWind",
+        "Expo Router",
+        "AsyncStorage",
+        "Reanimated",
+      ],
+      github: "https://github.com/Rafiqdevhub/HisabKitab",
     },
   ],
 };

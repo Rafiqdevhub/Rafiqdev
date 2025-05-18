@@ -3,16 +3,13 @@ import { UserData } from "../data/UserData";
 import { skillsData } from "../data/SkillsData";
 import { skillsImage } from "../utils/SkillsImage";
 import AboutImage from "../Assets/images/aboutImg.jpg";
-import { useNavigate } from "react-router-dom";
 
 function About() {
   const { about } = UserData;
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeTab, setActiveTab] = useState("frontend");
-  const navigate = useNavigate();
   const [animateSkills, setAnimateSkills] = useState(false);
 
-  // Define skill categories - memoize to prevent recreation on each render
   const skillCategories = useMemo(
     () => ({
       frontend: [
@@ -43,7 +40,6 @@ function About() {
     []
   );
 
-  // Memoize skills to prevent unnecessary recalculations
   const skills = useMemo(
     () =>
       skillsData.map((skill, id) => ({
@@ -58,18 +54,15 @@ function About() {
     [skillCategories]
   );
 
-  // Add animation classes for skills
   const getAnimationDelay = (index) => {
     return `${index * 0.1}s`;
   };
 
   useEffect(() => {
-    // Preload the about image
     const img = new Image();
     img.src = AboutImage;
     img.onload = () => setIsLoaded(true);
 
-    // Add scroll animation
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -88,7 +81,6 @@ function About() {
       observer.observe(el);
     });
 
-    // Add a slight delay before triggering skill animations
     setTimeout(() => {
       setAnimateSkills(true);
     }, 800);
@@ -120,7 +112,7 @@ function About() {
               <div className="group relative p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#f0c14b]/10 to-[#3498db]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#f0c14b] to-[#e57e31] group-hover:scale-y-110 transition-transform duration-300 origin-center"></div>
-                <div className="relative z-10">
+                <div className="relative z-10 cursor-pointer">
                   <p className="font-poppins font-bold mb-0.5 xxs:mb-1 xs:mb-2 text-xs xxs:text-sm xs:text-base text-transparent bg-clip-text bg-gradient-to-r from-[#f0c14b] to-[#e57e31] group-hover:from-[#e57e31] group-hover:to-[#f0c14b] transition-all duration-500">
                     Full Stack Expert
                   </p>
@@ -133,7 +125,7 @@ function About() {
               <div className="group relative p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#3498db]/10 to-[#f0c14b]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#3498db] to-[#2980b9] group-hover:scale-y-110 transition-transform duration-300 origin-center"></div>
-                <div className="relative z-10">
+                <div className="relative z-10 cursor-pointer">
                   <p className="font-poppins font-bold mb-0.5 xxs:mb-1 xs:mb-2 text-xs xxs:text-sm xs:text-base text-transparent bg-clip-text bg-gradient-to-r from-[#3498db] to-[#2980b9] group-hover:from-[#2980b9] group-hover:to-[#3498db] transition-all duration-500">
                     Problem Solver
                   </p>
@@ -154,9 +146,6 @@ function About() {
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-r from-[#f0c14b] to-[#3498db] rounded-lg blur opacity-25 group-hover:opacity-75 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
               <div className="relative">
-                <div className="absolute -top-2 xxs:-top-3 xs:-top-4 -left-2 xxs:-left-3 xs:-left-4 bg-gradient-to-r from-[#3498db] to-[#2980b9] text-white text-xs font-bold py-1 px-1.5 xxs:py-1.5 xxs:px-2 xs:py-2 xs:px-4 rounded-full z-10 shadow-lg hover:shadow-[0_0_10px_rgba(52,152,219,0.5)] transition-all duration-300">
-                  PROFESSIONAL
-                </div>
                 <img
                   className="rounded-lg shadow-2xl w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] hover:shadow-[0_0_25px_rgba(240,193,75,0.3)]"
                   src={AboutImage}
@@ -223,15 +212,6 @@ function About() {
                 </p>
               </div>
             ))}
-        </div>
-        <div className="mt-6 xxs:mt-8 xs:mt-10 text-center">
-          <button
-            onClick={() => navigate("/projectlist")}
-            className="px-4 xxs:px-6 xs:px-8 py-2 xxs:py-2.5 xs:py-3 lg:py-4 rounded-lg font-bold text-white bg-gradient-to-r from-[#f0c14b] to-[#3498db] hover:from-[#3498db] hover:to-[#f0c14b] transition-all duration-500 shadow-xl hover:shadow-[0_10px_25px_rgba(52,152,219,0.3)] relative overflow-hidden group text-xs xxs:text-sm xs:text-base"
-          >
-            <span className="relative z-10">View My Projects</span>
-            <span className="absolute top-0 left-0 w-full h-full bg-white opacity-0 group-hover:opacity-10 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></span>
-          </button>
         </div>
       </div>
     </div>

@@ -3,10 +3,9 @@ import { useNavigate } from "react-router-dom";
 import { FaCode, FaServer, FaDatabase, FaMobile } from "react-icons/fa";
 import TypewriterText from "../components/TypewriterText";
 import { UserData } from "../data/UserData";
-import RafiqImageSrc from "../Assets/images/RafiqImage.svg";
+import RafiqImageSrc from "../Assets/images/image.jpeg";
 import PropTypes from "prop-types";
 
-// Enhanced SkillItem component with interactive animations
 const SkillItem = memo(({ icon: Icon, text, delay }) => {
   const [isHovered, setIsHovered] = useState(false);
 
@@ -62,15 +61,9 @@ SkillItem.propTypes = {
   delay: PropTypes.number,
 };
 
-// Extracted and memoized ProfileImage component for better performance
 const ProfileImage = memo(() => {
   return (
     <div className="mt-4 xxs:mt-6 sm:mt-8 lg:mt-4 relative max-w-[320px] w-full mx-auto">
-      <div className="absolute -top-2 -right-2 animate-bounce">
-        <span className="inline-block px-3 py-1 bg-[#3498db] text-white font-bold text-sm rounded-full shadow-lg border-2 border-white transform rotate-12">
-          Full Stack Dev
-        </span>
-      </div>
       <div className="w-full pb-[100%] relative overflow-hidden rounded-full border-4 border-[#1a1a2e] hover:border-[#f0c14b] transition-all duration-300 shadow-2xl bg-[#1a1a2e]">
         <img
           className="absolute inset-0 w-full h-full object-cover"
@@ -132,13 +125,6 @@ function Home() {
                   Discover My Portfolio
                 </span>
                 <div className="absolute inset-0 bg-gradient-to-r from-[#f0c14b] to-[#e57e31] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out z-10"></div>
-              </div>
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#3498db] via-[#f0c14b] to-[#e57e31] rounded-lg blur opacity-30 group-hover:opacity-100 transition duration-500"></div>
-
-              <div className="absolute -top-6 -right-6 animate-bounce">
-                <span className="inline-block px-3 py-1 bg-[#3498db] text-white text-xs rounded-full shadow-lg transform rotate-12">
-                  Click me!
-                </span>
               </div>
             </div>
           </div>
