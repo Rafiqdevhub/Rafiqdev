@@ -291,5 +291,21 @@ export const ProjectsList = {
       ],
       github: "https://github.com/Rafiqdevhub/HisabKitab",
     },
+    {
+      name: "JobPsych: AI-Powered Resume Analysis Platform",
+      description:
+        "A modern web application that revolutionizes HR processes by leveraging AI to analyze resumes and generate intelligent, context-aware interview questions. Features include smart resume analysis for PDF/DOCX formats, AI-powered question generation for technical and behavioral interviews, and a modern UI with drag-and-drop functionality. Built with FastAPI and React, it uses Google's Gemini AI for sophisticated resume parsing.",
+      technologies: [
+        "React",
+        "Vite",
+        "FastAPI",
+        "Google Gemini AI",
+        "TailwindCSS",
+        "Headless UI",
+        "PyPDF2",
+        "Pydantic",
+      ],
+      github: "https://github.com/Rafiqdevhub/AI-Resume-Analayzer",
+    },
   ],
 };

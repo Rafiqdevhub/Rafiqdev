@@ -4,7 +4,7 @@ export const UserData = {
   about:
     "Versatile Full Stack Developer with expertise in modern web and mobile development. Proficient in building scalable applications using React, Next.js, and Node.js ecosystem. Specialized in crafting robust backend solutions with Express.js, managing diverse databases (MongoDB, PostgreSQL, MySQL), and developing cross-platform mobile apps with React Native. Passionate AI/ML explorer leveraging Python for intelligent solutions. Key strengths include architecting high-performance applications, implementing secure authentication systems, and optimizing database queries. Committed to delivering exceptional user experiences through clean code, innovative solutions, and best practices in software development.",
   resumeUrl:
-    "https://drive.google.com/file/d/19ceYAQky1Hq0r5qiQ5nxXG3Xjt05JFJd/view?usp=drive_link",
+    "https://drive.google.com/file/d/1qGGil9ZuD7s63LNgOSMKpIKpeGkKVpKC/view?usp=drive_link",
   FooterLink: "https://www.linkedin.com/in/rafiqdevhub/",
   socialMedia: [
     {

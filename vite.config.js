@@ -101,7 +101,7 @@ export default defineConfig(({ mode }) => {
     server: {
       // Enable this in development to simulate production compression
       // compress: true,
-      port: 5173,
+      port: 5175,
       open: true,
     },
   };
