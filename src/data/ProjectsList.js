@@ -307,5 +307,12 @@ export const ProjectsList = {
       ],
       github: "https://github.com/Rafiqdevhub/AI-Resume-Analayzer",
     },
+    {
+      name: "WhatsAppBot: Smart Message Automation",
+      description:
+        "A Python-based automation tool for scheduling and sending WhatsApp messages through WhatsApp Web. Features include scheduled message delivery, support for international phone numbers, time scheduling in 24-hour format, and automatic WhatsApp Web integration. The application includes a user-friendly command-line interface and comprehensive message tracking system.",
+      technologies: ["Python", "PyWhatKit", "PyAutoGUI", "Pillow", "Requests"],
+      github: "https://github.com/Rafiqdevhub/Whatsapp_automation.git",
+    },
   ],
 };
