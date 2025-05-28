@@ -2,9 +2,9 @@ export const UserData = {
   name: "Muhammad Rafiq",
   email: "rafkhan9323@gmail.com",
   about:
-    "Versatile Full Stack Developer with expertise in modern web and mobile development. Proficient in building scalable applications using React, Next.js, and Node.js ecosystem. Specialized in crafting robust backend solutions with Express.js, managing diverse databases (MongoDB, PostgreSQL, MySQL), and developing cross-platform mobile apps with React Native. Passionate AI/ML explorer leveraging Python for intelligent solutions. Key strengths include architecting high-performance applications, implementing secure authentication systems, and optimizing database queries. Committed to delivering exceptional user experiences through clean code, innovative solutions, and best practices in software development.",
+    "I am a versatile professional with a unique blend of technical expertise and HR experience. As a Full Stack Developer, I specialize in building scalable web, mobile applications and solving complex technical challenges. With my background in HR and recruitment, I bring a deep understanding of talent acquisition, making me particularly effective in tech recruitment and bridging the gap between technical and HR domains.",
   resumeUrl:
-    "https://drive.google.com/file/d/1qGGil9ZuD7s63LNgOSMKpIKpeGkKVpKC/view?usp=drive_link",
+    "https://drive.google.com/file/d/1ZYGc5sMFsPYK4mS3RfI4DFPl0-lmJujX/view?usp=drive_link",
   FooterLink: "https://www.linkedin.com/in/rafiqdevhub/",
   socialMedia: [
     {
@@ -30,15 +30,12 @@ export const UserData = {
   ],
   typewriterOptions: {
     strings: [
-      "Full Stack Solution Architect",
-      "React & Next.js Expert",
-      "Python & Node.js Specialist",
-      "Mobile App Developer",
-      "AI/ML Integration Expert",
-      "Performance Optimization Guru",
-      "Cloud & DevOps Engineer",
-      "API Architecture Expert",
-      "Scalable Solutions Builder",
+      "Full Stack Web Developer 💻",
+      "Cross-platform Mobile App Developer 📱",
+      "AI/ML Engineer 🤖",
+      "Problem Solver 🔍",
+      "HR Professional 👥",
+      "Tech Recruiter 🎯",
     ],
     autoStart: true,
     loop: true,

@@ -314,5 +314,21 @@ export const ProjectsList = {
       technologies: ["Python", "PyWhatKit", "PyAutoGUI", "Pillow", "Requests"],
       github: "https://github.com/Rafiqdevhub/Whatsapp_automation.git",
     },
+    {
+      name: "EduSpark: AI Learning Companion Platform",
+      description:
+        "A sophisticated Learning Management System built with Next.js 15 that features AI-powered learning companions, voice-based interactions, and personalized learning experiences. The platform includes real-time voice interaction with AI tutors, comprehensive progress tracking, and subscription-based access to specialized subjects. Built with modern tech stack including Clerk authentication, TailwindCSS, and Supabase database.",
+      technologies: [
+        "Next.js 15",
+        "React",
+        "TypeScript",
+        "TailwindCSS",
+        "Clerk Auth",
+        "Supabase",
+        "Shadcn UI",
+        "Sentry",
+      ],
+      github: "https://github.com/Rafiqdevhub/Next.js_LMS.git",
+    },
   ],
 };

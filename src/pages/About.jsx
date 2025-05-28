@@ -108,7 +108,7 @@ function About() {
               {about}
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 xxs:gap-3 xs:gap-4 mt-3 xxs:mt-4 xs:mt-6">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 xxs:gap-3 xs:gap-4 mt-3 xxs:mt-4 xs:mt-6">
               <div className="group relative p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg overflow-hidden transition-all duration-300">
                 <div className="absolute inset-0 bg-gradient-to-r from-[#f0c14b]/10 to-[#3498db]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                 <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#f0c14b] to-[#e57e31] group-hover:scale-y-110 transition-transform duration-300 origin-center"></div>
@@ -131,6 +131,19 @@ function About() {
                   </p>
                   <p className="text-[#a3a3a3] text-xs xxs:text-xs xs:text-sm group-hover:text-white transition-colors duration-300">
                     Creative solutions architect
+                  </p>
+                </div>
+              </div>
+
+              <div className="group relative p-2 xxs:p-3 xs:p-4 bg-[#12122a]/50 rounded-lg overflow-hidden transition-all duration-300">
+                <div className="absolute inset-0 bg-gradient-to-r from-[#9b59b6]/10 to-[#8e44ad]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-[#9b59b6] to-[#8e44ad] group-hover:scale-y-110 transition-transform duration-300 origin-center"></div>
+                <div className="relative z-10 cursor-pointer">
+                  <p className="font-poppins font-bold mb-0.5 xxs:mb-1 xs:mb-2 text-xs xxs:text-sm xs:text-base text-transparent bg-clip-text bg-gradient-to-r from-[#9b59b6] to-[#8e44ad] group-hover:from-[#8e44ad] group-hover:to-[#9b59b6] transition-all duration-500">
+                    HR Professional
+                  </p>
+                  <p className="text-[#a3a3a3] text-xs xxs:text-xs xs:text-sm group-hover:text-white transition-colors duration-300">
+                    Talent acquisition specialist
                   </p>
                 </div>
               </div>
