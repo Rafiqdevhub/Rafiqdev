@@ -359,6 +359,96 @@ html {
   animation: pulse 2s infinite;
 }
 
+/* Chatbot positioning */
+.react-chatbot-kit-chat-container {
+  position: fixed !important;
+  bottom: 90px !important;
+  right: 20px !important;
+  z-index: 1001 !important;
+}
+
+.react-chatbot-kit-chat-bot-message {
+  margin-left: 0 !important;
+}
+
+.react-chatbot-kit-chat-inner-container {
+  height: 400px !important;
+}
+
+.react-chatbot-kit-chat-header {
+  background-color: #1a1a2e !important;
+  color: #f0c14b !important;
+}
+
+/* Chatbot button */
+.app-chatbot-button {
+  position: fixed !important;
+  bottom: 20px !important;
+  right: 20px !important;
+  z-index: 1001 !important;
+  cursor: pointer;
+  background: #1a1a2e !important;
+  border: 2px solid #f0c14b !important;
+  border-radius: 50% !important;
+  width: 60px !important;
+  height: 60px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  transition: all 0.3s ease !important;
+}
+
+.app-chatbot-button:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 15px rgba(240, 193, 75, 0.4) !important;
+}
+
+.react-chatbot-kit-chat-btn-send {
+  background-color: #f0c14b !important;
+}
+
+/* WhatsApp positioning */
+.whatsapp-chat {
+  position: fixed !important;
+  bottom: 20px !important;
+  left: 20px !important;
+  z-index: 999 !important;
+}
+
+.whatsapp-chat > div {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* WhatsApp button and chatbox styles */
+.whatsapp-wrapper {
+  pointer-events: auto;
+  z-index: 998;
+}
+
+.whatsapp-chat {
+  z-index: 998 !important;
+}
+
+/* Loading states */
+.loading-chatbot,
+.loading-whatsapp {
+  z-index: 50;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  .react-chatbot-kit-chat-container {
+    bottom: 80px !important;
+    right: 10px !important;
+    max-width: 300px !important;
+  }
+
+  .whatsapp-chat {
+    bottom: 20px !important;
+    left: 10px !important;
+  }
+}
+
 @media (max-width: 767px) {
   .cursor {
     display: none;

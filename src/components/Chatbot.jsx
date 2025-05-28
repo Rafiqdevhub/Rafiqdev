@@ -199,7 +199,7 @@ function Chatbot() {
   }, []);
 
   return (
-    <div className="fixed bottom-4 right-4 z-50">
+    <div className="fixed bottom-4 right-4" style={{ zIndex: 1001 }}>
       {/* Chat toggle button with pulsing animation when closed */}
       <button
         onClick={toggleChatbot}

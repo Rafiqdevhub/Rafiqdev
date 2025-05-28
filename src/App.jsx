@@ -16,6 +16,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const ArchiveProjects = lazy(() => import("./pages/ArchiveProjects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const Chatbot = lazy(() => import("./components/Chatbot"));
+const WhatsAppChat = lazy(() => import("./components/WhatsAppChat"));
 
 // Loading component
 const PageLoader = () => (
@@ -109,12 +110,19 @@ function App() {
                     </ErrorBoundary>
                   }
                 />
-              </Routes>
+              </Routes>{" "}
               <Suspense
                 fallback={<div className="loading-chatbot">Loading...</div>}
               >
                 <ErrorBoundary>
                   <Chatbot />
+                </ErrorBoundary>
+              </Suspense>
+              <Suspense
+                fallback={<div className="loading-whatsapp">Loading...</div>}
+              >
+                <ErrorBoundary>
+                  <WhatsAppChat />
                 </ErrorBoundary>
               </Suspense>
             </Suspense>

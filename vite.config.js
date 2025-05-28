@@ -19,6 +19,7 @@ export default defineConfig(({ mode }) => {
   const baseUrl = env.VITE_BASE_URL || "/";
 
   return {
+    assetsInclude: ["**/*.PNG", "**/*.png"],
     base: baseUrl,
     plugins: [
       react(),
