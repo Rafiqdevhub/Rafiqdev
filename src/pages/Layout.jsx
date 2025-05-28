@@ -1,3 +1,6 @@
+import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { scroller } from "react-scroll";
 import Header from "../components/Header";
 import Home from "./Home";
 import About from "./About";
@@ -7,6 +10,24 @@ import Project from "./Project";
 import { Element } from "react-scroll";
 
 function Layout() {
+  const location = useLocation();
+
+  // Handle route-based scroll on mount and route change
+  useEffect(() => {
+    const hash = location.hash.replace("#", "");
+    if (hash) {
+      // Scroll to the section after a short delay to ensure content is rendered
+      setTimeout(() => {
+        scroller.scrollTo(hash + "-section", {
+          duration: 800,
+          delay: 0,
+          smooth: "easeInOutQuart",
+          offset: -70, // Adjust based on your header height
+        });
+      }, 100);
+    }
+  }, [location]);
+
   return (
     <div className="flex flex-col w-full">
       <Header />

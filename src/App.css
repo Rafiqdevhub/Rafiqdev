@@ -312,6 +312,7 @@ html {
 
 .App {
   position: relative;
+  isolation: isolate;
 }
 
 .App::before {
@@ -407,32 +408,36 @@ html {
   background-color: #f0c14b !important;
 }
 
-/* WhatsApp positioning */
-.whatsapp-chat {
-  position: fixed !important;
-  bottom: 20px !important;
-  left: 20px !important;
-  z-index: 999 !important;
+/* Z-index contexts */
+.App {
+  isolation: isolate;
 }
 
-.whatsapp-chat > div {
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3) !important;
-}
-
-/* WhatsApp button and chatbox styles */
-.whatsapp-wrapper {
-  pointer-events: auto;
-  z-index: 998;
-}
-
-.whatsapp-chat {
-  z-index: 998 !important;
+/* Chatbot styles */
+.chatbot-wrapper {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1001;
+  isolation: isolate;
 }
 
 /* Loading states */
-.loading-chatbot,
-.loading-whatsapp {
+.loading-chatbot {
   z-index: 50;
+}
+
+/* Improved scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+#no-scroll {
+  overflow: hidden;
+}
+
+#scroll {
+  overflow-x: hidden;
 }
 
 /* Responsive adjustments for small screens */
@@ -441,11 +446,6 @@ html {
     bottom: 80px !important;
     right: 10px !important;
     max-width: 300px !important;
-  }
-
-  .whatsapp-chat {
-    bottom: 20px !important;
-    left: 10px !important;
   }
 }
 
