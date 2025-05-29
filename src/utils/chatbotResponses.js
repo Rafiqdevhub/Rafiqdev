@@ -49,22 +49,21 @@ export const generateContextualResponse = (userMessage, portfolioContext) => {
         /\babout\b/i,
       ],
       responses: [
-        `${portfolioContext.owner.name} is a ${
+        `${portfolioContext.owner.name} is a versatile ${
           portfolioContext.owner.role
-        } specializing in ${portfolioContext.owner.expertise[0]} and ${
-          portfolioContext.owner.expertise[1]
-        }. ${portfolioContext.owner.biography.substring(
-          0,
-          150
-        )}... You can read more in the About section.`,
+        } with expertise in Full Stack Web Development, Mobile App Development, and AI/ML Engineering. Specializing in building scalable applications with modern technologies like Next.js 15, React Native, and various AI frameworks. ${
+          portfolioContext.owner.biography
+            ? portfolioContext.owner.biography.substring(0, 150) + "..."
+            : ""
+        } You can read more in the About section.`,
         `${
           portfolioContext.owner.name
-        } is a passionate developer with expertise in ${portfolioContext.skills.frontend
+        } is an accomplished developer with comprehensive expertise in full-stack development (${portfolioContext.skills.frontend
           .slice(0, 3)
-          .join(", ")} for frontend and ${portfolioContext.skills.backend
-          .slice(0, 3)
-          .join(", ")} for backend development.`,
-        `${portfolioContext.owner.name} is a software developer with a focus on creating scalable, high-performance applications. Some career highlights include ${portfolioContext.experience.highlights[0]} and ${portfolioContext.experience.highlights[1]}.`,
+          .join(
+            ", "
+          )}), mobile development with React Native, and AI/ML technologies including Google Gemini AI and LangChain.`,
+        `${portfolioContext.owner.name} is a software developer focused on creating innovative solutions across web, mobile, and AI domains. Recent projects include AI-powered platforms, cross-platform mobile apps, and scalable web applications using cutting-edge technologies.`,
       ],
     },
     {
@@ -79,14 +78,25 @@ export const generateContextualResponse = (userMessage, portfolioContext) => {
         const backendSkills = portfolioContext.skills.backend
           .slice(0, 4)
           .join(", ");
+        const mobileSkills = ["React Native", "Expo", "NativeWind"];
+        const aiSkills = [
+          "Google Gemini AI",
+          "LangChain",
+          "HuggingFace",
+          "OpenCV",
+        ];
         const otherSkills = [
           ...portfolioContext.skills.database.slice(0, 2),
           ...portfolioContext.skills.cloud.slice(0, 2),
         ].join(", ");
 
-        return `${portfolioContext.owner.name} is skilled in various technologies including:
-• Frontend: ${frontendSkills}
-• Backend: ${backendSkills}
+        return `${
+          portfolioContext.owner.name
+        } is skilled in various technologies including:
+• Frontend & Web: ${frontendSkills}
+• Backend & APIs: ${backendSkills}
+• Mobile Development: ${mobileSkills.join(", ")}
+• AI/ML Technologies: ${aiSkills.join(", ")}
 • Database & Cloud: ${otherSkills}
 • And many more! Is there a specific technology you'd like to know about?`;
       },
@@ -176,13 +186,15 @@ ${portfolioContext.experience.summary}`;
       ],
       responseGenerator: () => {
         return `${portfolioContext.owner.name} offers the following services:
-• Full-stack web application development
-• Mobile app development
-• Frontend design and implementation
-• Backend API development
-• Database design and optimization
-• Performance optimization for existing applications
-• Technical consultation and architecture planning
+• Full-stack web application development with Next.js 15 and React
+• Cross-platform mobile app development with React Native
+• AI/ML integration and development
+• Custom chatbot and AI assistant development
+• Frontend design and modern UI implementation
+• Backend API development and optimization
+• Database design and cloud infrastructure
+• Technical consultation and solution architecture
+• Performance optimization and scaling solutions
 
 Feel free to reach out through the Contact form to discuss your specific project needs!`;
       },
