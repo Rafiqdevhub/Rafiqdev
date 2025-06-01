@@ -4,7 +4,7 @@ export const UserData = {
   about:
     "I am a versatile professional with a unique blend of technical expertise and HR experience. As a Full Stack Developer, I specialize in building scalable web, mobile applications and solving complex technical challenges. With my background in HR and recruitment, I bring a deep understanding of talent acquisition, making me particularly effective in tech recruitment and bridging the gap between technical and HR domains.",
   resumeUrl:
-    "https://drive.google.com/file/d/1bBdRMAGZRyLyy_aKP286M71j8Pe1A_WV/view?usp=drive_link",
+    "https://drive.google.com/file/d/1SABD2O_LlPEAo9olMY_XJhxgzJkA-Ff8/view?usp=drive_link",
   FooterLink: "https://www.linkedin.com/in/rafiqdevhub/",
   socialMedia: [
     {
