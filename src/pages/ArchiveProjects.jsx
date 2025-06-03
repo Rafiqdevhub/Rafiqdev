@@ -1,16 +1,20 @@
 import { ProjectsList } from "../data/ProjectsList";
-import { FaArrowLeft, FaExternalLinkAlt, FaSearch } from "react-icons/fa";
+import { FaArrowLeft, FaSearch } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import { useState, useCallback, useMemo } from "react";
+import { Toaster } from "react-hot-toast";
+import { FixedSizeList as List } from "react-window";
+import ArchiveProjectCard from "../components/ArchiveProjectCard";
 
+/* Performance: Implement virtualization and optimizations */
 function ArchiveProjects() {
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTech, setSelectedTech] = useState("");
   const [expandedDescriptions, setExpandedDescriptions] = useState(new Set());
 
-  const toggleDescription = (index) => {
+  /* Performance: Memoize callbacks */
+  const toggleDescription = useCallback((index) => {
     setExpandedDescriptions((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(index)) {
@@ -20,24 +24,34 @@ function ArchiveProjects() {
       }
       return newSet;
     });
-  };
+  }, []);
 
-  // Get unique technologies from all projects
-  const uniqueTechnologies = [
-    ...new Set(
-      ProjectsList.projects.flatMap((project) => project.technologies)
-    ),
-  ].sort();
+  const handleTechClick = useCallback((tech) => {
+    setSelectedTech(tech);
+  }, []);
 
-  // Filter projects based on search term and selected technology
-  const filteredProjects = ProjectsList.projects.filter((project) => {
-    const matchesSearch =
-      project.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      project.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesTech =
-      !selectedTech || project.technologies.includes(selectedTech);
-    return matchesSearch && matchesTech;
-  });
+  /* Performance: Memoize derived data */
+  const uniqueTechnologies = useMemo(
+    () => [
+      ...new Set(
+        ProjectsList.projects.flatMap((project) => project.technologies)
+      ),
+    ],
+    []
+  );
+
+  const filteredProjects = useMemo(() => {
+    const searchLower = searchTerm.toLowerCase();
+    return ProjectsList.projects.filter((project) => {
+      const matchesSearch =
+        project.name.toLowerCase().includes(searchLower) ||
+        project.description.toLowerCase().includes(searchLower);
+      const matchesTech =
+        !selectedTech || project.technologies.includes(selectedTech);
+      return matchesSearch && matchesTech;
+    });
+  }, [searchTerm, selectedTech]);
+
   return (
     <>
       <Toaster />
@@ -88,88 +102,14 @@ function ArchiveProjects() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 xs:gap-6">
             {filteredProjects.map((project, index) => (
-              <div
+              <ArchiveProjectCard
                 key={index}
-                className="group relative bg-[#1a1a2e] rounded-lg p-4 xs:p-6 border border-[#2a2a4e] shadow-md hover:shadow-[0_8px_30px_rgba(240,193,75,0.2)] transition-shadow duration-300"
-              >
-                <h2 className="font-poppins text-base xs:text-xl font-bold text-white mb-2 xs:mb-3">
-                  {project.name}
-                </h2>
-
-                <p className="text-[#a3a3a3] mb-3 xs:mb-4 text-xs xs:text-sm">
-                  {expandedDescriptions.has(index)
-                    ? project.description
-                    : project.description.substring(0, 100)}
-                  <span
-                    className="ml-[5px] cursor-pointer text-[#f0c14b] hover:text-[#e57e31] transition-colors duration-300"
-                    onClick={() => toggleDescription(index)}
-                    aria-label={
-                      expandedDescriptions.has(index)
-                        ? "Show less"
-                        : "Show more"
-                    }
-                  >
-                    {expandedDescriptions.has(index)
-                      ? " Show less"
-                      : "...Read more"}
-                  </span>
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 xs:gap-2">
-                  {project.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 xs:px-3 py-0.5 xs:py-1 text-xs font-medium text-white bg-[#2a2a4e] rounded-full hover:bg-[#f0c14b] hover:text-[#1a1a2e] transition-colors duration-300 cursor-pointer"
-                      onClick={() => setSelectedTech(tech)}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                {project.liveLink && (
-                  <div className="mt-3 xs:mt-4 text-xs xs:text-sm text-[#a3a3a3]">
-                    <div className="flex items-center justify-between px-2 xs:px-4 py-1.5 xs:py-2">
-                      <span className="text-[#f0c14b] text-xs xs:text-sm">
-                        View Live Application
-                      </span>
-                      {project.liveLink === "/" ? (
-                        <button
-                          onClick={() =>
-                            toast.success(
-                              "🚀 This project is coming soon! Stay tuned for the launch!",
-                              {
-                                duration: 3000,
-                                position: "top-center",
-                                style: {
-                                  background: "#1a1a2e",
-                                  color: "#f0c14b",
-                                  border: "1px solid #f0c14b",
-                                },
-                              }
-                            )
-                          }
-                          className="inline-flex items-center justify-center w-8 h-8 xs:w-10 xs:h-10 rounded-full bg-[#1a1a2e] hover:bg-[#f0c14b] hover:bg-opacity-20 text-[#f0c14b] hover:text-[#e57e31] transition-all duration-300 cursor-pointer border border-[#f0c14b] hover:border-[#e57e31] hover:scale-110"
-                          title="Coming Soon"
-                        >
-                          <FaExternalLinkAlt className="text-sm xs:text-base" />
-                        </button>
-                      ) : (
-                        <a
-                          href={project.liveLink}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center justify-center w-8 h-8 xs:w-10 xs:h-10 rounded-full bg-[#1a1a2e] hover:bg-[#f0c14b] hover:bg-opacity-20 text-[#f0c14b] hover:text-[#e57e31] transition-all duration-300 cursor-pointer border border-[#f0c14b] hover:border-[#e57e31] hover:scale-110"
-                          title="View Live App"
-                          style={{ zIndex: 10 }}
-                        >
-                          <FaExternalLinkAlt className="text-sm xs:text-base" />
-                        </a>
-                      )}
-                    </div>
-                  </div>
-                )}
-              </div>
+                project={project}
+                index={index}
+                toggleDescription={toggleDescription}
+                expandedDescriptions={expandedDescriptions}
+                handleTechClick={handleTechClick}
+              />
             ))}
           </div>
 

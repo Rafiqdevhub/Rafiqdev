@@ -1,13 +1,22 @@
-import { useCallback, memo, useMemo, useState } from "react";
+import { useCallback, memo, useMemo, useState, Suspense, lazy } from "react";
 import { useNavigate } from "react-router-dom";
 import { FaCode, FaServer, FaDatabase, FaMobile } from "react-icons/fa";
 import TypewriterText from "../components/TypewriterText";
 import { UserData } from "../data/UserData";
 import RafiqImageSrc from "../Assets/images/image.jpeg";
 import PropTypes from "prop-types";
+import OptimizedImage from "../components/OptimizedImage";
 
+/* Performance: Lazy load Cards component since it's below the fold */
+const Cards = lazy(() => import("../components/Cards"));
+
+/* Performance: Memoize SkillItem to prevent re-renders */
 const SkillItem = memo(({ icon: Icon, text, delay }) => {
   const [isHovered, setIsHovered] = useState(false);
+
+  /* Performance: Memoize hover handlers */
+  const handleMouseEnter = useCallback(() => setIsHovered(true), []);
+  const handleMouseLeave = useCallback(() => setIsHovered(false), []);
 
   return (
     <div
@@ -20,69 +29,57 @@ const SkillItem = memo(({ icon: Icon, text, delay }) => {
         transform: isHovered ? "translateY(-6px)" : "translateY(0)",
         transition: "transform 0.3s ease-out",
       }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
-      <div
-        className={`absolute inset-0 bg-gradient-to-r from-[#f0c14b] to-[#e57e31] scale-x-0 
-                      ${isHovered ? "animate-fillBackground" : ""} 
-                      transition-all duration-500 origin-left z-0`}
-      ></div>
-      <Icon
-        className={`mr-2 ${
-          isHovered
-            ? "text-white animate-pulse text-lg"
-            : "text-[#f0c14b] text-base"
-        } transition-all duration-300 z-10 relative`}
-      />
-      <span
-        className={`${
-          isHovered ? "text-white" : "text-[#a3a3a3]"
-        } transition-colors duration-300 z-10 relative font-medium`}
-      >
-        {text}
-      </span>
-      {isHovered && (
-        <span
-          className="ml-1 animate-fadeInSlide opacity-0 z-10 relative text-white"
-          style={{ animationFillMode: "forwards" }}
-        >
-          ✓
-        </span>
-      )}
+      <Icon className="mr-2 text-[#f0c14b]" />
+      <span className="text-[#a3a3a3]">{text}</span>
     </div>
   );
 });
 
-SkillItem.displayName = "SkillItem";
 SkillItem.propTypes = {
   icon: PropTypes.elementType.isRequired,
   text: PropTypes.string.isRequired,
   delay: PropTypes.number,
 };
 
-const ProfileImage = memo(() => {
-  return (
-    <div className="mt-4 xxs:mt-6 sm:mt-8 lg:mt-4 relative max-w-[320px] w-full mx-auto">
-      <div className="w-full pb-[100%] relative overflow-hidden rounded-full border-4 border-[#1a1a2e] hover:border-[#f0c14b] transition-all duration-300 shadow-2xl bg-[#1a1a2e]">
-        <img
-          className="absolute inset-0 w-full h-full object-cover"
-          src={RafiqImageSrc}
-          alt="Developer profile"
-          loading="lazy"
-          decoding="async"
-          width="320"
-          height="320"
-        />
-      </div>
-    </div>
-  );
-});
+SkillItem.displayName = "SkillItem";
 
-ProfileImage.displayName = "ProfileImage";
+/* Performance: Memoize static hero content */
+const HeroContent = memo(() => (
+  <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
+    <div className="w-full md:w-1/2">
+      <OptimizedImage
+        src={RafiqImageSrc}
+        alt={UserData.name}
+        width={400}
+        height={400}
+        className="rounded-lg shadow-lg"
+      />
+    </div>
+    <div className="w-full md:w-1/2 text-center md:text-left">
+      <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
+        {UserData.name}
+      </h1>
+      <TypewriterText />
+      <p className="text-[#a3a3a3] text-sm xs:text-base">
+        {UserData.description}
+      </p>
+    </div>
+  </div>
+));
+
+HeroContent.displayName = "HeroContent";
 
 function Home() {
+  /* Performance: Use hooks outside of render */
   const navigate = useNavigate();
+
+  /* Performance: Memoize navigation callback */
+  const handleArchiveClick = useCallback(() => {
+    navigate("/archive");
+  }, [navigate]);
 
   const handleNavigate = useCallback(
     (path) => {
@@ -141,7 +138,19 @@ function Home() {
           </div>
         </div>
 
-        <ProfileImage />
+        <div className="mt-4 xxs:mt-6 sm:mt-8 lg:mt-4 relative max-w-[320px] w-full mx-auto">
+          <div className="w-full pb-[100%] relative overflow-hidden rounded-full border-4 border-[#1a1a2e] hover:border-[#f0c14b] transition-all duration-300 shadow-2xl bg-[#1a1a2e]">
+            <img
+              className="absolute inset-0 w-full h-full object-cover"
+              src={RafiqImageSrc}
+              alt="Developer profile"
+              loading="lazy"
+              decoding="async"
+              width="320"
+              height="320"
+            />
+          </div>
+        </div>
       </div>
     </div>
   );

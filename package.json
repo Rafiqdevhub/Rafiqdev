@@ -5,17 +5,10 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --outDir dist_new",
-    "prebuild:prod": "node copy-pwa-assets.js",
+    "build": "vite build",
     "lint": "eslint ./src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "lint:fix": "eslint ./src --ext js,jsx --fix",
-    "build:prod": "npm run prebuild:prod && npm run lint && vite build --mode production --outDir dist_new",
-    "vercel-build": "npm run lint && vite build --mode production --outDir dist_new",
-    "analyze": "vite build --mode production --sourcemap",
-    "preview": "vite preview",
-    "start": "vite preview --port 3000",
-    "clean": "rimraf dist",
-    "prod": "node build.js"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
@@ -30,6 +23,7 @@
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.25.1",
     "react-scroll": "^1.9.0",
+    "react-window": "^1.8.11",
     "typewriter-effect": "^2.21.0"
   },
   "devDependencies": {
