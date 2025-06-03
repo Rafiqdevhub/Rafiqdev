@@ -14,28 +14,28 @@ export const ProjectsList = {
         "Radix UI",
         "Tailwind CSS",
       ],
-      github: "https://github.com/Rafiqdevhub/AI-Car-Marketplace",
+      liveLink: "https://ai-car-marketplace-m281-48x7bulnt.vercel.app/",
     },
     {
       name: "FitTrack Pro: React Fitness Companion",
       description:
         "The React Fitness App is a modern, responsive application designed to help users achieve their fitness goals. Built with the latest web technologies, including React.js, this app provides a seamless and intuitive user experience across all devices..",
       technologies: ["React JS", "material UI"],
-      github: "https://github.com/Rafiqdevhub/React_Gyme_App.git",
+      liveLink: "/",
     },
     {
       name: "ShareIt: Next-Gen File Sharing Platform",
       description:
         "A storage management and file sharing platform that lets users effortlessly upload, organize, and share files. Built with the latest Next.js 15 and the Appwrite, utilizing advanced features for seamless file management.",
       technologies: ["Next.js 15", "tailwindcss", "Typescript", "Zod"],
-      github: "https://github.com/Rafiqdevhub/Next.js15_ShareIt.git",
+      liveLink: "https://docsstores.netlify.app/",
     },
     {
       name: "SoundSage: AI-Powered Podcast Discovery",
       description:
         "The AI Podcast App is a cutting-edge application that uses artificial intelligence to recommend podcasts based on user preferences. Built with Next.js, typescript and Tailwind CSS, this app provides a personalized listening experience for users.",
       technologies: ["Next JS", "tailwindcss", "typescript"],
-      github: "https://github.com/Rafiqdevhub/SAAS_APP_AIPodcast_Nextjs.git",
+      liveLink: "/",
     },
     {
       name: "AI Powered Interview Preparation",
@@ -49,43 +49,36 @@ export const ProjectsList = {
         "Vapi.ai",
         "Google Gemini",
       ],
-      github:
-        "https://github.com/Rafiqdevhub/AI_Mock_Interview_Preparation.git",
+      liveLink: "/",
     },
-    {
-      name: "PageTurn: Digital eBook Marketplace",
-      description:
-        "Ebook Store is a modern e-commerce website that allows users to browse and purchase e-books. Built with React.js, typescript this app provides a seamless shopping experience for users. The app is responsive and visually appealing, making it easy to use on any device.",
-      technologies: ["React JS", "typescript"],
-      github: "https://github.com/Rafiqdevhub/EBook_Dashboard.git",
-    },
+
     {
       name: "SneakerVault: Premium Nike Showcase",
       description:
         "The Nike Shoes app is a modern e-commerce website that allows users to browse and purchase Nike shoes. Built with React.js, this app provides a seamless shopping experience for users. The app is responsive and visually appealing, making it easy to use on any device.",
       technologies: ["React Js", "tailwindcss"],
-      github: "https://github.com/Rafiqdevhub/Nike_ShoesApp.git",
+      liveLink: "/",
     },
     {
       name: "BallotBox: Interactive Polling System API",
       description:
         " The Voting API where users can create polls, vote on polls, and view the results of polls. Built with express and MongoDB, this app provides a seamless experience for users. ",
       technologies: ["Express.js", "mongodb"],
-      github: "https://github.com/Rafiqdevhub/Node.js_Voting_App.git",
+      liveLink: "/",
     },
     {
       name: "FlashChat: MERN Real-Time Messaging",
       description:
         " The Real Time Chat App is a modern chat application that allows users to send messages in real time. Built with react.js express.js and MongoDB, this app provides a seamless experience for users. ",
       technologies: ["react.js", "Express.js", "mongodb"],
-      github: "https://github.com/Rafiqdevhub/MERN_Chat_APP.git",
+      liveLink: "/",
     },
     {
       name: "MindfulAI: Intelligent Conversation Assistant",
       description:
         " The AI Chatbot is a modern chatbot that uses artificial intelligence to provide users with personalized responses. Built with react.js express.js, this app provides a seamless experience for users. ",
       technologies: ["react.js", "Express.js", "google_gemini"],
-      github: "https://github.com/Rafiqdevhub/full-stack-AI_ChatBot.git",
+      liveLink: "/",
     },
     {
       name: "PublishPro: Next.js 15 Content Platform",
@@ -98,14 +91,14 @@ export const ProjectsList = {
         "tailwindcss",
         "Arcjet",
       ],
-      github: "https://github.com/Rafiqdevhub/next15_blog_app.git",
+      liveLink: "/",
     },
     {
       name: "Pinterest Clone: Visual Discovery Platform",
       description:
         "The Pinterest Clone is a modern web application that allows users to discover and share images. Built with the latest web technologies, including React.js, this app provides a seamless and intuitive user experience across all devices.",
       technologies: ["React.js", "Node", "Express.js", "MongoDB"],
-      github: "https://github.com/Rafiqdevhub/Pinterest-APP.git",
+      liveLink: "/",
     },
     {
       name: "PropertyPulse: Mobile Real Estate Explorer",
@@ -119,7 +112,7 @@ export const ProjectsList = {
         "Typescript",
         "Appwrite",
       ],
-      github: "https://github.com/Rafiqdevhub/react_native_realestate_app.git",
+      liveLink: "/",
     },
     {
       name: "CineTrail: Mobile Movie Discovery Suite",
@@ -133,35 +126,35 @@ export const ProjectsList = {
         "Typescript",
         "Appwrite",
       ],
-      github: "https://github.com/Rafiqdevhub/React_Native_Movies_APP.git",
+      liveLink: "/",
     },
     {
       name: "FilmFusion: React 19 Cinema Explorer",
       description:
         "The Movie App is a modern, responsive application designed to help users find and watch movies. Built with the latest web technologies, including React.js 19, this app provides a seamless and intuitive user experience across all devices.",
       technologies: ["React.js 19", "tailwindcss", "Appwrite"],
-      github: "https://github.com/Rafiqdevhub/Movie_App.git",
+      liveLink: "https://movie-app-teal-sigma.vercel.app/",
     },
     {
       name: "LiteraryHub: MERN Digital Bookstore",
       description:
         "The Book Store is a modern, responsive application designed with MERN stack to help users find and purchase books. Built with the latest web technologies, including React.js 19, this app provides a seamless and intuitive user experience across all devices.",
       technologies: ["React.js 19", "tailwindcss", "MongoDB", "Express.js"],
-      github: "https://github.com/Rafiqdevhub/MERN_Book_Store.git",
+      liveLink: "/",
     },
     {
       name: "SkyStatus: Python Weather Intelligence",
       description:
         "The Python Weather App is a modern, responsive application designed to help users find and view weather information. Built with the latest web technologies, including Python, web framework flask. This app provides a seamless and intuitive user experience across all devices.",
       technologies: ["Python", "Flask", "Html", "CSS"],
-      github: "https://github.com/Rafiqdevhub/Weather_App_In_Python.git",
+      liveLink: "/",
     },
     {
       name: "PyChat Genius: Advanced AI Conversation Engine",
       description:
         "The Python AI Chatbot is a modern, responsive application designed to help users chat with AI. Built with the latest web technologies, including Python, Ollam, Deepseek r1 and Langchain. This app provides a seamless and intuitive user experience across all devices.",
       technologies: ["Python", "Langchain", "Ollama", "Deepseek r1"],
-      github: "https://github.com/Rafiqdevhub/AI-Chatbot.git",
+      liveLink: "/",
     },
     {
       name: "SubScribe: Secure Subscription Management System",
@@ -176,72 +169,70 @@ export const ProjectsList = {
         "Upstash",
         "Nodemailer",
       ],
-      github:
-        "https://github.com/Rafiqdevhub/Subscription-Management-System-API.git",
+      liveLink: "/",
     },
     {
       name: "ReactDjango Fusion: Full-Stack Powerhouse",
       description:
         "The Django React App is a modern, responsive application including Django, React.js, this app provides a seamless and intuitive user experience across all devices.",
       technologies: ["Django", "PyJWT", "React.js"],
-      github: "https://github.com/Rafiqdevhub/Django-React.git",
+      liveLink: "/",
     },
     {
       name: "GeoQR: Location-Based QR Code Generator",
       description:
         "The QR Code Generator for Google Maps Location is a simple web application that allows users to generate QR codes for specific Google Maps locations. Built with Python Qrcode, Pillow, this app provides a user-friendly interface for creating and downloading QR codes.",
       technologies: ["Python", "Qrcode", "Pillow"],
-      github:
-        "https://github.com/Rafiqdevhub/QR-Code-Generator-for-Google-Maps-Location.git",
+      liveLink: "/",
     },
     {
       name: "Detection things: Real-Time Object Recognition",
       description:
         "The Object Detection App is a modern web application that uses artificial intelligence to detect objects in images. Built with Python, OpenCV and yolo8n, this app provides receiving detection results.",
       technologies: ["Python", "OpenCV", "Ultralytics"],
-      github: "https://github.com/Rafiqdevhub/Security-Camera-System.git",
+      liveLink: "/",
     },
     {
       name: "Gemini Mind: Google AI Conversation Platform",
       description:
         "The Gemini AI Chatbot is a modern, responsive application designed to help users chat with AI. Built with the latest web technologies, including Python, Gemini AI, this app provides a seamless and intuitive user experience across all devices.",
       technologies: ["Python", "Google Gemini API"],
-      github: "https://github.com/Rafiqdevhub/GeminiChat.git",
+      liveLink: "/",
     },
     {
       name: "ScholAIr: Intelligent Research Companion",
       description:
         "An intelligent research assistant powered by LangChain and Claude AI that helps generate research papers by gathering information from multiple sources.",
       technologies: ["Python", "LangChain", "Claude AI"],
-      github: "https://github.com/Rafiqdevhub/AI-Agent.git",
+      liveLink: "/",
     },
     {
       name: "DeepMind API: Advanced LLM Integration Platform",
       description:
         "A powerful API that utilizes the Deepseek r1 model to provide advanced language processing capabilities, enabling developers to integrate sophisticated AI features into their applications.",
       technologies: ["Python", "FastApi", "Ollama", "Deepseek r1"],
-      github: "https://github.com/Rafiqdevhub/LLM_API_Deepseek-r1.git",
+      liveLink: "/",
     },
     {
       name: "InterviewGPT: AI-Powered Interview Coach",
       description:
         "An innovative AI-powered mock interview application that helps users prepare for technical interviews. The app provides real-time feedback, customized interview questions, and performance analytics to improve interview skills.",
       technologies: ["TypeScript", "React.js", "AI/ML", "Node.js"],
-      github: "https://github.com/Rafiqdevhub/AI_Career_Coach.git",
+      liveLink: "/",
     },
     {
       name: "ResumeAI: Smart ATS Optimization Tool",
       description:
         "A Python-based resume analysis tool that helps users optimize their resumes for Applicant Tracking Systems (ATS). Features include keyword optimization, format checking, and personalized improvement suggestions.",
       technologies: ["Python", "NLP", "Machine Learning"],
-      github: "https://github.com/Rafiqdevhub/ATS-Resume-Expert.git",
+      liveLink: "/",
     },
     {
       name: "BlogStack: Full-Featured MERN Publishing Platform",
       description:
         "A comprehensive full-stack blog application built with the MERN stack. Features include user authentication, real-time updates, rich text editing, and responsive design for optimal viewing across all devices.",
       technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
-      github: "https://github.com/Rafiqdevhub/MERN_Blog_App.git",
+      liveLink: "https://bloghubshares.vercel.app/",
     },
     {
       name: "MedicalAI: AI-Driven Health Assistant",
@@ -254,14 +245,14 @@ export const ProjectsList = {
         "Sentence Transformer",
         "LangChain",
       ],
-      github: "https://github.com/Rafiqdevhub/Medical-Assistant-Chatbot.git",
+      liveLink: "/",
     },
     {
       name: "CalorieAI: Personalized Nutrition Assistant",
       description:
         "An AI-powered nutrition assistant that provides users with personalized meal plans, calorie tracking, and dietary recommendations. The app uses machine learning algorithms to analyze user data and provide tailored nutrition insights.",
       technologies: ["Python", "Streamlit", "generative AI", "PIL"],
-      github: "https://github.com/Rafiqdevhub/CalorieSmart-AI.git",
+      liveLink: "/",
     },
     {
       name: "BlogGenius AI: Intelligent Content Creator",
@@ -274,7 +265,7 @@ export const ProjectsList = {
         "Transformers",
         "HuggingFace",
       ],
-      github: "https://github.com/Rafiqdevhub/Python_Blog_Generator.git",
+      liveLink: "/",
     },
     {
       name: "HisabKitab: Personal Budget Tracker",
@@ -289,7 +280,7 @@ export const ProjectsList = {
         "AsyncStorage",
         "Reanimated",
       ],
-      github: "https://github.com/Rafiqdevhub/HisabKitab",
+      liveLink: "/",
     },
     {
       name: "JobPsych: AI-Powered Resume Analysis Platform",
@@ -305,14 +296,14 @@ export const ProjectsList = {
         "PyPDF2",
         "Pydantic",
       ],
-      github: "https://github.com/Rafiqdevhub/AI-Resume-Analayzer",
+      liveLink: "https://jobpsych.vercel.app/",
     },
     {
       name: "WhatsAppBot: Smart Message Automation",
       description:
         "A Python-based automation tool for scheduling and sending WhatsApp messages through WhatsApp Web. Features include scheduled message delivery, support for international phone numbers, time scheduling in 24-hour format, and automatic WhatsApp Web integration. The application includes a user-friendly command-line interface and comprehensive message tracking system.",
       technologies: ["Python", "PyWhatKit", "PyAutoGUI", "Pillow", "Requests"],
-      github: "https://github.com/Rafiqdevhub/Whatsapp_automation.git",
+      liveLink: "/",
     },
     {
       name: "EduSpark: AI Learning Companion Platform",
@@ -328,7 +319,7 @@ export const ProjectsList = {
         "Shadcn UI",
         "Sentry",
       ],
-      github: "https://github.com/Rafiqdevhub/Next.js_LMS.git",
+      liveLink: "https://eduspark-sigma.vercel.app/",
     },
   ],
 };

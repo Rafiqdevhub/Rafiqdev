@@ -1,7 +1,8 @@
 import { useState, useMemo, memo, useCallback } from "react";
 import PropTypes from "prop-types";
 import { ProjectsList } from "../data/ProjectsList";
-import { FaGithub } from "react-icons/fa";
+import { FaExternalLinkAlt } from "react-icons/fa";
+import toast, { Toaster } from "react-hot-toast";
 
 // Memoized individual project card component
 const ProjectCard = memo(({ project, index, isExpanded, onToggle }) => {
@@ -33,24 +34,46 @@ const ProjectCard = memo(({ project, index, isExpanded, onToggle }) => {
             {tech}
           </p>
         ))}
-      </div>
-
-      {project.github && (
+      </div>{" "}
+      {project.liveLink && (
         <div className="mt-3 xs:mt-4 text-xs xs:text-sm text-[#a3a3a3]">
           <div className="flex items-center justify-between px-2 xs:px-4 py-1.5 xs:py-2">
             <span className="text-[#f0c14b] text-xs xs:text-sm">
-              Explore the code on GitHub
+              View Live Application
             </span>
-            <a
-              href={project.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center w-8 h-8 xs:w-10 xs:h-10 rounded-full bg-[#1a1a2e] hover:bg-[#f0c14b] hover:bg-opacity-20 text-[#f0c14b] hover:text-[#e57e31] transition-all duration-300 cursor-pointer border border-[#f0c14b] hover:border-[#e57e31] hover:scale-110"
-              title="View Source Code"
-              style={{ zIndex: 10 }}
-            >
-              <FaGithub className="text-sm xs:text-base" />
-            </a>
+            {project.liveLink === "/" ? (
+              <button
+                onClick={() =>
+                  toast.success(
+                    "🚀 This project is coming soon! Stay tuned for the launch!",
+                    {
+                      duration: 3000,
+                      position: "top-center",
+                      style: {
+                        background: "#1a1a2e",
+                        color: "#f0c14b",
+                        border: "1px solid #f0c14b",
+                      },
+                    }
+                  )
+                }
+                className="inline-flex items-center justify-center w-8 h-8 xs:w-10 xs:h-10 rounded-full bg-[#1a1a2e] hover:bg-[#f0c14b] hover:bg-opacity-20 text-[#f0c14b] hover:text-[#e57e31] transition-all duration-300 cursor-pointer border border-[#f0c14b] hover:border-[#e57e31] hover:scale-110"
+                title="Coming Soon"
+              >
+                <FaExternalLinkAlt className="text-sm xs:text-base" />
+              </button>
+            ) : (
+              <a
+                href={project.liveLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center w-8 h-8 xs:w-10 xs:h-10 rounded-full bg-[#1a1a2e] hover:bg-[#f0c14b] hover:bg-opacity-20 text-[#f0c14b] hover:text-[#e57e31] transition-all duration-300 cursor-pointer border border-[#f0c14b] hover:border-[#e57e31] hover:scale-110"
+                title="View Live App"
+                style={{ zIndex: 10 }}
+              >
+                <FaExternalLinkAlt className="text-sm xs:text-base" />
+              </a>
+            )}
           </div>
         </div>
       )}
@@ -63,8 +86,7 @@ ProjectCard.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     technologies: PropTypes.arrayOf(PropTypes.string).isRequired,
-    github: PropTypes.string,
-    link: PropTypes.string,
+    liveLink: PropTypes.string,
   }).isRequired,
   index: PropTypes.number.isRequired,
   isExpanded: PropTypes.bool.isRequired,
@@ -86,9 +108,9 @@ function Cards() {
   const toggleDescription = useCallback((index) => {
     setShowFullDescription((prevIndex) => (prevIndex === index ? null : index));
   }, []);
-
   return (
     <>
+      <Toaster />
       {projectsToDisplay.map((project, index) => (
         <ProjectCard
           key={index}
