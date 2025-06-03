@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv } from "vite";
+import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import { VitePWA } from "vite-plugin-pwa";
 import { imagetools } from "vite-imagetools";
@@ -45,31 +45,21 @@ export default defineConfig({
         ],
       },
     }),
-  ],
-  resolve: {
+  ],  resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
-    },
+    }
   },
   build: {
-    // Output directory for production build
-    outDir: "dist_new",
-
-    // Enable minification for production
+    outDir: "dist", // Using dist for Vercel compatibility
     minify: "terser",
-
-    // Configure terser options
     terserOptions: {
       compress: {
-        drop_console: isProd, // Remove console logs in production
+        drop_console: isProd,
         drop_debugger: isProd,
       },
     },
-
-    // Generate sourcemaps for debugging
     sourcemap: !isProd,
-
-    // Split chunks for better caching
     rollupOptions: {
       output: {
         manualChunks: {
@@ -85,13 +75,9 @@ export default defineConfig({
       },
     },
   },
-
-  // Configure optimizations
   optimizeDeps: {
     include: ["react", "react-dom", "react-router-dom"],
-  },
-
-  // Add compression options
+  }
   server: {
     // Enable this in development to simulate production compression
     // compress: true,

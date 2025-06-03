@@ -6,9 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "preview": "vite preview",
     "lint": "eslint ./src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "lint:fix": "eslint ./src --ext js,jsx --fix",
-    "preview": "vite preview"
+    "lint:fix": "eslint ./src --ext js,jsx --fix"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
