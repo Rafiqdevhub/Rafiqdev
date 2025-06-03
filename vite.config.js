@@ -5,12 +5,8 @@ import { imagetools } from "vite-imagetools";
 import { fileURLToPath } from "url";
 import { dirname, resolve } from "path";
 
-// Fix for __dirname in ES modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
-
-// Define isProd based on NODE_ENV
-const isProd = process.env.NODE_ENV === "production";
 
 export default defineConfig({
   base: "/",
@@ -31,13 +27,13 @@ export default defineConfig({
         display: "standalone",
         icons: [
           {
-            src: "./Rafiq.PNG", // Using relative path
+            src: "./Rafiq.PNG",
             sizes: "192x192",
             type: "image/png",
             purpose: "any maskable",
           },
           {
-            src: "./Rafiq.PNG", // Using relative path
+            src: "./Rafiq.PNG",
             sizes: "512x512",
             type: "image/png",
             purpose: "any maskable",
@@ -45,21 +41,16 @@ export default defineConfig({
         ],
       },
     }),
-  ],  resolve: {
+  ],
+  resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
-    }
+    },
   },
   build: {
-    outDir: "dist", // Using dist for Vercel compatibility
-    minify: "terser",
-    terserOptions: {
-      compress: {
-        drop_console: isProd,
-        drop_debugger: isProd,
-      },
-    },
-    sourcemap: !isProd,
+    outDir: "dist",
+    minify: true,
+    sourcemap: false,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -74,14 +65,5 @@ export default defineConfig({
         },
       },
     },
-  },
-  optimizeDeps: {
-    include: ["react", "react-dom", "react-router-dom"],
-  }
-  server: {
-    // Enable this in development to simulate production compression
-    // compress: true,
-    port: 5175,
-    open: true,
   },
 });
