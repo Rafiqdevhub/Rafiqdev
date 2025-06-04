@@ -4,7 +4,6 @@ import { ProjectsList } from "../data/ProjectsList";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import toast, { Toaster } from "react-hot-toast";
 
-// Memoized individual project card component
 const ProjectCard = memo(({ project, index, isExpanded, onToggle }) => {
   return (
     <div className="relative mb-4 xs:mb-8 h-auto rounded-lg bg-[#1a1a2e] p-3 xs:p-4 shadow-md hover:shadow-[0_8px_30px_rgba(240,193,75,0.2)] transition-shadow duration-300">
@@ -45,7 +44,7 @@ const ProjectCard = memo(({ project, index, isExpanded, onToggle }) => {
               <button
                 onClick={() =>
                   toast.success(
-                    "🚀 This project is coming soon! Stay tuned for the launch!",
+                    "🎯 Project deployed and under final testing. Contact me for an exclusive preview!",
                     {
                       duration: 3000,
                       position: "top-center",

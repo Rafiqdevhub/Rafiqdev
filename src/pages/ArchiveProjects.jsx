@@ -1,14 +1,12 @@
 import { ProjectsList } from "../data/ProjectsList";
-import { FaArrowLeft, FaSearch } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 import { useState, useCallback, useMemo } from "react";
 import { Toaster } from "react-hot-toast";
-import { FixedSizeList as List } from "react-window";
 import ArchiveProjectCard from "../components/ArchiveProjectCard";
+import ProjectListHeader from "../components/ProjectListHeader";
 
 /* Performance: Implement virtualization and optimizations */
 function ArchiveProjects() {
-  const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTech, setSelectedTech] = useState("");
   const [expandedDescriptions, setExpandedDescriptions] = useState(new Set());
@@ -55,22 +53,20 @@ function ArchiveProjects() {
   return (
     <>
       <Toaster />
-      <div className="min-h-screen w-full pb-8 xs:pb-12">
-        <div
-          onClick={() => navigate(-1)}
-          className="ml-[5%] flex gap-2 pt-4 xs:pt-5 text-gray-200 hover:text-[#c59629] transition-colors duration-300 items-center cursor-pointer"
-        >
-          <FaArrowLeft className="text-xs xs:text-base" />
-          <span className="text-sm xs:text-base">Portfolio</span>
-        </div>
-
+      <ProjectListHeader />
+      <div className="min-h-screen w-full pb-8 xs:pb-12 pt-16">
         <div className="mx-auto w-[94%] xs:w-[90%] space-y-4 xs:space-y-5 pt-3 xs:pt-4">
-          <div className="text-center space-y-1">
-            <h1 className="font-poppins text-2xl xs:text-3xl font-bold text-white">
-              Project <span className="text-[#f0c14b]">Archive</span>
-            </h1>
-            <p className="text-[#a3a3a3] text-xs xs:text-sm">
-              Explore my complete collection of projects
+          <div className="text-center space-y-2">
+            <p className="text-[#a3a3a3] text-sm">
+              Explore my complete collection of projects. For detailed
+              information about any project,
+              <a
+                href="/contact"
+                className="text-[#f0c14b] hover:underline cursor-pointer"
+              >
+                feel free to contact me
+              </a>
+              . I&apos;m always happy to share more insights!
             </p>
           </div>
 
@@ -105,21 +101,12 @@ function ArchiveProjects() {
               <ArchiveProjectCard
                 key={index}
                 project={project}
-                index={index}
-                toggleDescription={toggleDescription}
-                expandedDescriptions={expandedDescriptions}
-                handleTechClick={handleTechClick}
+                isExpanded={expandedDescriptions.has(index)}
+                onToggle={() => toggleDescription(index)}
+                onTechClick={handleTechClick}
               />
             ))}
           </div>
-
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-8 xs:py-12">
-              <p className="text-[#a3a3a3] text-base xs:text-lg">
-                No projects found matching your criteria.
-              </p>
-            </div>
-          )}
         </div>
       </div>
     </>

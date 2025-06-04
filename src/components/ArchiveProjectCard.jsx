@@ -4,10 +4,8 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { useIntersectionObserver } from "../utils/useIntersectionObserver";
 
-/* Performance: Memoized project card component with lazy loading */
 const ArchiveProjectCard = memo(
   ({ project, index, isExpanded, onToggle, onTechClick }) => {
-    // Performance: Use intersection observer for lazy loading
     const [cardRef, isVisible] = useIntersectionObserver({
       threshold: 0.1,
       once: true,
@@ -16,7 +14,7 @@ const ArchiveProjectCard = memo(
     const handleLiveLinkClick = () => {
       if (project.liveLink === "/") {
         toast.success(
-          "🚀 This project is coming soon! Stay tuned for the launch!",
+          "🎯 Project deployed and under final testing. Contact me for an exclusive preview!",
           {
             duration: 3000,
             position: "top-center",
