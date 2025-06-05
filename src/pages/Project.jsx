@@ -14,10 +14,13 @@ function Project() {
           <h1 className="font-poppins mx-auto w-full xs:w-[90%] text-2xl xxs:text-3xl xs:text-4xl font-bold tracking-wider text-white lg:text-5xl">
             Featured <span className="text-[#f0c14b]">Projects</span>
           </h1>
-          <p className="text-[#a3a3a3] max-w-2xl mx-auto px-2 xxs:px-4 text-xs xxs:text-sm xs:text-base">
-            Discover some of my recent work and innovative solutions. Each
-            project demonstrates my commitment to creating impactful digital
-            experiences.
+          <p className="text-[#a3a3a3] text-sm">
+            Explore my complete collection of projects. For detailed information
+            about any project,
+            <span className="text-[#f0c14b] hover:underline cursor-pointer">
+              feel free to contact me
+            </span>
+            . I&apos;m always happy to share more insights!
           </p>
         </div>
         <div className="mx-auto mb-6 xxs:mb-8 xs:mb-10 w-[96%] xxs:w-[94%] xs:w-[90%]">

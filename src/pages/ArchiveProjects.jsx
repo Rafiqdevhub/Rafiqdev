@@ -51,21 +51,18 @@ function ArchiveProjects() {
   }, [searchTerm, selectedTech]);
 
   return (
-    <>
+    <div className="min-h-screen relative">
       <Toaster />
       <ProjectListHeader />
-      <div className="min-h-screen w-full pb-8 xs:pb-12 pt-16">
-        <div className="mx-auto w-[94%] xs:w-[90%] space-y-4 xs:space-y-5 pt-3 xs:pt-4">
+      <div className="w-full pb-8 xs:pb-12 pt-24">
+        <div className="mx-auto w-[94%] xs:w-[90%] space-y-4 xs:space-y-5">
           <div className="text-center space-y-2">
             <p className="text-[#a3a3a3] text-sm">
               Explore my complete collection of projects. For detailed
               information about any project,
-              <a
-                href="/contact"
-                className="text-[#f0c14b] hover:underline cursor-pointer"
-              >
+              <span className="text-[#f0c14b] hover:underline cursor-pointer">
                 feel free to contact me
-              </a>
+              </span>
               . I&apos;m always happy to share more insights!
             </p>
           </div>
@@ -109,7 +106,7 @@ function ArchiveProjects() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
