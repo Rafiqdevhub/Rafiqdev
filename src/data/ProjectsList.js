@@ -280,7 +280,8 @@ export const ProjectsList = {
         "AsyncStorage",
         "Reanimated",
       ],
-      liveLink: "/",
+      liveLink:
+        "https://drive.google.com/file/d/1JPDjYXG1YxNe-q73HrIGLEmd8vppP8cQ/view?usp=drive_link",
     },
     {
       name: "JobPsych: AI-Powered Resume Analysis Platform",
@@ -320,6 +321,36 @@ export const ProjectsList = {
         "Sentry",
       ],
       liveLink: "https://eduspark-sigma.vercel.app/",
+    },
+    {
+      name: "QRify - Modern QR Code Generator",
+      description:
+        "A sleek and modern React Native mobile application for instant QR code generation from URLs. Features a beautiful animated interface with blur effects and gradients, real-time QR code preview, and the ability to save and share QR codes directly. Built with React Native and Expo, the app includes smooth animations, elegant transitions, and robust error handling.",
+      technologies: [
+        "React Native",
+        "Expo",
+        "React Native Reanimated",
+        "TypeScript",
+        "Expo Router",
+      ],
+      liveLink:
+        "https://drive.google.com/file/d/1Iz8aUrWW6nEN5dnkt-eoKk_oho7dIJr9/view?usp=drive_link",
+    },
+    {
+      name: "SleepWise: Smart Sleep Tracking Platform",
+      description:
+        "A modern sleep tracking application built with Next.js 15 that helps users monitor and analyze their sleep patterns. Features include visual sleep pattern analysis with interactive charts, secure authentication, historical sleep record management, and comprehensive statistics. The platform provides insights like average sleep duration, best/worst sleep records, and trend analysis through an intuitive dashboard.",
+      technologies: [
+        "Next.js 15",
+        "TypeScript",
+        "PostgreSQL",
+        "Prisma ORM",
+        "Clerk Auth",
+        "Chart.js",
+        "TailwindCSS",
+        "react-chartjs-2",
+      ],
+      liveLink: "/",
     },
   ],
 };
