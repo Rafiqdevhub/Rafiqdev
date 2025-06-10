@@ -350,7 +350,7 @@ export const ProjectsList = {
         "TailwindCSS",
         "react-chartjs-2",
       ],
-      liveLink: "/",
+      liveLink: "https://sleepwise-gray.vercel.app/",
     },
   ],
 };
