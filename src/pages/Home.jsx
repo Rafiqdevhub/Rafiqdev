@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaCode, FaServer, FaDatabase, FaMobile } from "react-icons/fa";
 import TypewriterText from "../components/TypewriterText";
 import { UserData } from "../data/UserData";
-import RafiqImageSrc from "../Assets/images/image.jpeg";
+import RafiqImageSrc from "../Assets/images/profile.png";
 import PropTypes from "prop-types";
 import OptimizedImage from "../components/OptimizedImage";
 
