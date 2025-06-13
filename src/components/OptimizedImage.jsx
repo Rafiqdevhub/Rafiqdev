@@ -1,4 +1,3 @@
-/* Performance Optimization: Image component with lazy loading and blur-up effect */
 import { useState, useEffect, memo } from "react";
 import PropTypes from "prop-types";
 
@@ -7,12 +6,11 @@ const OptimizedImage = memo(({ src, alt, className, width, height }) => {
   const [blurDataURL, setBlurDataURL] = useState("");
 
   useEffect(() => {
-    // Create tiny placeholder
     const canvas = document.createElement("canvas");
     canvas.width = 10;
     canvas.height = 10;
     const ctx = canvas.getContext("2d");
-    ctx.fillStyle = "#1a1a2e"; // Match your theme's background
+    ctx.fillStyle = "#1a1a2e";
     ctx.fillRect(0, 0, 10, 10);
     setBlurDataURL(canvas.toDataURL());
   }, []);

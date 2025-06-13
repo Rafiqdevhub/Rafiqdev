@@ -1,20 +1,19 @@
-import { useCallback, memo, useMemo, useState, Suspense, lazy } from "react";
-import { useNavigate } from "react-router-dom";
-import { FaCode, FaServer, FaDatabase, FaMobile } from "react-icons/fa";
+import { memo, useMemo, useState, useCallback } from "react";
+import {
+  FaCode,
+  FaDatabase,
+  FaMobile,
+  FaTools,
+  FaUserTie,
+} from "react-icons/fa";
 import TypewriterText from "../components/TypewriterText";
 import { UserData } from "../data/UserData";
 import RafiqImageSrc from "../Assets/images/profile.png";
 import PropTypes from "prop-types";
-import OptimizedImage from "../components/OptimizedImage";
 
-/* Performance: Lazy load Cards component since it's below the fold */
-const Cards = lazy(() => import("../components/Cards"));
-
-/* Performance: Memoize SkillItem to prevent re-renders */
 const SkillItem = memo(({ icon: Icon, text, delay }) => {
   const [isHovered, setIsHovered] = useState(false);
 
-  /* Performance: Memoize hover handlers */
   const handleMouseEnter = useCallback(() => setIsHovered(true), []);
   const handleMouseLeave = useCallback(() => setIsHovered(false), []);
 
@@ -46,54 +45,14 @@ SkillItem.propTypes = {
 
 SkillItem.displayName = "SkillItem";
 
-/* Performance: Memoize static hero content */
-const HeroContent = memo(() => (
-  <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-8">
-    <div className="w-full md:w-1/2">
-      <OptimizedImage
-        src={RafiqImageSrc}
-        alt={UserData.name}
-        width={400}
-        height={400}
-        className="rounded-lg shadow-lg"
-      />
-    </div>
-    <div className="w-full md:w-1/2 text-center md:text-left">
-      <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-        {UserData.name}
-      </h1>
-      <TypewriterText />
-      <p className="text-[#a3a3a3] text-sm xs:text-base">
-        {UserData.description}
-      </p>
-    </div>
-  </div>
-));
-
-HeroContent.displayName = "HeroContent";
-
 function Home() {
-  /* Performance: Use hooks outside of render */
-  const navigate = useNavigate();
-
-  /* Performance: Memoize navigation callback */
-  const handleArchiveClick = useCallback(() => {
-    navigate("/archive");
-  }, [navigate]);
-
-  const handleNavigate = useCallback(
-    (path) => {
-      navigate(path);
-    },
-    [navigate]
-  );
-
   const skillItems = useMemo(
     () => [
-      { Icon: FaCode, text: "FRONTEND" },
-      { Icon: FaServer, text: "BACKEND" },
+      { Icon: FaCode, text: "FULL-STACK" },
       { Icon: FaDatabase, text: "DATABASE" },
       { Icon: FaMobile, text: "MOBILE" },
+      { Icon: FaTools, text: "DEVOPS" },
+      { Icon: FaUserTie, text: "RECRUITER" },
     ],
     []
   );
@@ -111,21 +70,6 @@ function Home() {
               <TypewriterText options={UserData.typewriterOptions} />
             </div>
           </div>
-
-          <div className="mt-4 xxs:mt-5 xs:mt-6 lg:mt-8">
-            <div
-              onClick={() => handleNavigate("/projectlist")}
-              className="relative inline-block cursor-pointer group"
-            >
-              <div className="px-6 py-3 text-white font-bold overflow-hidden rounded-lg border border-[#f0c14b] shadow-lg relative z-10 transition-colors duration-300 group-hover:bg-[#1a1a2e]">
-                <span className="relative z-20 text-[#f0c14b] group-hover:text-white transition-colors duration-300">
-                  Discover My Portfolio
-                </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#f0c14b] to-[#e57e31] scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500 ease-out z-10"></div>
-              </div>
-            </div>
-          </div>
-
           <div className="mt-3 xxs:mt-4 xs:mt-5 flex flex-wrap gap-2 xxs:gap-3 text-[#a3a3a3] text-xs">
             {skillItems.map((item, index) => (
               <SkillItem

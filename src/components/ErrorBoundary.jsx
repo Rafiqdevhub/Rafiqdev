@@ -8,20 +8,12 @@ class ErrorBoundary extends Component {
   }
 
   static getDerivedStateFromError(error) {
-    // Update state so the next render will show the fallback UI.
     return { hasError: true, error };
   }
 
   componentDidCatch(error, errorInfo) {
-    // You can log the error to an error reporting service
     console.error("Error caught by ErrorBoundary:", error, errorInfo);
     this.setState({ errorInfo });
-
-    // In production, you might want to log this to a service like Sentry
-    if (import.meta.env.PROD) {
-      // Log to analytics or error tracking service
-      // Example: logErrorToService(error, errorInfo);
-    }
   }
 
   render() {
@@ -30,7 +22,6 @@ class ErrorBoundary extends Component {
         return this.props.fallback(this.state.error, this.resetError);
       }
 
-      // Default error UI
       return (
         <div className="flex min-h-[50vh] w-full flex-col items-center justify-center p-4 text-center">
           <div className="rounded-lg bg-red-600 bg-opacity-10 p-6 border border-red-600">

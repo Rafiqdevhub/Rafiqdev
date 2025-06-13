@@ -92,13 +92,11 @@ ProjectCard.propTypes = {
   onToggle: PropTypes.func.isRequired,
 };
 
-// Add display name for debugging purposes
 ProjectCard.displayName = "ProjectCard";
 
 function Cards() {
   const [showFullDescription, setShowFullDescription] = useState(null);
 
-  // Memoize the projects to display
   const projectsToDisplay = useMemo(
     () => ProjectsList.projects.slice(0, 4),
     []

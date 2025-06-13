@@ -1,9 +1,14 @@
-import Cards from "../components/Cards";
+import { memo, useCallback } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import Cards from "../components/Cards";
 
-function Project() {
+const Project = memo(() => {
   const navigate = useNavigate();
+
+  const handleViewArchive = useCallback(() => {
+    navigate("/projectlist");
+  }, [navigate]);
 
   return (
     <div className="w-full relative pb-8 xxs:pb-12 xs:pb-16">
@@ -17,7 +22,7 @@ function Project() {
           <p className="text-[#a3a3a3] text-sm">
             Explore my complete collection of projects. For detailed information
             about any project,
-            <span className="text-[#f0c14b] hover:underline cursor-pointer">
+            <span className="text-[#f0c14b] cursor-pointer">
               feel free to contact me
             </span>
             . I&apos;m always happy to share more insights!
@@ -25,25 +30,26 @@ function Project() {
         </div>
         <div className="mx-auto mb-6 xxs:mb-8 xs:mb-10 w-[96%] xxs:w-[94%] xs:w-[90%]">
           <div className="grid grid-cols-1 gap-4 xxs:gap-6 xs:gap-8 sm:mb-8 xxs:mb-10 md:grid-cols-2 relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-[#42403b] to-[#49260b] rounded-lg opacity-20 blur-lg group-hover:opacity-30 transition duration-500"></div>
-
+            <div className="absolute -inset-1 bg-gradient-to-r from-[#42403b] to-[#49260b] rounded-lg opacity-20 blur-lg"></div>
             <Cards />
           </div>
         </div>
         <div className="mx-auto w-full xxs:w-[94%] xs:w-[90%] mt-4 xxs:mt-6 xs:mt-8 text-center">
           <button
-            onClick={() => navigate("/projectlist")}
-            className="group flex items-center gap-2 xxs:gap-2.5 xs:gap-3 mx-auto bg-gradient-to-r from-[#1a1a2e] to-[#2a2a4e] px-3 xxs:px-4 xs:px-6 py-1.5 xxs:py-2 xs:py-3 rounded-lg border border-[#f0c14b] hover:shadow-[0_8px_30px_rgba(240,193,75,0.15)] transition-all duration-300 text-xs xxs:text-sm xs:text-base"
+            onClick={handleViewArchive}
+            className="flex items-center gap-2 xxs:gap-2.5 xs:gap-3 mx-auto bg-gradient-to-r from-[#1a1a2e] to-[#2a2a4e] px-3 xxs:px-4 xs:px-6 py-1.5 xxs:py-2 xs:py-3 rounded-lg border border-[#f0c14b] text-xs xxs:text-sm xs:text-base"
           >
             <span className="text-white font-semibold">
               View Full Project Archive
             </span>
-            <FaArrowRight className="text-[#f0c14b] group-hover:translate-x-1 transition-transform duration-300" />
+            <FaArrowRight className="text-[#f0c14b]" />
           </button>
         </div>
       </div>
     </div>
   );
-}
+});
+
+Project.displayName = "Project";
 
 export default Project;
