@@ -6,6 +6,8 @@ export const skillsData = [
   "React",
   "Next JS",
   "ViteJS",
+  "React Native",
+  "Expo",
   "Git",
   "Github",
   "MaterialUI",
@@ -28,4 +30,6 @@ export const skillsData = [
   "Flask",
   "FastAPI",
   "golang",
+  "appwrite",
+  "supabase",
 ];

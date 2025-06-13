@@ -5,16 +5,14 @@ import { skillsImage } from "../utils/SkillsImage";
 
 function About() {
   const { about } = UserData;
-  const [activeTab, setActiveTab] = useState("frontend");
+  const [activeTab, setActiveTab] = useState("languages");
   const [animateSkills] = useState(false);
-
   const skillCategories = useMemo(
     () => ({
+      languages: ["Javascript", "Typescript", "Python", "golang"],
       frontend: [
         "html",
         "CSS",
-        "Javascript",
-        "Typescript",
         "React",
         "Next JS",
         "ViteJS",
@@ -22,18 +20,18 @@ function About() {
         "Bootstrap",
         "MaterialUI",
       ],
-      backend: [
-        "NodeJS",
-        "Express",
-        "Python",
-        "Django",
-        "Flask",
-        "FastAPI",
-        "golang",
+      backend: ["NodeJS", "Express", "Django", "Flask", "FastAPI"],
+      mobile: ["React Native"],
+      database: [
+        "MongoDB",
+        "MySQL",
+        "PostgreSQL",
+        "Firebase",
+        "appwrite",
+        "supabase",
       ],
-      database: ["MongoDB", "MySQL", "PostgreSQL", "Firebase"],
       devOps: ["Git", "Github", "Docker", "Nginx", "Ubuntu"],
-      tools: ["Figma", "Canva", "Stripe"],
+      tools: ["Figma", "Canva", "Stripe", "Expo"],
     }),
     []
   );

@@ -30,6 +30,10 @@ import django from "../Assets/svg/skills/django.svg";
 import flask from "../Assets/svg/skills/flask.svg";
 import FastAPI from "../Assets/svg/skills/fastapi.svg";
 import golang from "../Assets/svg/skills/golang.svg";
+import reactNative from "../Assets/svg/skills/react.svg";
+import expo from "../Assets/svg/skills/expo.svg";
+import appwrite from "../Assets/svg/skills/Appwrite.svg";
+import Supabase from "../Assets/svg/skills/supabase.svg";
 
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
@@ -46,6 +50,10 @@ export const skillsImage = (skill) => {
       return nextJS;
     case "react":
       return react;
+    case "react native":
+      return reactNative;
+    case "expo":
+      return expo;
     case "typescript":
       return typescript;
     case "bootstrap":
@@ -99,6 +107,10 @@ export const skillsImage = (skill) => {
       return FastAPI;
     case "golang":
       return golang;
+    case "appwrite":
+      return appwrite;
+    case "supabase":
+      return Supabase;
     default:
       break;
   }
