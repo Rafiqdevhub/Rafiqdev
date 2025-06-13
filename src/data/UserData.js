@@ -2,7 +2,7 @@ export const UserData = {
   name: "Muhammad Rafiq",
   email: "rafkhan9323@gmail.com",
   about:
-    "I am a versatile professional with a unique blend of technical expertise and HR experience. As a Full Stack Developer, I specialize in building scalable web, mobile applications and solving complex technical challenges. With my background in HR and recruitment, I bring a deep understanding of talent acquisition, making me particularly effective in tech recruitment and bridging the gap between technical and HR domains.",
+    "Hi, I’m Rafiq — a full-stack developer with a unique blend of technical expertise and HR experience. I specialize in building scalable web and mobile apps, integrating AI/ML to create smart, user-driven solutions. From hotel management systems and university chatbots to AI-powered recruitment agents, I love turning complex ideas into working products using tools like React, Next.js, Express.js, FastAPI, MongoDB, and OpenSearch. With a background in HR and tech recruitment, I bring a rare understanding of both code and people — making me especially effective in building systems that support teams, hiring, and productivity.",
   resumeUrl:
     "https://drive.google.com/file/d/1SABD2O_LlPEAo9olMY_XJhxgzJkA-Ff8/view?usp=drive_link",
   FooterLink: "https://www.linkedin.com/in/rafiqdevhub/",
