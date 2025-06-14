@@ -29,9 +29,10 @@ function About() {
         "Firebase",
         "appwrite",
         "supabase",
+        "neondb",
       ],
-      devOps: ["Git", "Github", "Docker", "Nginx", "Ubuntu"],
-      tools: ["Figma", "Canva", "Stripe", "Expo"],
+      devOps: ["Git", "Github", "Docker", "Ubuntu"],
+      tools: ["Figma", "Canva", "Stripe", "Nginx", "Expo"],
     }),
     []
   );

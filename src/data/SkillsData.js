@@ -32,4 +32,5 @@ export const skillsData = [
   "golang",
   "appwrite",
   "supabase",
+  "neondb",
 ];

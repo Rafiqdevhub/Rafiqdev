@@ -34,6 +34,7 @@ import reactNative from "../Assets/svg/skills/react.svg";
 import expo from "../Assets/svg/skills/expo.svg";
 import appwrite from "../Assets/svg/skills/Appwrite.svg";
 import Supabase from "../Assets/svg/skills/supabase.svg";
+import neondb from "../Assets/svg/skills/neondb.svg";
 
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
@@ -111,6 +112,8 @@ export const skillsImage = (skill) => {
       return appwrite;
     case "supabase":
       return Supabase;
+    case "neondb":
+      return neondb;
     default:
       break;
   }
