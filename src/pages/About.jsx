@@ -1,7 +1,6 @@
 import { useState, useMemo } from "react";
 import { UserData } from "../data/UserData";
 import { skillsData } from "../data/SkillsData";
-import { skillsImage } from "../utils/SkillsImage";
 
 function About() {
   const { about } = UserData;
@@ -15,34 +14,82 @@ function About() {
         "CSS",
         "React",
         "Next JS",
-        "ViteJS",
         "Tailwind",
-        "Bootstrap",
         "MaterialUI",
+        "Radix UI",
+        "Shadcn UI",
+        "Headless UI",
+        "NativeWind",
+        "Chart.js",
+        "react-chartjs-2",
       ],
-      backend: ["NodeJS", "Express", "Django", "Flask", "FastAPI"],
-      mobile: ["React Native"],
+      backend: [
+        "NodeJS",
+        "Express",
+        "FastAPI",
+        "Flask",
+        "Django",
+        "Mongoose",
+        "Pydantic",
+      ],
+      mobile: [
+        "React Native",
+        "Expo",
+        "Expo Router",
+        "React Native Reanimated",
+        "AsyncStorage",
+      ],
       database: [
         "MongoDB",
-        "MySQL",
         "PostgreSQL",
+        "Supabase",
         "Firebase",
         "appwrite",
-        "supabase",
+        "Prisma ORM",
         "neondb",
       ],
-      devOps: ["Git", "Github", "Docker", "Ubuntu"],
-      tools: ["Figma", "Canva", "Stripe", "Nginx", "Expo"],
+      "AI/ML": [
+        "pandas",
+        "NumPy",
+        "TensorFlow",
+        "PyTorch",
+        "OpenAI",
+        "Google Gemini",
+        "Hugging Face",
+        "LangChain",
+        "Claude AI",
+        "Deepseek r1",
+        "OpenCV",
+        "Ultralytics",
+        "FAISS",
+        "Sentence Transformer",
+        "Ollama",
+      ],
+      devOps: ["Git", "Github", "Docker", "Ubuntu", "Sentry", "Upstash"],
+      tools: [
+        "ViteJS",
+        "Figma",
+        "Canva",
+        "Stripe",
+        "Nginx",
+        "Postman",
+        "JWT",
+        "Clerk Auth",
+        "Arcjet",
+        "Nodemailer",
+        "PyAutoGUI",
+        "Pillow",
+        "PyWhatKit",
+        "QRcode",
+      ],
     }),
     []
   );
-
   const skills = useMemo(
     () =>
       skillsData.map((skill, id) => ({
         id,
         name: skill,
-        image: skillsImage(skill),
         category:
           Object.keys(skillCategories).find((category) =>
             skillCategories[category].includes(skill)
@@ -74,28 +121,42 @@ function About() {
               </p>
             ))}
           </div>
-        </div>
+        </div>{" "}
         <div className="mx-auto mt-16 w-[94%] xs:w-[90%] sm:w-[85%] md:w-[80%]">
-          <h2 className="mb-8 text-center font-poppins text-2xl xs:text-3xl font-bold text-white">
-            Professional <span className="text-[#f0c14b]">Skillset</span>
-          </h2>
-          <div className="mb-8 flex flex-wrap justify-center gap-4">
+          <div className="relative mb-16">
+            <h2 className="text-center font-poppins text-2xl xs:text-3xl md:text-4xl font-bold text-white">
+              Professional <span className="text-[#f0c14b]">Skillset</span>
+            </h2>
+            <div className="absolute left-1/2 -bottom-4 w-24 h-1 bg-gradient-to-r from-transparent via-[#f0c14b] to-transparent transform -translate-x-1/2"></div>
+          </div>
+          <div className="relative mb-12 flex flex-wrap justify-center gap-3 px-4">
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f0c14b]/5 to-transparent rounded-2xl blur-3xl -z-10"></div>
             {Object.keys(skillCategories).map((category) => (
               <button
                 key={category}
                 onClick={() => setActiveTab(category)}
-                className={`rounded-full px-4 py-2 text-sm xs:text-base transition-all duration-300 ${
-                  activeTab === category
-                    ? "bg-[#f0c14b] text-[#1a1a2e]"
-                    : "bg-[#1a1a2e] text-[#a3a3a3] hover:bg-[#f0c14b] hover:bg-opacity-20 hover:text-[#f0c14b]"
-                }`}
+                className={`group relative rounded-xl px-6 py-3 text-sm xs:text-base font-medium transition-all duration-300 
+                  ${
+                    activeTab === category
+                      ? "bg-gradient-to-r from-[#f0c14b] to-[#e6a323] text-[#1a1a2e] shadow-lg shadow-[#f0c14b]/30 scale-105"
+                      : "bg-[#1a1a2e]/80 text-[#a3a3a3] hover:bg-[#252538] hover:text-[#f0c14b] hover:shadow-md hover:shadow-[#f0c14b]/10"
+                  }`}
               >
-                {category.charAt(0).toUpperCase() + category.slice(1)}
+                <span className="relative z-10 flex items-center gap-2">
+                  {category.charAt(0).toUpperCase() + category.slice(1)}
+                  {activeTab === category && (
+                    <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1a1a2e] animate-pulse"></span>
+                  )}
+                </span>
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-[#f0c14b]/20 to-[#e6a323]/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100"></div>
+                {activeTab === category && (
+                  <span className="absolute -bottom-1.5 left-1/2 h-0.5 w-12 -translate-x-1/2 rounded-full bg-[#f0c14b] shadow-glow"></span>
+                )}
               </button>
             ))}
           </div>
           <div
-            className={`grid grid-cols-2 gap-4 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 ${
+            className={`grid grid-cols-2 gap-5 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 ${
               animateSkills ? "animate-fade-in" : ""
             }`}
           >
@@ -104,14 +165,10 @@ function About() {
               .map((skill) => (
                 <div
                   key={skill.id}
-                  className="group flex flex-col items-center gap-2 rounded-lg bg-[#1a1a2e] p-4 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-[#f0c14b]/20"
+                  className="group relative flex items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-[#1a1a2e] to-[#252538] p-4 transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-[#f0c14b]/20 cursor-pointer"
                 >
-                  <img
-                    src={skill.image}
-                    alt={skill.name}
-                    className="h-12 w-12 object-contain transition-transform duration-300 group-hover:scale-110"
-                  />
-                  <p className="text-center text-xs xs:text-sm text-[#a3a3a3] group-hover:text-[#f0c14b]">
+                  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-[#f0c14b]/20 to-[#e6a323]/20 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                  <p className="relative text-center text-base xs:text-lg font-medium tracking-wide text-[#a3a3a3] transition-colors duration-300 group-hover:text-white">
                     {skill.name}
                   </p>
                 </div>
