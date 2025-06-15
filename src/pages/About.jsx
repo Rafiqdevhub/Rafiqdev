@@ -98,14 +98,14 @@ function About() {
     [skillCategories]
   );
 
-  const paragraphs = about.split("\n\n").filter((p) => p.trim());
+  const paragraphs = about.split("\n").filter((p) => p.trim());
 
   return (
     <div className="min-h-screen w-full pb-20 xs:pb-24">
       <div className="flex flex-col items-center justify-center pt-24 xs:pt-28">
         <h1 className="font-poppins text-3xl xs:text-4xl font-bold text-white md:text-5xl mb-4">
           About
-        </h1>{" "}
+        </h1>
         <p className="text-[#a3a3a3] text-sm xs:text-base max-w-2xl text-center mb-8">
           Transforming ideas into elegant solutions, a passion for innovation
           and user-centric design
@@ -121,7 +121,7 @@ function About() {
               </p>
             ))}
           </div>
-        </div>{" "}
+        </div>
         <div className="mx-auto mt-16 w-[94%] xs:w-[90%] sm:w-[85%] md:w-[80%]">
           <div className="relative mb-16">
             <h2 className="text-center font-poppins text-2xl xs:text-3xl md:text-4xl font-bold text-white">

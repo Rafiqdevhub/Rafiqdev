@@ -1,16 +1,16 @@
 export const UserData = {
   name: "Muhammad Rafiq",
   email: "rafkhan9323@gmail.com",
-  about: `Hi, I'm Rafiq — a full-stack developer with a unique blend of technical expertise and HR experience.
+  about: `Hi, I'm Rafiq — a full-stack developer passionate about building smart, scalable solutions.
 
-I specialize in building scalable web and mobile apps, integrating AI/ML to create smart, user-driven solutions.
+I specialize in developing web and mobile applications using modern technologies like React, Next.js, Express.js, FastAPI. 
 
-From hotel management systems and university chatbots to AI-powered recruitment agents, I love turning complex ideas into working products using tools like React, Next.js, Express.js, FastAPI, MongoDB, and OpenSearch.
+My work includes AI-powered chatbots and intelligent agents — all enhanced with AI/ML to solve real-world challenges.
 
-With a background in HR and tech recruitment, I bring a rare understanding of both code and people making me especially effective in building systems that support teams, hiring, and productivity.`,
+Whether it's crafting seamless user experiences or integrating powerful backends, I thrive on turning complex ideas into clean, efficient code.`,
   resumeUrl:
-    "https://drive.google.com/file/d/1SABD2O_LlPEAo9olMY_XJhxgzJkA-Ff8/view?usp=drive_link",
-  FooterLink: "https://www.linkedin.com/in/rafiqdevhub/",
+    "https://drive.google.com/file/d/1gjfjtvy4NPVDlPYqJvXbCPoySUsWKTlP/view?usp=sharing",
+
   socialMedia: [
     {
       socialMediaName: "github",
@@ -38,7 +38,6 @@ With a background in HR and tech recruitment, I bring a rare understanding of bo
       "Problem Solver, Tech Enthusiast",
       "Full-Stack Web & Mobile Developer",
       "AI/ML Engineer",
-      "Tech Recruiter",
     ],
     autoStart: true,
     loop: true,

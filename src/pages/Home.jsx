@@ -1,11 +1,5 @@
 import { memo, useMemo, useState, useCallback } from "react";
-import {
-  FaCode,
-  FaDatabase,
-  FaMobile,
-  FaTools,
-  FaUserTie,
-} from "react-icons/fa";
+import { FaCode, FaDatabase, FaMobile, FaTools } from "react-icons/fa";
 import TypewriterText from "../components/TypewriterText";
 import { UserData } from "../data/UserData";
 import RafiqImageSrc from "../Assets/images/profile.png";
@@ -52,7 +46,6 @@ function Home() {
       { Icon: FaDatabase, text: "DATABASE" },
       { Icon: FaMobile, text: "MOBILE" },
       { Icon: FaTools, text: "DEVOPS" },
-      { Icon: FaUserTie, text: "RECRUITER" },
     ],
     []
   );
