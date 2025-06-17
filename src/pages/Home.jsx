@@ -13,10 +13,13 @@ const SkillItem = memo(({ icon: Icon, text, delay }) => {
 
   return (
     <div
-      className={`flex items-center rounded-md border border-[#242442] px-3 py-2 
-                 hover:border-[#f0c14b] hover:shadow-[0_0_18px_rgba(240,193,75,0.35)]
-                 transition-all duration-500 transform hover:scale-110
-                 cursor-pointer relative z-10 overflow-hidden shadow-md shadow-black/30 text-sm`}
+      className={`flex items-center rounded-xl border border-[#242442] px-4 py-2.5 
+                 hover:border-[#f0c14b] hover:shadow-[0_0_25px_rgba(240,193,75,0.25)]
+                 transition-all duration-500 transform hover:scale-105
+                 cursor-pointer relative z-10 overflow-hidden shadow-lg shadow-black/20 text-sm
+                 backdrop-blur-sm bg-gradient-to-r from-[#1a1a2e]/80 to-[#242442]/80
+                 before:absolute before:inset-0 before:bg-gradient-to-r before:from-[#f0c14b]/0 before:to-[#f0c14b]/10 
+                 before:opacity-0 before:transition-opacity before:duration-500 hover:before:opacity-100`}
       style={{
         animationDelay: `${delay * 150}ms`,
         transform: isHovered ? "translateY(-6px)" : "translateY(0)",
@@ -51,19 +54,28 @@ function Home() {
   );
 
   return (
-    <div className="min-h-[60vh] xxs:min-h-[65vh] md:min-h-[75vh] w-full flex items-center pt-4 pb-0">
-      <div className="mx-auto mt-0 mb-0 xxs:mb-2 sm:mb-4 flex w-[94%] xxs:w-[92%] sm:w-[90%] flex-col items-center sm:flex-row lg:w-[85%] xl:w-[80%] lg:justify-between">
+    <div className="relative min-h-[60vh] xxs:min-h-[65vh] md:min-h-[75vh] w-full flex items-center pt-4 pb-0 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#f0c14b]/5 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_#f0c14b10_0%,_transparent_50%)]"></div>
+
+      <div className="mx-auto mt-0 mb-0 xxs:mb-2 sm:mb-4 flex w-[94%] xxs:w-[92%] sm:w-[90%] flex-col items-center sm:flex-row lg:w-[85%] xl:w-[80%] lg:justify-between relative">
         <div className="w-full lg:w-[55%] flex flex-col lg:pr-8">
-          <h1 className="font-poppins font-bold text-left text-xl xxs:text-2xl xs:text-3xl text-white lg:text-4xl xl:text-5xl">
-            Hello, I&apos;m{" "}
-            <span className="text-[#f0c14b]">{UserData.name}</span>
+          <h1 className="font-poppins font-bold text-left text-xl xxs:text-2xl xs:text-3xl text-white lg:text-4xl xl:text-5xl relative">
+            Hello, I&apos;m
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f0c14b] to-[#e6a323] relative">
+              {UserData.name}
+              <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-[#f0c14b] to-transparent"></span>
+            </span>
           </h1>
-          <div className="h-[50px] xxs:h-[60px] xs:h-[70px] lg:h-[75px] xl:h-[85px] overflow-hidden">
+          <div className="relative h-[50px] xxs:h-[60px] xs:h-[70px] lg:h-[75px] xl:h-[85px] overflow-hidden">
             <div className="text-wrap break-words max-w-full text-sm xxs:text-base xs:text-lg sm:text-xl lg:text-2xl">
-              <TypewriterText options={UserData.typewriterOptions} />
+              <div className="relative">
+                <div className="absolute -left-2 top-1/2 w-1 h-1/2 bg-gradient-to-b from-[#f0c14b] to-transparent transform -translate-y-1/2"></div>
+                <TypewriterText options={UserData.typewriterOptions} />
+              </div>
             </div>
           </div>
-          <div className="mt-3 xxs:mt-4 xs:mt-5 flex flex-wrap gap-2 xxs:gap-3 text-[#a3a3a3] text-xs">
+          <div className="mt-6 xxs:mt-8 xs:mt-10 flex flex-wrap gap-3 xxs:gap-4 text-[#a3a3a3] text-xs">
             {skillItems.map((item, index) => (
               <SkillItem
                 key={index}
@@ -74,7 +86,6 @@ function Home() {
             ))}
           </div>
         </div>
-
         <div className="mt-4 xxs:mt-6 sm:mt-8 lg:mt-4 relative max-w-[320px] w-full mx-auto">
           <div className="w-full pb-[100%] relative overflow-hidden rounded-full border-4 border-[#1a1a2e] hover:border-[#f0c14b] transition-all duration-300 shadow-2xl bg-[#1a1a2e]">
             <img
