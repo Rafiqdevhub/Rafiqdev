@@ -8,7 +8,8 @@ I specialize in developing web and mobile applications using modern technologies
 My work includes AI-powered chatbots and intelligent agents — all enhanced with AI/ML to solve real-world challenges.
 
 Whether it's crafting seamless user experiences or integrating powerful backends, I thrive on turning complex ideas into clean, efficient code.`,
-  resumeUrl: "/resume/resume.pdf",
+  resumeUrl:
+    "https://drive.google.com/file/d/13eUHQiCEgfbjeG9VliD2g9GocuqX0P-_/view?usp=drive_link",
 
   socialMedia: [
     {
