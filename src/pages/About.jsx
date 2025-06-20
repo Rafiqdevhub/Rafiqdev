@@ -109,13 +109,35 @@ function About() {
         <p className="text-[#a3a3a3] text-sm xs:text-base max-w-2xl text-center mb-8">
           Transforming ideas into elegant solutions, a passion for innovation
           and user-centric design
-        </p>
+        </p>{" "}
         <div className="mx-auto w-[90%] max-w-4xl">
-          <div className="prose prose-invert prose-lg max-w-none space-y-6">
+          <div className="prose prose-invert prose-lg max-w-none space-y-8">
             {paragraphs.map((paragraph, index) => (
               <p
                 key={index}
-                className="text-base xs:text-lg text-[#a3a3a3] leading-relaxed tracking-wide first-letter:text-xl first-letter:font-semibold first-letter:text-[#f0c14b] hover:text-white transition-colors duration-300"
+                className={`text-base xs:text-lg text-[#a3a3a3] leading-relaxed tracking-wide 
+                  ${
+                    index === 0
+                      ? "first-letter:text-2xl first-letter:font-bold first-letter:text-[#f0c14b] first-letter:mr-1"
+                      : ""
+                  }
+                  p-4 rounded-lg
+                  border border-[#242442]
+                  shadow-lg
+                  transition-all duration-500 ease-in-out
+                  hover:text-white
+                  hover:border-[#f0c14b]/30
+                  hover:shadow-[#f0c14b]/10
+                  hover:scale-[1.02]
+                  animate-fadeIn
+                  opacity-0
+                  ${
+                    index === 0
+                      ? "bg-gradient-to-br from-[#1a1a2e]/80 to-[#252538]/80 backdrop-blur-sm animation-delay-[200ms]"
+                      : "bg-gradient-to-br from-[#1a1a2e]/50 to-[#252538]/50 animation-delay-[" +
+                        (index * 200 + 200) +
+                        "ms]"
+                  }`}
               >
                 {paragraph.trim()}
               </p>
