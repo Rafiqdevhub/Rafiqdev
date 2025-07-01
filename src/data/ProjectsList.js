@@ -1,6 +1,67 @@
 export const ProjectsList = {
   projects: [
     {
+      name: "JobPsych: AI-Powered Resume Analysis Platform",
+      description:
+        "A modern web application that revolutionizes HR processes by leveraging AI to analyze resumes and generate intelligent, context-aware interview questions. Features include smart resume analysis for PDF/DOCX formats, AI-powered question generation for technical and behavioral interviews, and a modern UI with drag-and-drop functionality. Built with FastAPI and React, it uses Google's Gemini AI for sophisticated resume parsing.",
+      technologies: [
+        "React",
+        "Vite",
+        "FastAPI",
+        "Google Gemini AI",
+        "TailwindCSS",
+        "Headless UI",
+        "PyPDF2",
+        "Pydantic",
+      ],
+      liveLink: "https://jobpsych.vercel.app/",
+    },
+    {
+      name: "SubScribe: Secure Subscription Management System",
+      description:
+        "The Subscription Management System API is built using Node.js, Express.js, and MongoDB, providing a scalable architecture that includes advanced features such as JWT authentication, database modeling with Mongoose, and automated email reminders. It emphasizes security with advanced rate limiting and bot protection while ensuring efficient error handling and logging mechanisms. The system is also designed to facilitate seamless integration with front-end applications through structured API communication.",
+      technologies: [
+        "Node.js",
+        "Express.js",
+        "Mongodb",
+        "JWT",
+        "Arcject",
+        "Upstash",
+        "Nodemailer",
+      ],
+      liveLink: "/",
+    },
+    {
+      name: "LiteraryHub: MERN Digital Bookstore",
+      description:
+        "The Book Store is a modern, responsive application designed with MERN stack to help users find and purchase books. Built with the latest web technologies, including React.js 19, this app provides a seamless and intuitive user experience across all devices.",
+      technologies: ["React.js 19", "tailwindcss", "MongoDB", "Express.js"],
+      liveLink: "/",
+    },
+    {
+      name: "HisabKitab: Personal Budget Tracker",
+      description:
+        "A comprehensive personal budget tracking application built with React Native and Expo. Features include month-wise budget tracking, category management with preset categories, smart features like data persistence, multiple currency support, and an enhanced user experience with beautiful gradient UI design and haptic feedback.",
+      technologies: [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "NativeWind",
+        "Expo Router",
+        "AsyncStorage",
+        "Reanimated",
+      ],
+      liveLink:
+        "https://drive.google.com/file/d/1JPDjYXG1YxNe-q73HrIGLEmd8vppP8cQ/view?usp=drive_link",
+    },
+    {
+      name: "BlogStack: Full-Featured MERN Publishing Platform",
+      description:
+        "A comprehensive full-stack blog application built with the MERN stack. Features include user authentication, real-time updates, rich text editing, and responsive design for optimal viewing across all devices.",
+      technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
+      liveLink: "https://bloghubshares.vercel.app/",
+    },
+    {
       name: "CarSahulat AI: Smart Car Marketplace",
       description:
         "A modern car marketplace platform built with Next.js 15, featuring AI-powered search capabilities, test drive scheduling, and comprehensive car management features. Includes advanced filtering, real-time availability checking, admin dashboard, and user authentication. The platform uses AI for image-based car search and recommendations.",
@@ -17,25 +78,11 @@ export const ProjectsList = {
       liveLink: "https://ai-car-marketplace-m281-48x7bulnt.vercel.app/",
     },
     {
-      name: "FitTrack Pro: React Fitness Companion",
-      description:
-        "The React Fitness App is a modern, responsive application designed to help users achieve their fitness goals. Built with the latest web technologies, including React.js, this app provides a seamless and intuitive user experience across all devices..",
-      technologies: ["React JS", "material UI"],
-      liveLink: "/",
-    },
-    {
       name: "ShareIt: Next-Gen File Sharing Platform",
       description:
         "A storage management and file sharing platform that lets users effortlessly upload, organize, and share files. Built with the latest Next.js 15 and the Appwrite, utilizing advanced features for seamless file management.",
       technologies: ["Next.js 15", "tailwindcss", "Typescript", "Zod"],
       liveLink: "https://docsstores.netlify.app/",
-    },
-    {
-      name: "SoundSage: AI-Powered Podcast Discovery",
-      description:
-        "The AI Podcast App is a cutting-edge application that uses artificial intelligence to recommend podcasts based on user preferences. Built with Next.js, typescript and Tailwind CSS, this app provides a personalized listening experience for users.",
-      technologies: ["Next JS", "tailwindcss", "typescript"],
-      liveLink: "/",
     },
     {
       name: "AI Powered Interview Preparation",
@@ -49,14 +96,6 @@ export const ProjectsList = {
         "Vapi.ai",
         "Google Gemini",
       ],
-      liveLink: "/",
-    },
-
-    {
-      name: "SneakerVault: Premium Nike Showcase",
-      description:
-        "The Nike Shoes app is a modern e-commerce website that allows users to browse and purchase Nike shoes. Built with React.js, this app provides a seamless shopping experience for users. The app is responsive and visually appealing, making it easy to use on any device.",
-      technologies: ["React Js", "tailwindcss"],
       liveLink: "/",
     },
     {
@@ -78,26 +117,6 @@ export const ProjectsList = {
       description:
         " The AI Chatbot is a modern chatbot that uses artificial intelligence to provide users with personalized responses. Built with react.js express.js, this app provides a seamless experience for users. ",
       technologies: ["react.js", "Express.js", "google_gemini"],
-      liveLink: "/",
-    },
-    {
-      name: "PublishPro: Next.js 15 Content Platform",
-      description:
-        "The Next.js 15 Blog App is a modern, responsive application designed to help users create and publish blog posts. Built with the latest web technologies, including Next.js 15, Mongodb, Arcjet. this app provides a seamless and intuitive user experience across all devices.",
-      technologies: [
-        "Next.js 15",
-        "MongoDB",
-        "Shad/cn",
-        "tailwindcss",
-        "Arcjet",
-      ],
-      liveLink: "/",
-    },
-    {
-      name: "Pinterest Clone: Visual Discovery Platform",
-      description:
-        "The Pinterest Clone is a modern web application that allows users to discover and share images. Built with the latest web technologies, including React.js, this app provides a seamless and intuitive user experience across all devices.",
-      technologies: ["React.js", "Node", "Express.js", "MongoDB"],
       liveLink: "/",
     },
     {
@@ -136,46 +155,10 @@ export const ProjectsList = {
       liveLink: "https://movie-app-teal-sigma.vercel.app/",
     },
     {
-      name: "LiteraryHub: MERN Digital Bookstore",
-      description:
-        "The Book Store is a modern, responsive application designed with MERN stack to help users find and purchase books. Built with the latest web technologies, including React.js 19, this app provides a seamless and intuitive user experience across all devices.",
-      technologies: ["React.js 19", "tailwindcss", "MongoDB", "Express.js"],
-      liveLink: "/",
-    },
-    {
-      name: "SkyStatus: Python Weather Intelligence",
-      description:
-        "The Python Weather App is a modern, responsive application designed to help users find and view weather information. Built with the latest web technologies, including Python, web framework flask. This app provides a seamless and intuitive user experience across all devices.",
-      technologies: ["Python", "Flask", "Html", "CSS"],
-      liveLink: "/",
-    },
-    {
       name: "PyChat Genius: Advanced AI Conversation Engine",
       description:
         "The Python AI Chatbot is a modern, responsive application designed to help users chat with AI. Built with the latest web technologies, including Python, Ollam, Deepseek r1 and Langchain. This app provides a seamless and intuitive user experience across all devices.",
       technologies: ["Python", "Langchain", "Ollama", "Deepseek r1"],
-      liveLink: "/",
-    },
-    {
-      name: "SubScribe: Secure Subscription Management System",
-      description:
-        "The Subscription Management System API is built using Node.js, Express.js, and MongoDB, providing a scalable architecture that includes advanced features such as JWT authentication, database modeling with Mongoose, and automated email reminders. It emphasizes security with advanced rate limiting and bot protection while ensuring efficient error handling and logging mechanisms. The system is also designed to facilitate seamless integration with front-end applications through structured API communication.",
-      technologies: [
-        "Node.js",
-        "Express.js",
-        "Mongodb",
-        "JWT",
-        "Arcject",
-        "Upstash",
-        "Nodemailer",
-      ],
-      liveLink: "/",
-    },
-    {
-      name: "ReactDjango Fusion: Full-Stack Powerhouse",
-      description:
-        "The Django React App is a modern, responsive application including Django, React.js, this app provides a seamless and intuitive user experience across all devices.",
-      technologies: ["Django", "PyJWT", "React.js"],
       liveLink: "/",
     },
     {
@@ -193,46 +176,11 @@ export const ProjectsList = {
       liveLink: "/",
     },
     {
-      name: "Gemini Mind: Google AI Conversation Platform",
-      description:
-        "The Gemini AI Chatbot is a modern, responsive application designed to help users chat with AI. Built with the latest web technologies, including Python, Gemini AI, this app provides a seamless and intuitive user experience across all devices.",
-      technologies: ["Python", "Google Gemini API"],
-      liveLink: "/",
-    },
-    {
-      name: "ScholAIr: Intelligent Research Companion",
-      description:
-        "An intelligent research assistant powered by LangChain and Claude AI that helps generate research papers by gathering information from multiple sources.",
-      technologies: ["Python", "LangChain", "Claude AI"],
-      liveLink: "/",
-    },
-    {
       name: "DeepMind API: Advanced LLM Integration Platform",
       description:
         "A powerful API that utilizes the Deepseek r1 model to provide advanced language processing capabilities, enabling developers to integrate sophisticated AI features into their applications.",
       technologies: ["Python", "FastApi", "Ollama", "Deepseek r1"],
       liveLink: "/",
-    },
-    {
-      name: "InterviewGPT: AI-Powered Interview Coach",
-      description:
-        "An innovative AI-powered mock interview application that helps users prepare for technical interviews. The app provides real-time feedback, customized interview questions, and performance analytics to improve interview skills.",
-      technologies: ["TypeScript", "React.js", "AI/ML", "Node.js"],
-      liveLink: "/",
-    },
-    {
-      name: "ResumeAI: Smart ATS Optimization Tool",
-      description:
-        "A Python-based resume analysis tool that helps users optimize their resumes for Applicant Tracking Systems (ATS). Features include keyword optimization, format checking, and personalized improvement suggestions.",
-      technologies: ["Python", "NLP", "Machine Learning"],
-      liveLink: "/",
-    },
-    {
-      name: "BlogStack: Full-Featured MERN Publishing Platform",
-      description:
-        "A comprehensive full-stack blog application built with the MERN stack. Features include user authentication, real-time updates, rich text editing, and responsive design for optimal viewing across all devices.",
-      technologies: ["MongoDB", "Express.js", "React.js", "Node.js", "JWT"],
-      liveLink: "https://bloghubshares.vercel.app/",
     },
     {
       name: "MedicalAI: AI-Driven Health Assistant",
@@ -265,45 +213,6 @@ export const ProjectsList = {
         "Transformers",
         "HuggingFace",
       ],
-      liveLink: "/",
-    },
-    {
-      name: "HisabKitab: Personal Budget Tracker",
-      description:
-        "A comprehensive personal budget tracking application built with React Native and Expo. Features include month-wise budget tracking, category management with preset categories, smart features like data persistence, multiple currency support, and an enhanced user experience with beautiful gradient UI design and haptic feedback.",
-      technologies: [
-        "React Native",
-        "Expo",
-        "TypeScript",
-        "NativeWind",
-        "Expo Router",
-        "AsyncStorage",
-        "Reanimated",
-      ],
-      liveLink:
-        "https://drive.google.com/file/d/1JPDjYXG1YxNe-q73HrIGLEmd8vppP8cQ/view?usp=drive_link",
-    },
-    {
-      name: "JobPsych: AI-Powered Resume Analysis Platform",
-      description:
-        "A modern web application that revolutionizes HR processes by leveraging AI to analyze resumes and generate intelligent, context-aware interview questions. Features include smart resume analysis for PDF/DOCX formats, AI-powered question generation for technical and behavioral interviews, and a modern UI with drag-and-drop functionality. Built with FastAPI and React, it uses Google's Gemini AI for sophisticated resume parsing.",
-      technologies: [
-        "React",
-        "Vite",
-        "FastAPI",
-        "Google Gemini AI",
-        "TailwindCSS",
-        "Headless UI",
-        "PyPDF2",
-        "Pydantic",
-      ],
-      liveLink: "https://jobpsych.vercel.app/",
-    },
-    {
-      name: "WhatsAppBot: Smart Message Automation",
-      description:
-        "A Python-based automation tool for scheduling and sending WhatsApp messages through WhatsApp Web. Features include scheduled message delivery, support for international phone numbers, time scheduling in 24-hour format, and automatic WhatsApp Web integration. The application includes a user-friendly command-line interface and comprehensive message tracking system.",
-      technologies: ["Python", "PyWhatKit", "PyAutoGUI", "Pillow", "Requests"],
       liveLink: "/",
     },
     {
