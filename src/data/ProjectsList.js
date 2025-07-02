@@ -17,6 +17,41 @@ export const ProjectsList = {
       liveLink: "https://jobpsych.vercel.app/",
     },
     {
+      name: "Codify: AI Code Review Agent",
+      description:
+        "An intelligent code analysis platform powered by AI that helps developers write better, safer, and more maintainable code through instant reviews, security analysis, and intelligent suggestions. Features multi-language support (JavaScript, TypeScript, Python, Java, C#, C++, Go, Rust, PHP, Ruby), comprehensive security scanning with OWASP compliance, AI chat assistant for code discussions, and detailed quality metrics with performance insights. Built with modern React architecture and real-time analysis capabilities.",
+      technologies: [
+        "React ",
+        "TypeScript",
+        "Vite",
+        "Radix UI",
+        "Tailwind CSS",
+        "TanStack Query",
+        "React Router DOM",
+        "Lucide Icons",
+        "Node.js",
+        "LangChain",
+        "Gemini AI",
+      ],
+      liveLink: "https://codify-omega.vercel.app/",
+    },
+    {
+      name: "HisabKitab: Personal Budget Tracker",
+      description:
+        "A comprehensive personal budget tracking application built with React Native and Expo. Features include month-wise budget tracking, category management with preset categories, smart features like data persistence, multiple currency support, and an enhanced user experience with beautiful gradient UI design and haptic feedback.",
+      technologies: [
+        "React Native",
+        "Expo",
+        "TypeScript",
+        "NativeWind",
+        "Expo Router",
+        "AsyncStorage",
+        "Reanimated",
+      ],
+      liveLink:
+        "https://drive.google.com/file/d/1JPDjYXG1YxNe-q73HrIGLEmd8vppP8cQ/view?usp=drive_link",
+    },
+    {
       name: "SubScribe: Secure Subscription Management System",
       description:
         "The Subscription Management System API is built using Node.js, Express.js, and MongoDB, providing a scalable architecture that includes advanced features such as JWT authentication, database modeling with Mongoose, and automated email reminders. It emphasizes security with advanced rate limiting and bot protection while ensuring efficient error handling and logging mechanisms. The system is also designed to facilitate seamless integration with front-end applications through structured API communication.",
@@ -38,22 +73,7 @@ export const ProjectsList = {
       technologies: ["React.js 19", "tailwindcss", "MongoDB", "Express.js"],
       liveLink: "/",
     },
-    {
-      name: "HisabKitab: Personal Budget Tracker",
-      description:
-        "A comprehensive personal budget tracking application built with React Native and Expo. Features include month-wise budget tracking, category management with preset categories, smart features like data persistence, multiple currency support, and an enhanced user experience with beautiful gradient UI design and haptic feedback.",
-      technologies: [
-        "React Native",
-        "Expo",
-        "TypeScript",
-        "NativeWind",
-        "Expo Router",
-        "AsyncStorage",
-        "Reanimated",
-      ],
-      liveLink:
-        "https://drive.google.com/file/d/1JPDjYXG1YxNe-q73HrIGLEmd8vppP8cQ/view?usp=drive_link",
-    },
+
     {
       name: "BlogStack: Full-Featured MERN Publishing Platform",
       description:
