@@ -13,6 +13,7 @@ export const ProjectsList = {
         "Headless UI",
         "PyPDF2",
         "Pydantic",
+        "Stripe",
       ],
       liveLink: "https://jobpsych.vercel.app/",
     },
@@ -98,73 +99,10 @@ export const ProjectsList = {
       liveLink: "https://ai-car-marketplace-m281-48x7bulnt.vercel.app/",
     },
     {
-      name: "ShareIt: Next-Gen File Sharing Platform",
-      description:
-        "A storage management and file sharing platform that lets users effortlessly upload, organize, and share files. Built with the latest Next.js 15 and the Appwrite, utilizing advanced features for seamless file management.",
-      technologies: ["Next.js 15", "tailwindcss", "Typescript", "Zod"],
-      liveLink: "https://docsstores.netlify.app/",
-    },
-    {
-      name: "AI Powered Interview Preparation",
-      description:
-        "The AI Interview Preparation App is a modern application that uses artificial intelligence to help users prepare for interviews. Built with Next.js, typescript and Tailwind CSS, this app provides a personalized interview preparation experience for users.",
-      technologies: [
-        "Next JS",
-        "tailwindcss",
-        "typescript",
-        "firebase",
-        "Vapi.ai",
-        "Google Gemini",
-      ],
-      liveLink: "/",
-    },
-    {
       name: "BallotBox: Interactive Polling System API",
       description:
         " The Voting API where users can create polls, vote on polls, and view the results of polls. Built with express and MongoDB, this app provides a seamless experience for users. ",
       technologies: ["Express.js", "mongodb"],
-      liveLink: "/",
-    },
-    {
-      name: "FlashChat: MERN Real-Time Messaging",
-      description:
-        " The Real Time Chat App is a modern chat application that allows users to send messages in real time. Built with react.js express.js and MongoDB, this app provides a seamless experience for users. ",
-      technologies: ["react.js", "Express.js", "mongodb"],
-      liveLink: "/",
-    },
-    {
-      name: "MindfulAI: Intelligent Conversation Assistant",
-      description:
-        " The AI Chatbot is a modern chatbot that uses artificial intelligence to provide users with personalized responses. Built with react.js express.js, this app provides a seamless experience for users. ",
-      technologies: ["react.js", "Express.js", "google_gemini"],
-      liveLink: "/",
-    },
-    {
-      name: "PropertyPulse: Mobile Real Estate Explorer",
-      description:
-        "The React Native Real Estate App is a modern, responsive application designed to help users find and purchase real estate. Built with the latest web technologies, including React Native, this app provides a seamless and intuitive user experience across all devices.",
-      technologies: [
-        "React Native",
-        "Expo",
-        "Nativewind",
-        "tailwindcss",
-        "Typescript",
-        "Appwrite",
-      ],
-      liveLink: "/",
-    },
-    {
-      name: "CineTrail: Mobile Movie Discovery Suite",
-      description:
-        "The React Native Movie App is a modern, responsive application designed to help users find and watch movies. Built with the latest web technologies, including React Native, this app provides a seamless and intuitive user experience across all devices.",
-      technologies: [
-        "React Native",
-        "Expo",
-        "Nativewind",
-        "tailwindcss",
-        "Typescript",
-        "Appwrite",
-      ],
       liveLink: "/",
     },
     {
@@ -196,13 +134,6 @@ export const ProjectsList = {
       liveLink: "/",
     },
     {
-      name: "DeepMind API: Advanced LLM Integration Platform",
-      description:
-        "A powerful API that utilizes the Deepseek r1 model to provide advanced language processing capabilities, enabling developers to integrate sophisticated AI features into their applications.",
-      technologies: ["Python", "FastApi", "Ollama", "Deepseek r1"],
-      liveLink: "/",
-    },
-    {
       name: "MedicalAI: AI-Driven Health Assistant",
       description:
         "An AI-powered medical assistant that provides users with personalized health recommendations, symptom analysis, and medication reminders. The app uses machine learning algorithms to analyze user data and provide tailored health insights.",
@@ -220,19 +151,6 @@ export const ProjectsList = {
       description:
         "An AI-powered nutrition assistant that provides users with personalized meal plans, calorie tracking, and dietary recommendations. The app uses machine learning algorithms to analyze user data and provide tailored nutrition insights.",
       technologies: ["Python", "Streamlit", "generative AI", "PIL"],
-      liveLink: "/",
-    },
-    {
-      name: "BlogGenius AI: Intelligent Content Creator",
-      description:
-        "An AI-powered blog generator that creates high-quality, SEO-optimized blog posts based on user-defined topics and keywords. The app uses advanced natural language processing algorithms to generate engaging content.",
-      technologies: [
-        "Python",
-        "Streamlit",
-        "langchain",
-        "Transformers",
-        "HuggingFace",
-      ],
       liveLink: "/",
     },
     {
