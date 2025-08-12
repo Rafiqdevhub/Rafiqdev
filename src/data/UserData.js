@@ -9,7 +9,7 @@ What sets me apart is my deep experience in AI/ML technologies. I specialize in 
 
 Whether it's crafting cloud-based SaaS products, building AI-powered applications, or mentoring fellow developers, I bring a blend of technical expertise and innovative problem-solving to every project. I'm committed to writing clean, efficient code that scales and maintaining high standards through modern DevOps practices.`,
   resumeUrl:
-    "https://drive.google.com/file/d/1iFyu9CGqqhc8NqSp57jFOy86T94qPqWF/view?usp=drive_link",
+    "https://drive.google.com/file/d/1HdVz2_r8V7x_2e124Sr79M24__pXdoUe/view?usp=drive_link",
 
   socialMedia: [
     {
