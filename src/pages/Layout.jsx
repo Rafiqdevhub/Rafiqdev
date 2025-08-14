@@ -9,11 +9,13 @@ import { Element } from "react-scroll";
 import { useState, useEffect as useEffectReact } from "react";
 import AboutModal from "../components/AboutModal";
 import ContactModal from "../components/ContactModal";
+import ServicesModal from "../components/ServicesModal";
 
 function Layout() {
   const location = useLocation();
   const [aboutOpen, setAboutOpen] = useState(false);
   const [contactOpen, setContactOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
 
   useEffect(() => {
     const hash = location.hash.replace("#", "");
@@ -30,18 +32,19 @@ function Layout() {
   }, [location]);
 
   useEffectReact(() => {
-    const anyOpen = aboutOpen || contactOpen;
+    const anyOpen = aboutOpen || contactOpen || servicesOpen;
     document.body.style.overflow = anyOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
     };
-  }, [aboutOpen, contactOpen]);
+  }, [aboutOpen, contactOpen, servicesOpen]);
 
   return (
     <div className="flex flex-col w-full">
       <Header
         onOpenAbout={() => setAboutOpen(true)}
         onOpenContact={() => setContactOpen(true)}
+        onOpenServices={() => setServicesOpen(true)}
       />
       <Element name="Home-section" className="w-full">
         <Home />
@@ -57,6 +60,10 @@ function Layout() {
       <ContactModal
         isOpen={contactOpen}
         onClose={() => setContactOpen(false)}
+      />
+      <ServicesModal
+        isOpen={servicesOpen}
+        onClose={() => setServicesOpen(false)}
       />
     </div>
   );

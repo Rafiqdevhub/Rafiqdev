@@ -5,7 +5,7 @@ import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { UserData } from "../data/UserData";
 import PropTypes from "prop-types";
 
-const Header = ({ onOpenAbout, onOpenContact }) => {
+const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -347,6 +347,21 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
               </p>
             </Link>
             <button
+              onClick={() => onOpenServices?.()}
+              onMouseEnter={() => setHoverItem("Services-section")}
+              onMouseLeave={() => setHoverItem(null)}
+              className="animate-fadeInDown bg-transparent"
+              style={{ animationDelay: "350ms" }}
+            >
+              <p
+                className={`link-hover-effect ${getActiveClass(
+                  "Services-section"
+                )}`}
+              >
+                Services
+              </p>
+            </button>
+            <button
               onClick={() => onOpenContact?.()}
               onMouseEnter={() => setHoverItem("Contact-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -501,6 +516,22 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
             </Link>
             <button
               onClick={() => {
+                onOpenServices?.();
+                toggleMobileMenu();
+              }}
+              onMouseEnter={() => setHoverItem("Services-section")}
+              onMouseLeave={() => setHoverItem(null)}
+            >
+              <p
+                className={`link-hover-effect ${getActiveClass(
+                  "Services-section"
+                )}`}
+              >
+                Services
+              </p>
+            </button>
+            <button
+              onClick={() => {
                 onOpenContact?.();
                 toggleMobileMenu();
               }}
@@ -559,4 +590,5 @@ export default Header;
 Header.propTypes = {
   onOpenAbout: PropTypes.func,
   onOpenContact: PropTypes.func,
+  onOpenServices: PropTypes.func,
 };

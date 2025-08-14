@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 
-/* Performance: Reusable intersection observer hook for lazy loading */
 export function useIntersectionObserver(options = {}) {
   const [isIntersecting, setIsIntersecting] = useState(false);
   const targetRef = useRef(null);
 
   useEffect(() => {
+    const currentTarget = targetRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         setIsIntersecting(entry.isIntersecting);
 
-        // Unobserve after intersection if once is true
         if (entry.isIntersecting && options.once) {
           observer.unobserve(entry.target);
         }
@@ -22,13 +21,13 @@ export function useIntersectionObserver(options = {}) {
       }
     );
 
-    if (targetRef.current) {
-      observer.observe(targetRef.current);
+    if (currentTarget) {
+      observer.observe(currentTarget);
     }
 
     return () => {
-      if (targetRef.current) {
-        observer.unobserve(targetRef.current);
+      if (currentTarget) {
+        observer.unobserve(currentTarget);
       }
     };
   }, [options.root, options.rootMargin, options.threshold, options.once]);
