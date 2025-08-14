@@ -112,12 +112,12 @@ const AboutModal = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-3 xs:px-4"
       onClick={handleOverlayClick}
       aria-modal="true"
       role="dialog"
     >
-      <div className="relative w-full max-w-5xl max-h-[85vh] overflow-hidden rounded-2xl border border-[#f0c14b]/20 bg-gradient-to-br from-[#11121a] to-[#1a1b26] shadow-2xl">
+      <div className="relative w-full max-w-[95vw] sm:max-w-5xl h-[90dvh] sm:h-auto max-h-[90dvh] sm:max-h-[85vh] overflow-hidden rounded-none sm:rounded-2xl border border-[#f0c14b]/20 bg-gradient-to-br from-[#11121a] to-[#1a1b26] shadow-2xl flex flex-col">
         <button
           aria-label="Close"
           onClick={onClose}
@@ -141,7 +141,7 @@ const AboutModal = ({ isOpen, onClose }) => {
           </div>
         </div>
 
-        <div className="overflow-y-auto px-5 xs:px-6 pb-6 pt-4 space-y-8">
+        <div className="flex-1 min-h-0 overflow-y-auto px-4 xs:px-6 pb-6 pt-4 space-y-8">
           <div className="prose prose-invert prose-lg max-w-none space-y-6">
             {paragraphs.map((paragraph, index) => (
               <p
@@ -164,13 +164,13 @@ const AboutModal = ({ isOpen, onClose }) => {
               </h3>
               <div className="absolute left-1/2 -bottom-3 w-24 h-1 bg-gradient-to-r from-transparent via-[#f0c14b] to-transparent transform -translate-x-1/2"></div>
             </div>
-            <div className="relative mb-6 flex flex-wrap justify-center gap-2 px-2">
+            <div className="relative mb-6 flex flex-wrap justify-center gap-2 px-1 xs:px-2">
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-[#f0c14b]/5 to-transparent rounded-2xl blur-3xl -z-10" />
               {Object.keys(skillCategories).map((category) => (
                 <button
                   key={category}
                   onClick={() => setActiveTab(category)}
-                  className={`group relative rounded-xl px-4 py-2 text-sm font-medium transition-all duration-300 ${
+                  className={`group relative rounded-xl px-3 py-1.5 sm:px-4 sm:py-2 text-sm font-medium transition-all duration-300 ${
                     activeTab === category
                       ? "bg-gradient-to-r from-[#f0c14b] to-[#e6a323] text-[#1a1a2e] shadow-lg shadow-[#f0c14b]/30 scale-105"
                       : "bg-[#1a1a2e]/80 text-[#a3a3a3] hover:bg-[#252538] hover:text-[#f0c14b] hover:shadow-md hover:shadow-[#f0c14b]/10"
@@ -190,7 +190,7 @@ const AboutModal = ({ isOpen, onClose }) => {
               ))}
             </div>
             <div
-              className={`grid grid-cols-2 gap-3 xs:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${
+              className={`grid grid-cols-2 gap-2 xs:gap-3 sm:gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 ${
                 animateSkills ? "animate-fade-in" : ""
               }`}
             >

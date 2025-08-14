@@ -1,6 +1,3 @@
-// This optional code is used to register a service worker.
-// register() is not called by default.
-
 export function register() {
   if ("serviceWorker" in navigator && import.meta.env.PROD) {
     window.addEventListener("load", () => {
@@ -14,10 +11,8 @@ export function register() {
             registration.scope
           );
 
-          // Check for updates on page load
           registration.update();
 
-          // Detect controller change and reload page
           let refreshing = false;
           navigator.serviceWorker.addEventListener("controllerchange", () => {
             if (!refreshing) {

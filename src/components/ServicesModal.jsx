@@ -13,6 +13,7 @@ const ServicesModal = ({ isOpen, onClose }) => {
       "Database design and cloud infrastructure",
       "Technical consultation and solution architecture",
       "Performance optimization and scaling solutions",
+      "DevOps and CI/CD pipeline setup",
     ],
     []
   );
@@ -25,12 +26,12 @@ const ServicesModal = ({ isOpen, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-4"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm px-3 xs:px-4"
       onClick={handleOverlayClick}
       aria-modal="true"
       role="dialog"
     >
-      <div className="relative w-full max-w-3xl max-h-[85vh] overflow-hidden rounded-2xl border border-[#f0c14b]/20 bg-gradient-to-br from-[#11121a] to-[#1a1b26] shadow-2xl">
+      <div className="relative w-full max-w-[95vw] sm:max-w-3xl h-[90dvh] sm:h-auto max-h-[90dvh] sm:max-h-[85vh] overflow-hidden rounded-none sm:rounded-2xl border border-[#f0c14b]/20 bg-gradient-to-br from-[#11121a] to-[#1a1b26] shadow-2xl flex flex-col">
         <button
           aria-label="Close"
           onClick={onClose}
@@ -39,7 +40,7 @@ const ServicesModal = ({ isOpen, onClose }) => {
           Close
         </button>
 
-        <div className="p-5 xs:p-6 pb-0">
+        <div className="p-4 xs:p-6 pb-0">
           <h2 className="text-xl xs:text-2xl font-bold text-white">
             Services I Offer
           </h2>
@@ -48,8 +49,8 @@ const ServicesModal = ({ isOpen, onClose }) => {
           </p>
         </div>
 
-        <div className="overflow-y-auto px-5 xs:px-6 pb-6 pt-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="flex-1 min-h-0 overflow-y-auto px-4 xs:px-6 pb-6 pt-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 xs:gap-4">
             {services.map((svc, idx) => (
               <div
                 key={idx}
