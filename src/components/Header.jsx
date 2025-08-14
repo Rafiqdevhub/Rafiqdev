@@ -3,8 +3,9 @@ import { Link, Events, scrollSpy } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { UserData } from "../data/UserData";
+import PropTypes from "prop-types";
 
-const Header = () => {
+const Header = ({ onOpenAbout, onOpenContact }) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -316,18 +317,11 @@ const Header = () => {
               </p>
             </Link>
 
-            <Link
-              activeClass="active"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={800}
-              delay={0}
-              isDynamic={true}
-              to="About-section"
+            <button
+              onClick={() => onOpenAbout?.()}
               onMouseEnter={() => setHoverItem("About-section")}
               onMouseLeave={() => setHoverItem(null)}
-              className="animate-fadeInDown"
+              className="animate-fadeInDown bg-transparent"
               style={{ animationDelay: "200ms" }}
             >
               <p
@@ -337,7 +331,7 @@ const Header = () => {
               >
                 About
               </p>
-            </Link>
+            </button>
             <Link
               activeClass="active"
               spy={true}
@@ -360,18 +354,11 @@ const Header = () => {
                 Projects
               </p>
             </Link>
-            <Link
-              activeClass="active"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={800}
-              delay={0}
-              isDynamic={true}
-              to="Contact-section"
+            <button
+              onClick={() => onOpenContact?.()}
               onMouseEnter={() => setHoverItem("Contact-section")}
               onMouseLeave={() => setHoverItem(null)}
-              className="animate-fadeInDown"
+              className="animate-fadeInDown bg-transparent"
               style={{ animationDelay: "400ms" }}
             >
               <p
@@ -381,7 +368,7 @@ const Header = () => {
               >
                 Contact
               </p>
-            </Link>
+            </button>
             <div
               className="transform transition-transform duration-300 hover:scale-105 animate-fadeInDown"
               style={{ animationDelay: "500ms" }}
@@ -487,15 +474,11 @@ const Header = () => {
                 Home
               </p>
             </Link>
-            <Link
-              activeClass="active"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={800}
-              delay={0}
-              isDynamic={true}
-              to="About-section"
+            <button
+              onClick={() => {
+                onOpenAbout?.();
+                toggleMobileMenu();
+              }}
               onMouseEnter={() => setHoverItem("About-section")}
               onMouseLeave={() => setHoverItem(null)}
             >
@@ -503,11 +486,10 @@ const Header = () => {
                 className={`link-hover-effect ${getActiveClass(
                   "About-section"
                 )}`}
-                onClick={toggleMobileMenu}
               >
                 About
               </p>
-            </Link>
+            </button>
             <Link
               activeClass="active"
               spy={true}
@@ -529,15 +511,11 @@ const Header = () => {
                 Projects
               </p>
             </Link>
-            <Link
-              activeClass="active"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={800}
-              delay={0}
-              isDynamic={true}
-              to="Contact-section"
+            <button
+              onClick={() => {
+                onOpenContact?.();
+                toggleMobileMenu();
+              }}
               onMouseEnter={() => setHoverItem("Contact-section")}
               onMouseLeave={() => setHoverItem(null)}
             >
@@ -545,11 +523,10 @@ const Header = () => {
                 className={`link-hover-effect ${getActiveClass(
                   "Contact-section"
                 )}`}
-                onClick={toggleMobileMenu}
               >
                 Contact
               </p>
-            </Link>
+            </button>
             <div className="transform transition-transform duration-300 hover:scale-105">
               <a
                 href={resumeUrl}
@@ -591,3 +568,8 @@ const Header = () => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  onOpenAbout: PropTypes.func,
+  onOpenContact: PropTypes.func,
+};
