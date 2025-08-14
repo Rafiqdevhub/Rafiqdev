@@ -46,7 +46,6 @@ function Layout() {
       <Element name="Home-section" className="w-full">
         <Home />
       </Element>
-
       <Element
         name="Project-section"
         className="w-full pt-2 xxs:pt-3 xs:pt-4 md:pt-8"

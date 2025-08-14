@@ -22,12 +22,10 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
       const isCurrentScrolled = scrollTop > 0;
       setIsScrolling(isCurrentScrolled);
 
-      // Hide scroll indicator after user scrolls down
       if (scrollTop > 100) {
         setShowScrollIndicator(false);
       }
 
-      // Show scroll to top button when scrolled past a certain point
       if (scrollTop > 300) {
         setShowScrollTop(true);
       } else {
@@ -42,7 +40,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
 
     scrollSpy.update();
 
-    // Hide scroll indicator after 5 seconds even if user doesn't scroll
     const timer = setTimeout(() => {
       setShowScrollIndicator(false);
     }, 5000);
@@ -54,7 +51,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
     };
   }, []);
 
-  // Scroll to top function with improved smoothness
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -66,7 +62,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  // Animation class for active link with enhanced visual effect
   const getActiveClass = (section) => {
     if (activeSection === section) {
       return "font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#f0c14b] to-[#e57e31] scale-110 active-nav-item";
@@ -272,9 +267,7 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
         }
       `}</style>
 
-      {/* Desktop Navigation */}
       <div className="hidden w-full lg:flex items-center justify-between">
-        {/* Logo / Personal Brand */}
         <Link
           to="Home-section"
           spy={true}
@@ -291,7 +284,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
           </div>
         </Link>
 
-        {/* Navigation Links */}
         <nav className="flex">
           <div className="flex cursor-pointer items-center justify-center space-x-8">
             <Link
@@ -396,7 +388,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
               </a>
             </div>
 
-            {/* Scroll to Top Button in Desktop View (Inside Header) */}
             {showScrollTop && (
               <div
                 className="scroll-top-button animate-fadeInDown ml-2"
@@ -410,7 +401,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
         </nav>
       </div>
 
-      {/* Mobile Navigation */}
       <div className="flex w-full px-4 justify-between items-center lg:hidden">
         <Link
           to="Home-section"
@@ -429,7 +419,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
         </Link>
 
         <div className="flex items-center">
-          {/* Scroll to Top Button in Mobile View */}
           {showScrollTop && (
             <div
               className="scroll-top-button animate-fadeInDown h-8 w-8 mr-3"
@@ -449,7 +438,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <nav className="absolute left-0 top-full block w-full cursor-pointer lg:hidden">
           <div className="glass-effect mx-4 mt-2 flex flex-col items-center justify-center space-y-5 py-5 animate-fadeInDown">
@@ -545,7 +533,6 @@ const Header = ({ onOpenAbout, onOpenContact }) => {
         </nav>
       )}
 
-      {/* Scroll Down Indicator */}
       {showScrollIndicator && !isScrolling && (
         <div className="absolute bottom-[-50px] left-1/2 transform -translate-x-1/2 animate-bounce hidden xs:block">
           <Link

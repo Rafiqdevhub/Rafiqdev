@@ -5,13 +5,11 @@ import { Toaster } from "react-hot-toast";
 import ArchiveProjectCard from "../components/ArchiveProjectCard";
 import ProjectListHeader from "../components/ProjectListHeader";
 
-/* Performance: Implement virtualization and optimizations */
 function ArchiveProjects() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedTech, setSelectedTech] = useState("");
   const [expandedDescriptions, setExpandedDescriptions] = useState(new Set());
 
-  /* Performance: Memoize callbacks */
   const toggleDescription = useCallback((index) => {
     setExpandedDescriptions((prev) => {
       const newSet = new Set(prev);
@@ -28,7 +26,6 @@ function ArchiveProjects() {
     setSelectedTech(tech);
   }, []);
 
-  /* Performance: Memoize derived data */
   const uniqueTechnologies = useMemo(
     () => [
       ...new Set(

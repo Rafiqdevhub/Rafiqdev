@@ -9,5 +9,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   </React.StrictMode>
 );
 
-// Register the service worker for production environments
 register();

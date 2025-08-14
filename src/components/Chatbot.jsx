@@ -19,12 +19,10 @@ function Chatbot() {
   const [showPopupHint, setShowPopupHint] = useState(false);
   const chatContainerRef = useRef(null);
 
-  // Show a hint popup after 3 seconds if the chat hasn't been opened yet
   useEffect(() => {
     const timer = setTimeout(() => {
       if (!isOpen) {
         setShowPopupHint(true);
-        // Auto-hide the hint after 5 seconds
         setTimeout(() => setShowPopupHint(false), 5000);
       }
     }, 3000);
@@ -32,7 +30,6 @@ function Chatbot() {
     return () => clearTimeout(timer);
   }, [isOpen]);
 
-  // Memoize the portfolio context to prevent recreation on each render
   const portfolioContext = useMemo(
     () => ({
       owner: {
@@ -123,24 +120,19 @@ function Chatbot() {
   const handleSend = useCallback(async () => {
     if (inputText.trim() === "") return;
 
-    // Add user message
     setMessages((prevMessages) => [
       ...prevMessages,
       { text: inputText, sender: "user" },
     ]);
 
-    // Save the user message and clear input field
     const userMessage = inputText;
     setInputText("");
 
-    // Show typing indicator
     setIsTyping(true);
 
-    // Process the message with AI and add the response with a delay for natural feel
     try {
       const timeoutId = setTimeout(async () => {
         try {
-          // Use our AI-powered message processor (with fallback mechanism)
           const response = await processUserMessage(
             userMessage,
             portfolioContext
@@ -165,7 +157,6 @@ function Chatbot() {
         }
       }, 1200);
 
-      // Cleanup timeout if component unmounts
       return () => clearTimeout(timeoutId);
     } catch (error) {
       console.error("Error in handleSend:", error);
@@ -200,7 +191,6 @@ function Chatbot() {
 
   return (
     <div className="fixed bottom-4 right-4" style={{ zIndex: 1001 }}>
-      {/* Chat toggle button with pulsing animation when closed */}
       <button
         onClick={toggleChatbot}
         className={`flex h-12 w-12 xs:h-14 xs:w-14 items-center justify-center rounded-full shadow-lg transition-all duration-300 ${
@@ -220,7 +210,6 @@ function Chatbot() {
         )}
       </button>
 
-      {/* Popup hint */}
       {showPopupHint && !isOpen && (
         <div className="absolute bottom-16 right-0 bg-gradient-to-r from-[#4158d0] to-[#c850c0] text-white text-xs xs:text-sm rounded-lg px-3 py-2 shadow-lg animate-fade-in">
           <span className="flex items-center">
@@ -230,7 +219,6 @@ function Chatbot() {
         </div>
       )}
 
-      {/* Chat container with entrance animation */}
       {isOpen && (
         <div
           ref={chatContainerRef}
@@ -239,7 +227,6 @@ function Chatbot() {
             boxShadow: "0 10px 25px rgba(65, 88, 208, 0.3)",
           }}
         >
-          {/* Header with gradient */}
           <div className="bg-gradient-to-r from-[#4158d0] to-[#c850c0] flex h-12 xs:h-14 items-center justify-between px-3 xs:px-4 border-b border-indigo-500/30">
             <div className="flex items-center">
               <FaRobot className="text-white mr-2 text-sm xs:text-base" />
@@ -266,7 +253,6 @@ function Chatbot() {
             </div>
           </div>
 
-          {/* Chat messages area with glass morphism effect */}
           <div
             className="flex h-[260px] xs:h-[300px] flex-col overflow-y-auto p-3 xs:p-4"
             style={{
@@ -316,7 +302,6 @@ function Chatbot() {
               </div>
             ))}
 
-            {/* Typing indicator with improved animation */}
             {isTyping && (
               <div className="mb-3 xs:mb-4 max-w-[85%] animate-fade-in flex items-start">
                 <div className="rounded-full bg-gradient-to-r from-[#4158d0] to-[#c850c0] p-1.5 mr-2">
@@ -341,7 +326,6 @@ function Chatbot() {
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input area with glass morphism effect */}
           <div className="flex h-[45px] xs:h-[52px] items-center border-t border-white/10 bg-black/30 backdrop-blur-md px-3 xs:px-4">
             <input
               type="text"
