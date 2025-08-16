@@ -1,11 +1,9 @@
 export const skillsData = [
-  // Languages
   "Javascript",
   "Typescript",
   "Python",
   "golang",
 
-  // Frontend
   "html",
   "CSS",
   "React",
@@ -20,7 +18,6 @@ export const skillsData = [
   "Chart.js",
   "react-chartjs-2",
 
-  // Backend
   "NodeJS",
   "Express",
   "FastAPI",
@@ -29,14 +26,12 @@ export const skillsData = [
   "Mongoose",
   "Pydantic",
 
-  // Mobile
   "React Native",
   "Expo",
   "Expo Router",
   "React Native Reanimated",
   "AsyncStorage",
 
-  // Database
   "MongoDB",
   "PostgreSQL",
   "Supabase",
@@ -45,7 +40,6 @@ export const skillsData = [
   "Prisma ORM",
   "neondb",
 
-  // AI/ML
   "pandas",
   "NumPy",
   "TensorFlow",
@@ -62,7 +56,6 @@ export const skillsData = [
   "Sentence Transformer",
   "Ollama",
 
-  // DevOps
   "Git",
   "Github",
   "Docker",
@@ -70,7 +63,6 @@ export const skillsData = [
   "Sentry",
   "Upstash",
 
-  // Tools
   "Figma",
   "Canva",
   "Stripe",
