@@ -68,6 +68,25 @@ export const ProjectsList = {
       liveLink: "/",
     },
     {
+      name: "AI Mock Interview Preparation",
+      description:
+        "An AI-powered interview practice platform that helps you prepare for job interviews with realistic simulations and instant feedback. Features include AI-powered interviews tailored to your desired role and tech stack, voice interaction for natural conversations, instant feedback and personalized analytics, technology-specific questions, and secure user authentication.",
+      technologies: [
+        "Next.js 15",
+        "React 19",
+        "TypeScript",
+        "Firebase",
+        "Firebase Admin",
+        "Vapi.ai",
+        "Google Gemini AI",
+        "Tailwind CSS",
+        "Zod",
+        "React Hook Form",
+        "Sonner",
+      ],
+      liveLink: "https://ai-mock-interview-preparation-seven.vercel.app/",
+    },
+    {
       name: "LiteraryHub: MERN Digital Bookstore",
       description:
         "The Book Store is a modern, responsive application designed with MERN stack to help users find and purchase books. Built with the latest web technologies, including React.js 19, this app provides a seamless and intuitive user experience across all devices.",
