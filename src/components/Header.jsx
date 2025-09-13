@@ -386,6 +386,7 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
                 href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                download="Rafiq_CV.pdf"
                 className={`button-UI w-[120px] rounded-lg px-4 py-1.5 font-bold tracking-wider text-[#0f0f1a] shadow-xl transition-all duration-300 
                   hover:opacity-90 hover:shadow-[0_8px_30px_rgba(240,193,75,0.3)]
                   ${
@@ -551,6 +552,7 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
                 href={resumeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                download="Rafiq_CV.pdf"
                 className="button-UI w-[120px] rounded-lg px-4 py-1.5 font-bold tracking-wider text-[#0f0f1a] shadow-xl transition-all duration-300 hover:opacity-90 hover:shadow-[0_8px_30px_rgba(240,193,75,0.3)] inline-block text-center"
                 style={{
                   background: "linear-gradient(to right, #f0c14b, #e57e31)",
