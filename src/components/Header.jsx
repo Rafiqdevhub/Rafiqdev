@@ -76,7 +76,7 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
       className={`fixed top-0 z-50 flex w-full items-center justify-center py-3 xs:py-4 text-base transition-all duration-500 sm:px-4 lg:px-28
       ${
         isScrolling
-          ? "bg-gradient-to-r from-[#0f0f1a]/95 via-[#0f0f1a]/90 to-[#0f0f1a]/95 backdrop-blur-md shadow-lg shadow-[#f0c14b]/5"
+          ? "bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95 backdrop-blur-md shadow-lg shadow-yellow-400/5 border-b border-slate-800/50"
           : "bg-transparent"
       }`}
     >
@@ -208,13 +208,6 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
           color: transparent;
           font-weight: bold;
           letter-spacing: 0.5px;
-        }
-        .glass-effect {
-          backdrop-filter: blur(8px);
-          background: rgba(15, 15, 26, 0.85);
-          border: 1px solid rgba(240, 193, 75, 0.1);
-          border-radius: 10px;
-          box-shadow: 0 8px 32px 0 rgba(15, 15, 26, 0.2);
         }
         .scroll-top-button {
           height: 40px;
@@ -467,7 +460,7 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
             </div>
           )}
           <button
-            className="flex items-center justify-center h-10 w-10 rounded-full bg-[#0f0f1a]/50 border border-[#f0c14b]/20 text-[#f0c14b] hover:text-[#e57e31] focus:outline-none transition-all duration-300 hover:rotate-180"
+            className="flex items-center justify-center h-10 w-10 rounded-full bg-slate-800/50 border border-yellow-400/20 text-yellow-400 hover:text-orange-500 focus:outline-none transition-all duration-300 hover:rotate-180"
             onClick={toggleMobileMenu}
             aria-label="Menu"
           >
@@ -478,7 +471,7 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
 
       {mobileMenuOpen && (
         <nav className="absolute left-0 top-full block w-full cursor-pointer lg:hidden">
-          <div className="glass-effect mx-4 mt-2 flex flex-col items-center justify-center space-y-5 py-5 animate-fadeInDown">
+          <div className="bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95 backdrop-blur-md mx-4 mt-2 flex flex-col items-center justify-center space-y-5 py-5 animate-fadeInDown border border-slate-800/50 rounded-lg shadow-lg">
             <Link
               activeClass="active"
               spy={true}
@@ -621,8 +614,8 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
             isDynamic={true}
             className="flex flex-col items-center cursor-pointer"
           >
-            <span className="text-xs text-[#f0c14b] mb-1">Scroll</span>
-            <FaChevronDown className="text-[#f0c14b]" />
+            <span className="text-xs text-yellow-400 mb-1">Scroll</span>
+            <FaChevronDown className="text-yellow-400" />
           </Link>
         </div>
       )}

@@ -40,7 +40,7 @@ Whether it's crafting cloud-based SaaS products, building AI-powered application
     ],
     autoStart: true,
     loop: true,
-    deleteSpeed: 30,
+    deleteSpeed: 50,
   },
   experiences: [
     {

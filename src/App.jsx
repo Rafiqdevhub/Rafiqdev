@@ -15,7 +15,7 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 const Chatbot = lazy(() => import("./components/Chatbot"));
 
 const PageLoader = () => (
-  <div className="flex items-center justify-center min-h-screen bg-[#0f0f1a]">
+  <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
     <div className="loader-spinner"></div>
   </div>
 );

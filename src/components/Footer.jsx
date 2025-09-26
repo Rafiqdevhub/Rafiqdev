@@ -15,7 +15,7 @@ function Footer() {
 
   return (
     <footer className="relative mt-auto pt-12">
-      <div className="bg-gradient-to-t from-[#0f0f1a] to-transparent px-4 py-8">
+      <div className="bg-gradient-to-t from-slate-950 to-transparent px-4 py-8">
         <div className="flex flex-col items-center justify-center gap-6">
           <div className="flex items-center justify-center gap-6">
             {socialMedia.map((social) => {
