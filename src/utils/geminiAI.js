@@ -151,7 +151,7 @@ export const generateGeminiResponse = async (prompt, portfolioContext) => {
 
     // Set a generation config optimized for detailed responses
     const generationConfig = {
-      maxOutputTokens: 800, // Increased from 250 for more detailed responses
+      maxOutputTokens: 800,
       temperature: 0.7,
       topP: 0.9,
       topK: 40,
