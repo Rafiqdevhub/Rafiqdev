@@ -332,6 +332,28 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
               duration={800}
               delay={0}
               isDynamic={true}
+              to="Experiences-section"
+              onMouseEnter={() => setHoverItem("Experiences-section")}
+              onMouseLeave={() => setHoverItem(null)}
+              className="animate-fadeInDown"
+              style={{ animationDelay: "250ms" }}
+            >
+              <p
+                className={`link-hover-effect ${getActiveClass(
+                  "Experiences-section"
+                )}`}
+              >
+                Experience
+              </p>
+            </Link>
+            <Link
+              activeClass="active"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={800}
+              delay={0}
+              isDynamic={true}
               to="Project-section"
               onMouseEnter={() => setHoverItem("Project-section")}
               onMouseLeave={() => setHoverItem(null)}
@@ -494,6 +516,27 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
                 About
               </p>
             </button>
+            <Link
+              activeClass="active"
+              spy={true}
+              smooth={true}
+              offset={-70}
+              duration={800}
+              delay={0}
+              isDynamic={true}
+              to="Experiences-section"
+              onMouseEnter={() => setHoverItem("Experiences-section")}
+              onMouseLeave={() => setHoverItem(null)}
+            >
+              <p
+                className={`link-hover-effect ${getActiveClass(
+                  "Experiences-section"
+                )}`}
+                onClick={toggleMobileMenu}
+              >
+                Experience
+              </p>
+            </Link>
             <Link
               activeClass="active"
               spy={true}

@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Home from "./Home";
 import Footer from "../components/Footer";
 import Project from "./Project";
+import Experiences from "./experiences";
 import { Element } from "react-scroll";
 import { useState, useEffect as useEffectReact } from "react";
 import AboutModal from "../components/AboutModal";
@@ -48,6 +49,12 @@ function Layout() {
       />
       <Element name="Home-section" className="w-full">
         <Home />
+      </Element>
+      <Element
+        name="Experiences-section"
+        className="w-full pt-2 xxs:pt-3 xs:pt-4 md:pt-8"
+      >
+        <Experiences />
       </Element>
       <Element
         name="Project-section"
