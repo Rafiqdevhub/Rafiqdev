@@ -50,9 +50,9 @@ function App() {
   return (
     <Router>
       <ErrorBoundary>
-        <div className="App overflow-x-hidden">
+        <div className=" overflow-x-hidden">
           <Preloader load={load} />
-          <div className="App" id={load ? "no-scroll" : "scroll"}>
+          <div id={load ? "no-scroll" : "scroll"}>
             <ScrollToTopOnRouteChange />
             <Suspense fallback={<PageLoader />}>
               <Routes>
