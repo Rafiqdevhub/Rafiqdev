@@ -7,7 +7,6 @@ import {
   FaRocket,
   FaStar,
 } from "react-icons/fa";
-import { UserData } from "../data/UserData";
 import RafiqImageSrc from "../Assets/images/profile.png";
 import PropTypes from "prop-types";
 
@@ -93,8 +92,8 @@ function Home() {
   const achievements = useMemo(
     () => [
       { Icon: FaRocket, text: "Problem Solver", delay: 800 },
-      { Icon: FaStar, text: "AI/ML Engineer", delay: 1000 },
       { Icon: FaCode, text: "Full-Stack Expert", delay: 1200 },
+      { Icon: FaStar, text: "AI/ML Engineer", delay: 1000 },
     ],
     []
   );
@@ -114,7 +113,7 @@ function Home() {
               <h1 className="font-poppins font-bold text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight">
                 Hello, I&apos;m{" "}
                 <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-300 bg-clip-text text-transparent">
-                  {UserData.name.split(" ")[0]}
+                  Muhammad Rafiq
                 </span>
               </h1>
 
@@ -123,11 +122,10 @@ function Home() {
                 <div className="pl-6">
                   <h2 className="text-xl xs:text-2xl sm:text-3xl lg:text-4xl text-slate-300 font-light leading-tight">
                     <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-300 bg-clip-text text-transparent font-semibold">
-                      Full-Stack Developer
+                      Full-Stack Developer,
                     </span>{" "}
-                    &{" "}
                     <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-300 bg-clip-text text-transparent font-semibold">
-                      AI Engineer
+                      AI & Devops Enthusiast
                     </span>
                   </h2>
                   <p className="text-slate-400 text-lg sm:text-xl mt-2 font-light">
