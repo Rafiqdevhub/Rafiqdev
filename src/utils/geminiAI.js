@@ -1,19 +1,16 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { getEnv } from "./env";
 import { UserData } from "../data/UserData";
+import { ProjectsList } from "../data/ProjectsList";
 import { handleApiError, withRetry } from "./networkHandlers";
 
 /**
- * Prepare portfolio context data for the AI
- * @param {object} portfolioContext - Original portfolio context
- * @returns {string} - Stringified version with comprehensive information for detailed responses
+ * Singleton Gemini AI instance
  */
-
-// Cache for the AI instance to avoid recreation
 let genAIInstance = null;
 
 /**
- * Initialize the Google Generative AI with API key from environment variables
+ * Initialize Gemini AI with API key from environment variables
  * Uses singleton pattern to avoid recreating the instance
  */
 const initializeGenerativeAI = () => {
@@ -21,7 +18,7 @@ const initializeGenerativeAI = () => {
 
   const apiKey = getEnv("VITE_GEMINI_API_KEY", "");
   if (!apiKey) {
-    console.error("Gemini API Key is not defined in environment variables");
+    console.error("❌ Gemini API key missing in environment variables.");
     return null;
   }
 
@@ -30,84 +27,88 @@ const initializeGenerativeAI = () => {
 };
 
 /**
- * Prepare portfolio context data for the AI
- * @param {object} portfolioContext - Original portfolio context
- * @returns {string} - Stringified version with comprehensive information
+ * Prepare complete portfolio context for AI understanding
  */
 const prepareContextData = (portfolioContext) => {
   try {
-    // Enhance context with social media links
     const socialLinks = {};
-    UserData.socialMedia.forEach((media) => {
-      socialLinks[media.socialMediaName] = media.url;
+    UserData.socialMedia?.forEach((media) => {
+      socialLinks[media.socialMediaName.toLowerCase()] = media.url;
     });
 
-    // Include resume URL
-    const resumeUrl = UserData.resumeUrl;
-
-    // Include full experiences from UserData
-    const experiences = UserData.experiences || [];
-
-    // Create comprehensive context for the AI with full details
     const comprehensiveContext = {
       owner: {
         ...portfolioContext.owner,
-        biography: UserData.about,
+        name: UserData.name,
         email: UserData.email,
-        socialLinks: socialLinks,
-        resumeUrl: resumeUrl,
+        location: UserData.location,
+        phone: UserData.phone,
+        biography: UserData.about,
+        resumeUrl: UserData.resumeUrl,
+        typewriterOptions: UserData.typewriterOptions,
+        socialLinks,
       },
-      skills: portfolioContext.skills,
+      skills: UserData.skills,
+      education: UserData.education,
+      projects: ProjectsList.projects || [],
       experience: {
-        summary: portfolioContext.experience.summary,
-        highlights: portfolioContext.experience.highlights,
-        workExperience: experiences, // Include actual work experiences
+        summary: portfolioContext.experience?.summary,
+        highlights: portfolioContext.experience?.highlights,
+        workExperience: UserData.experiences || [],
       },
-      education: portfolioContext.education,
-      projects: portfolioContext.projects.map((p) => ({
-        name: p.name,
-        description: p.description, // Include full descriptions
-        technologies: p.technologies, // Include all technologies
-        link: p.link || null,
-        github: p.github || null,
-      })),
       contact: {
         email: UserData.email,
+        phone: UserData.phone,
+        location: UserData.location,
         socialMedia: socialLinks,
-        resume: resumeUrl,
+        resume: UserData.resumeUrl,
       },
+      activities: UserData.activities,
+      languages: UserData.languages,
     };
 
-    return JSON.stringify(comprehensiveContext);
+    return JSON.stringify(comprehensiveContext, null, 2);
   } catch (error) {
-    console.error("Error preparing context data:", error);
+    console.error("⚠️ Error preparing context:", error);
     return JSON.stringify({
-      owner: { name: UserData.name, role: "Full Stack Developer" },
-      error: "Error preparing full context",
+      owner: { name: UserData.name || "Rafiq", role: "Full Stack Developer" },
+      error: "Context preparation failed",
     });
   }
 };
 
 /**
- * Generate a response using Google's Gemini AI model with retry capability
- * @param {string} prompt - The user's message to generate a response for
- * @param {object} portfolioContext - Context about the portfolio to help generate relevant responses
- * @returns {Promise<string>} - The generated response
+ * Verify and clean the AI response before returning it to the user
+ */
+const sanitizeAIResponse = (responseText) => {
+  if (!responseText || responseText.trim() === "") {
+    return "I don’t have that information.";
+  }
+
+  // Remove unnecessary phrases Gemini sometimes adds
+  const cleanText = responseText
+    .replace(/^Sure, /i, "")
+    .replace(/^Here’s (the|a) link:?/i, "")
+    .replace(/^(As an AI|I'm sorry).*$/i, "")
+    .trim();
+
+  return cleanText || "I don’t have that information.";
+};
+
+/**
+ * Generate concise, context-aware portfolio responses
  */
 export const generateGeminiResponse = async (prompt, portfolioContext) => {
   try {
-    // Initialize with retry in case of network flakiness during initialization
     const genAI = await withRetry(initializeGenerativeAI);
 
     if (!genAI) {
-      return "I'm currently experiencing technical difficulties. Please check back later or use the contact form to reach out directly.";
+      return "System unavailable. Please try again later.";
     }
 
-    // Choose a model - use environment variable with fallback
     const modelName = getEnv("VITE_GEMINI_MODEL", "gemini-2.0-flash");
     const model = genAI.getGenerativeModel({
       model: modelName,
-      // Add safety settings for production
       safetySettings: [
         {
           category: "HARM_CATEGORY_HARASSMENT",
@@ -120,65 +121,51 @@ export const generateGeminiResponse = async (prompt, portfolioContext) => {
       ],
     });
 
-    // Get context data
     const contextString = prepareContextData(portfolioContext);
 
-    // Create the full prompt with context
+    // 🔹 Prompt rules for precise and consistent responses
     const fullPrompt = `
-    You are a helpful virtual assistant for ${portfolioContext.owner.name}, a ${portfolioContext.owner.role}.
-    You're embedded on their portfolio website to help visitors learn about their skills, experience, and projects.
+You are Rafiq’s portfolio AI assistant.
 
-    When answering:
-    - Be professional but conversational and engaging
-    - Provide detailed, comprehensive responses that showcase ${portfolioContext.owner.name}'s expertise
-    - Be specific and refer to actual projects, skills, technologies, and experiences from the context
-    - When discussing projects, mention specific technologies used and key features
-    - When discussing experience, reference actual work history and achievements
-    - If you don't know something specific, offer to connect the visitor with ${portfolioContext.owner.name} directly
-    - Don't make up information that's not in the portfolio context
-    - When asked about social media links or contact information, ALWAYS provide the actual links from the context
-    - Emphasize that visitors can connect through various platforms like GitHub, LinkedIn, Twitter, or Instagram
-    - Never provide personal contact details beyond what's in the portfolio context
-    - For technical questions, provide detailed explanations of technologies and approaches used
-    - When discussing skills, mention specific frameworks, tools, and methodologies
+Your strict rules:
+1. Answer questions based only on the provided portfolio context.
+2. Be specific and concise. Do not add extra information, commentary, or filler.
+3. If asked for a link (GitHub, LinkedIn, resume, etc.), return ONLY the URL.
+4. If asked for a list (projects, skills, experiences, etc.), provide the list clearly.
+5. If asked about a specific project, reply in one short paragraph.
+6. If the question is outside the portfolio context or you don't have info, reply only with: "I don't have that information."
+7. Do not include greetings, sign-offs, or markdown.
+8. No emojis, no polite fluff.
 
-    Here's the comprehensive portfolio context (information about ${portfolioContext.owner.name}):
-    ${contextString}
+Response tone:
+- Clean, factual, and minimal.
 
-    User's message: ${prompt}
+Portfolio Context (JSON):
+${contextString}
 
-    Your detailed and helpful response:`;
+User Message: ${prompt}
+Response:
+`;
 
-    // Set a generation config optimized for detailed responses
     const generationConfig = {
-      maxOutputTokens: 800,
-      temperature: 0.7,
+      maxOutputTokens: 300,
+      temperature: 0.5,
       topP: 0.9,
       topK: 40,
     };
 
-    // Generate content with retry mechanism
-    const generateWithRetry = async () => {
-      const result = await model.generateContent({
+    const result = await withRetry(async () => {
+      const res = await model.generateContent({
         contents: [{ role: "user", parts: [{ text: fullPrompt }] }],
         generationConfig,
       });
-      return result.response;
-    };
+      return res.response;
+    });
 
-    const response = await withRetry(generateWithRetry, 2, 1500);
-    return response.text();
+    return sanitizeAIResponse(result.text());
   } catch (error) {
-    // Use standardized error handling - don't store the return value since we're
-    // handling it inline with a friendly message
-    handleApiError(error, "Gemini AI Response Generation");
-
-    // Log more details in development
-    if (import.meta.env.DEV) {
-      console.error("Full error details:", error);
-    }
-
-    // Return a friendly message that doesn't expose technical details
-    return "I'm sorry, but I encountered an issue processing your request. Please try again or contact directly through the contact form.";
+    handleApiError(error, "Gemini Portfolio Assistant");
+    if (import.meta.env.DEV) console.error("Detailed error:", error);
+    return "I encountered an issue processing your request. Please try again later.";
   }
 };

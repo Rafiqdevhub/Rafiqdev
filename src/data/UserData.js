@@ -1,13 +1,11 @@
 export const UserData = {
   name: "Muhammad Rafiq",
   email: "rafkhan9323@gmail.com",
-  about: `Hi, I'm Rafiq — a Full-Stack Developer and AI Engineer passionate about building innovative, scalable solutions that make a difference.
+  location: "Peshawar, KPK, Pakistan",
+  phone: "+923129185825",
+  about: `Self-driven developer and continuous learner with a passion for turning ideas into real-world solutions guided by the belief that "a great developer doesn't just write code, they solve problems."
 
-I architect and develop high-performance applications using modern tech stacks: React.js/Next.js for web, React Native for mobile, and Node.js/Python for robust backend services. My expertise extends to building real-time features and implementing complex database solutions with both SQL and NoSQL technologies.
-
-What sets me apart is my deep experience in AI/ML technologies. I specialize in developing intelligent systems using OpenAI, Google's Gemini, and custom LLM architectures. I've successfully implemented RAG systems, AI agents, and NLP solutions that enhance user experiences and automate complex workflows.
-
-Whether it's crafting cloud-based SaaS products, building AI-powered applications, or mentoring fellow developers, I bring a blend of technical expertise and innovative problem-solving to every project. I'm committed to writing clean, efficient code that scales and maintaining high standards through modern DevOps practices.`,
+Highly motivated and results-oriented with expertise in MERN, Python, and React Native; proficient in building scalable web/mobile applications and integrating AI/ML-driven solutions such as chatbots, and automation.`,
   resumeUrl: "/Rafiq CV.pdf",
 
   socialMedia: [
@@ -50,9 +48,7 @@ Whether it's crafting cloud-based SaaS products, building AI-powered application
       location: "Onsite",
       description: [
         "Developed and maintained responsive web applications using React.js",
-        "Optimized UI performance and user experience",
-        "Collaborated with backend teams to deliver scalable features",
-        "Implemented modern frontend development practices and best practices",
+        "Optimized UI performance, and collaborated with backend teams to deliver scalable features",
       ],
       technologies: [
         "React.js",
@@ -60,7 +56,6 @@ Whether it's crafting cloud-based SaaS products, building AI-powered application
         "HTML",
         "CSS",
         "Responsive Design",
-        "UI/UX Optimization",
       ],
     },
     {
@@ -72,7 +67,6 @@ Whether it's crafting cloud-based SaaS products, building AI-powered application
         "Contributing to the development of scalable backend systems for cloud-based applications",
         "Designing and integrating secure, high-performance RESTful APIs and microservices",
         "Collaborating with cross-functional teams to implement features, optimize performance, and improve architecture",
-        "Implementing best practices for backend development and system scalability",
       ],
       technologies: [
         "Node.js",
@@ -81,7 +75,6 @@ Whether it's crafting cloud-based SaaS products, building AI-powered application
         "RESTful APIs",
         "Microservices",
         "Cloud Architecture",
-        "Database Design",
       ],
     },
     {
@@ -93,7 +86,6 @@ Whether it's crafting cloud-based SaaS products, building AI-powered application
         "Contributed to internal tools and automation projects",
         "Collaborated with senior developers on UI enhancements and API optimization",
         "Learned industry best practices for clean code, version control, and responsive design",
-        "Participated in full-stack development workflows and team collaboration",
       ],
       technologies: [
         "JavaScript",
@@ -102,8 +94,49 @@ Whether it's crafting cloud-based SaaS products, building AI-powered application
         "API Development",
         "Version Control",
         "Responsive Design",
-        "UI/UX",
       ],
+    },
+  ],
+  education: {
+    degree: "BS Computer Science",
+    duration: "2022 - 2026",
+  },
+  skills: {
+    technical: [
+      "Frontend: HTML, CSS, JavaScript, TypeScript, React.js, Next.js",
+      "Backend: Node.js, Express.js, Python (FastAPI, Django, and Flask)",
+      "Mobile Development: React Native, Expo",
+      "Databases: MongoDB, PostgreSQL, and MySQL",
+      "API Integration: RESTful APIs, Third-party APIs",
+      "AI/ML: Machine Learning (basic), OpenAI, Gemini API, Hugging Face, VAPI, Retrieval-Augmented Generation (RAG), LLM integration",
+      "DevOps & Tools: Git, GitHub, Docker, Kubernetes, Postman, Vercel, Netlify",
+      "Cloud: Supabase, Firebase, NeonDB",
+    ],
+    soft: [
+      "Problem Solving",
+      "Fun, energetic, and punctual",
+      "Excellent interpersonal and communication skills",
+      "Passionate",
+    ],
+  },
+  activities: [
+    "Exploring New Tech and AI Tools",
+    "Environmental conservation",
+    "Sports & Fitness",
+    "Traveling and Cultural Exploration",
+  ],
+  languages: [
+    {
+      language: "Pashto",
+      proficiency: "Native proficiency (Mother Tongue)",
+    },
+    {
+      language: "Urdu",
+      proficiency: "Native proficiency (National Language)",
+    },
+    {
+      language: "English",
+      proficiency: "Professional proficiency (Official Language)",
     },
   ],
 };
