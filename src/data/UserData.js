@@ -5,7 +5,7 @@ export const UserData = {
   phone: "+923129185825",
   about: `Self-driven developer and continuous learner with a passion for turning ideas into real-world solutions guided by the belief that "a great developer doesn't just write code, they solve problems."
 
-Highly motivated and results-oriented with expertise in MERN, Python, and React Native; proficient in building scalable web/mobile applications and integrating AI/ML-driven solutions such as chatbots, and automation.`,
+Passionate SDET(Software Development Engineer in Testing) and developer skilled in MERN, Python, and React Native. Experienced in AI/ML integrations, automation, and chatbot development, with strong focus on DevOps, test automation, and building scalable, high-performance applications.`,
   resumeUrl: "/Rafiq CV.pdf",
 
   socialMedia: [
@@ -34,49 +34,13 @@ Highly motivated and results-oriented with expertise in MERN, Python, and React 
     strings: [
       "Problem Solver, Tech Enthusiast",
       "Full-Stack Web & Mobile Developer",
-      "AI/ML Engineer",
+      "AI/ML & SDET Engineer",
     ],
     autoStart: true,
     loop: true,
     deleteSpeed: 50,
   },
   experiences: [
-    {
-      title: "Frontend Developer",
-      company: "Zypher Enterprise",
-      duration: "July 2025 - September 2025",
-      location: "Onsite",
-      description: [
-        "Developed and maintained responsive web applications using React.js",
-        "Optimized UI performance, and collaborated with backend teams to deliver scalable features",
-      ],
-      technologies: [
-        "React.js",
-        "JavaScript",
-        "HTML",
-        "CSS",
-        "Responsive Design",
-      ],
-    },
-    {
-      title: "Backend Developer",
-      company: "Clouditecture",
-      duration: "November 2024 - Present",
-      location: "Hybrid",
-      description: [
-        "Contributing to the development of scalable backend systems for cloud-based applications",
-        "Designing and integrating secure, high-performance RESTful APIs and microservices",
-        "Collaborating with cross-functional teams to implement features, optimize performance, and improve architecture",
-      ],
-      technologies: [
-        "Node.js",
-        "Express.js",
-        "Python",
-        "RESTful APIs",
-        "Microservices",
-        "Cloud Architecture",
-      ],
-    },
     {
       title: "Full-Stack Developer Intern",
       company: "HiSkyTech",
@@ -93,6 +57,42 @@ Highly motivated and results-oriented with expertise in MERN, Python, and React 
         "Node.js",
         "API Development",
         "Version Control",
+        "Responsive Design",
+      ],
+    },
+    {
+      title: "Backend Developer Intern",
+      company: "Clouditecture",
+      duration: "November 2024 - April 2025",
+      location: "Hybrid",
+      description: [
+        "Built scalable cloud-based systems",
+        "Developed secure RESTful APIs and microservices",
+        "Optimized performance across the platform",
+      ],
+      technologies: [
+        "Node.js",
+        "Express.js",
+        "Python",
+        "RESTful APIs",
+        "Microservices",
+        "Cloud Architecture",
+      ],
+    },
+    {
+      title: "Frontend Developer",
+      company: "Zypher Enterprise",
+      duration: "July 2025 - September 2025",
+      location: "Onsite",
+      description: [
+        "Developed and maintained responsive web applications using React.js",
+        "Optimized UI performance and collaborated with backend teams to deliver scalable features",
+      ],
+      technologies: [
+        "React.js",
+        "JavaScript",
+        "HTML",
+        "CSS",
         "Responsive Design",
       ],
     },

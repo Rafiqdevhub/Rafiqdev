@@ -114,8 +114,8 @@ const Experiences = memo(() => {
             A journey through my professional career, showcasing the diverse
             roles and
             <span className="text-[#f0c14b]"> impactful projects</span> that
-            have shaped my expertise in full-stack development, AI engineering,
-            and mobile app development.
+            have shaped my expertise in full-stack development, AI/ML
+            engineering, SDET, and DevOps.
           </p>
         </div>
 

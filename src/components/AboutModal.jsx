@@ -11,79 +11,45 @@ const AboutModal = ({ isOpen, onClose }) => {
 
   const skillCategories = useMemo(
     () => ({
-      languages: ["Javascript", "Typescript", "Python", "golang"],
-      frontend: [
-        "html",
-        "CSS",
-        "React",
-        "Next JS",
-        "Tailwind",
-        "MaterialUI",
-        "Radix UI",
-        "Shadcn UI",
-        "Headless UI",
-        "NativeWind",
-        "Chart.js",
-        "react-chartjs-2",
-      ],
+      languages: ["JavaScript", "TypeScript", "Python"],
+      frontend: ["HTML", "CSS", "JavaScript", "React.js", "Next.js"],
       backend: [
-        "NodeJS",
-        "Express",
+        "Node.js",
+        "Express.js",
+        "Python",
         "FastAPI",
-        "Flask",
         "Django",
-        "Mongoose",
-        "Pydantic",
+        "Flask",
+        "RESTful APIs",
+        "Third-party APIs",
       ],
-      mobile: [
-        "React Native",
-        "Expo",
-        "Expo Router",
-        "React Native Reanimated",
-        "AsyncStorage",
+      mobile: ["React Native", "Expo"],
+      database: ["MongoDB", "PostgreSQL", "MySQL"],
+
+      "ai-ml": [
+        "Machine Learning",
+        "OpenAI",
+        "Gemini API",
+        "Hugging Face",
+        "VAPI",
+        "Retrieval-Augmented Generation",
+        "LLM integration",
       ],
-      database: [
-        "MongoDB",
-        "PostgreSQL",
+      "cloud-deployment": [
         "Supabase",
         "Firebase",
-        "appwrite",
-        "Prisma ORM",
-        "neondb",
+        "NeonDB",
+        "Vercel",
+        "Netlify",
       ],
-      "AI/ML": [
-        "pandas",
-        "NumPy",
-        "TensorFlow",
-        "PyTorch",
-        "OpenAI",
-        "Google Gemini",
-        "Hugging Face",
-        "LangChain",
-        "Claude AI",
-        "Deepseek r1",
-        "OpenCV",
-        "Ultralytics",
-        "FAISS",
-        "Sentence Transformer",
-        "Ollama",
-      ],
-      devOps: ["Git", "Github", "Docker", "Ubuntu", "Sentry", "Upstash"],
-      tools: [
-        "ViteJS",
-        "Figma",
-        "Canva",
-        "Stripe",
-        "Nginx",
+      "sdet-devops": [
+        "Test Automation",
+        "Git",
+        "GitHub",
+        "CI/CD",
+        "Docker",
+        "Kubernetes",
         "Postman",
-        "JWT",
-        "Clerk Auth",
-        "Arcjet",
-        "Nodemailer",
-        "PyAutoGUI",
-        "Pillow",
-        "PyWhatKit",
-        "QRcode",
       ],
     }),
     []
@@ -177,7 +143,25 @@ const AboutModal = ({ isOpen, onClose }) => {
                   }`}
                 >
                   <span className="relative z-10 flex items-center gap-2">
-                    {category.charAt(0).toUpperCase() + category.slice(1)}
+                    {category === "languages"
+                      ? "Languages"
+                      : category === "frontend"
+                      ? "Frontend"
+                      : category === "backend"
+                      ? "Backend"
+                      : category === "mobile"
+                      ? "Mobile"
+                      : category === "database"
+                      ? "Database"
+                      : category === "api-integration"
+                      ? "API Integration"
+                      : category === "ai-ml"
+                      ? "AI/ML"
+                      : category === "cloud-deployment"
+                      ? "Cloud & Deployment"
+                      : category === "sdet-devops"
+                      ? "SDET & DevOps"
+                      : category.charAt(0).toUpperCase() + category.slice(1)}
                     {activeTab === category && (
                       <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#1a1a2e] animate-pulse"></span>
                     )}

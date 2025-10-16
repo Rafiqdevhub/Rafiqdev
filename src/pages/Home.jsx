@@ -5,7 +5,6 @@ import {
   FaMobile,
   FaTools,
   FaRocket,
-  FaStar,
 } from "react-icons/fa";
 import RafiqImageSrc from "../Assets/images/profile.png";
 import PropTypes from "prop-types";
@@ -80,20 +79,11 @@ function Home() {
       {
         Icon: FaCode,
         text: "FULL-STACK",
-        description: "Modern Web Development",
+        description: "Web/Mobile Development",
       },
-      { Icon: FaDatabase, text: "DATABASE", description: "Scalable Solutions" },
-      { Icon: FaMobile, text: "MOBILE", description: "Cross-Platform Apps" },
-      { Icon: FaTools, text: "DEVOPS", description: "Cloud & Automation" },
-    ],
-    []
-  );
-
-  const achievements = useMemo(
-    () => [
-      { Icon: FaRocket, text: "Problem Solver", delay: 800 },
-      { Icon: FaCode, text: "Full-Stack Expert", delay: 1200 },
-      { Icon: FaStar, text: "AI/ML Engineer", delay: 1000 },
+      { Icon: FaMobile, text: "SDET", description: "Test Automation" },
+      { Icon: FaTools, text: "DEVOPS", description: "CI/CD & Deployment" },
+      { Icon: FaDatabase, text: "AI/ML", description: "Intelligent Systems" },
     ],
     []
   );
@@ -125,12 +115,9 @@ function Home() {
                       Full-Stack Developer,
                     </span>{" "}
                     <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-300 bg-clip-text text-transparent font-semibold">
-                      AI & Devops Enthusiast
+                      AI/ML & SDET Engineer
                     </span>
                   </h2>
-                  <p className="text-slate-400 text-lg sm:text-xl mt-2 font-light">
-                    Transforming Ideas into Digital Reality
-                  </p>
                 </div>
               </div>
             </div>
@@ -139,25 +126,15 @@ function Home() {
               className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl animate-fadeInUp"
               style={{ animationDelay: "400ms" }}
             >
-              Passionate about crafting exceptional digital experiences through
-              innovative full-stack development and AI-powered solutions. I
-              specialize in building scalable applications that drive business
-              growth and user engagement.
+              Self-driven developer and continuous learner with a passion for
+              turning ideas into real-world solutions guided by the belief that
+              &ldquo;a great developer doesn&apos;t just write code, they solve
+              problems.&rdquo; Passionate SDET(Software Development Engineer in
+              Testing) and developer skilled in MERN, Python, and React Native.
+              Experienced in AI/ML integrations, automation, and chatbot
+              development, with strong focus on DevOps and building scalable,
+              high-performance applications.
             </p>
-
-            <div
-              className="flex flex-wrap justify-center lg:justify-start gap-3 animate-fadeInUp"
-              style={{ animationDelay: "600ms" }}
-            >
-              {achievements.map((achievement, index) => (
-                <AchievementBadge
-                  key={index}
-                  icon={achievement.Icon}
-                  text={achievement.text}
-                  delay={achievement.delay}
-                />
-              ))}
-            </div>
 
             <div
               className="grid grid-cols-2 sm:grid-cols-4 gap-4 animate-fadeInUp"
