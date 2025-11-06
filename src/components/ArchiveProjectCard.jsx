@@ -38,7 +38,7 @@ const ArchiveProjectCard = memo(
       >
         {isVisible && (
           <>
-            <h2 className="font-poppins text-base xs:text-xl font-bold text-white mb-2 xs:mb-3">
+            <h2 className="font-tinos text-base xs:text-xl font-bold text-white mb-2 xs:mb-3">
               {project.name}
             </h2>
 

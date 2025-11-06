@@ -100,7 +100,7 @@ function Home() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="font-poppins font-bold text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight">
+              <h1 className="font-tinos font-bold text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight">
                 Hello, I&apos;m{" "}
                 <span className="bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-300 bg-clip-text text-transparent">
                   Muhammad Rafiq

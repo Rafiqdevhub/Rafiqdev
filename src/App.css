@@ -1,11 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@font-face {
+  font-family: "Tinos";
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/tinos/v16/buEwpTfczT5H1H5Z1mIdx3s.woff2")
+    format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tinos";
+  font-style: normal;
+  font-weight: 700;
+  src: url("https://fonts.gstatic.com/s/tinos/v16/buEvpTfczT5H1H5Z1mId_VvO6yB_.woff2")
+    format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tinos";
+  font-style: italic;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/s/tinos/v16/buE1pTfczT5H1H5Z1mIdQVeKfzUN-Q.woff2")
+    format("woff2");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Tinos";
+  font-style: italic;
+  font-weight: 700;
+  src: url("https://fonts.gstatic.com/s/tinos/v16/buE3pTfczT5H1H5Z1mIdQVeKfzXR4Tz0.woff2")
+    format("woff2");
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
+  /* Tinos Font Variables */
+  --font-tinos: "Tinos", Georgia, serif;
+  --font-tinos-weight-regular: 400;
+  --font-tinos-weight-bold: 700;
+
   --text-primary: #ffffff;
   /* Pure white for main text */
   --text-secondary: #a3a3a3;
@@ -27,11 +65,37 @@
 }
 
 body {
-  font-family: "Raleway", serif !important;
+  font-family: system-ui, -apple-system, sans-serif !important;
   background: #0f172a;
   min-height: 100vh;
   margin: 0;
   padding: 0;
+}
+
+/* Apply Tinos to all heading elements globally */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-tinos);
+  font-weight: var(--font-tinos-weight-bold);
+}
+
+/* Specific heading styles */
+h1 {
+  font-family: var(--font-tinos);
+  font-weight: 900;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-tinos);
+  font-weight: 700;
 }
 
 html {

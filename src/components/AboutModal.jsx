@@ -125,7 +125,7 @@ const AboutModal = ({ isOpen, onClose }) => {
 
           <div className="mx-auto w-full">
             <div className="relative mb-6">
-              <h3 className="text-center font-poppins text-xl xs:text-2xl font-bold text-white">
+              <h3 className="text-center font-tinos text-xl xs:text-2xl font-bold text-white">
                 Professional <span className="text-[#f0c14b]">Skillset</span>
               </h3>
               <div className="absolute left-1/2 -bottom-3 w-24 h-1 bg-gradient-to-r from-transparent via-[#f0c14b] to-transparent transform -translate-x-1/2"></div>

@@ -16,7 +16,7 @@ const Project = memo(() => {
 
       <div className="relative">
         <div className="text-center space-y-3 xxs:space-y-4 xs:space-y-6 mb-6 xxs:mb-8 xs:mb-10 px-2 xxs:px-4">
-          <h1 className="font-poppins mx-auto w-full xs:w-[90%] text-2xl xxs:text-3xl xs:text-4xl font-bold tracking-wider text-white lg:text-5xl">
+          <h1 className="font-tinos mx-auto w-full xs:w-[90%] text-2xl xxs:text-3xl xs:text-4xl font-bold tracking-wider text-white lg:text-5xl">
             Featured <span className="text-[#f0c14b]">Projects</span>
           </h1>
           <p className="text-[#a3a3a3] text-sm">

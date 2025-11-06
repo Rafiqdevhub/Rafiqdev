@@ -8,11 +8,11 @@ const ProjectCard = memo(({ project, index, isExpanded, onToggle }) => {
   return (
     <div className="relative mb-4 xs:mb-8 h-auto rounded-lg bg-[#1a1a2e] p-3 xs:p-4 shadow-md hover:shadow-[0_8px_30px_rgba(240,193,75,0.2)] transition-shadow duration-300">
       <div className="flex items-center justify-between mb-1 xs:mb-2">
-        <h2 className="font-poppins text-sm xs:text-base sm:text-lg font-semibold text-white lg:text-xl">
+        <h2 className="font-tinos text-sm xs:text-base sm:text-lg font-semibold text-white lg:text-xl">
           {project.name}
         </h2>
       </div>
-      <p className="font-poppins text-xs xs:text-sm text-[#a3a3a3]">
+      <p className="text-xs xs:text-sm text-[#a3a3a3]">
         {isExpanded
           ? project.description
           : project.description.substring(0, 100)}

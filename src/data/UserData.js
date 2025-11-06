@@ -96,6 +96,24 @@ Passionate SDET(Software Development Engineer in Testing) and developer skilled 
         "Responsive Design",
       ],
     },
+    {
+      title: "Software Ambassador Internship",
+      company: "Insite",
+      duration: "July 2025 - September 2025",
+      location: "Remote",
+      description: [
+        "Tested beta software, provided UX and usability feedback",
+        "Contributed research shaping product features and marketing",
+        "Engaged in AI community discussions on safe LLM use",
+      ],
+      technologies: [
+        "Software Testing",
+        "UX Research",
+        "Product Development",
+        "AI/LLM",
+        "Community Engagement",
+      ],
+    },
   ],
   education: {
     degree: "BS Computer Science",
@@ -109,8 +127,8 @@ Passionate SDET(Software Development Engineer in Testing) and developer skilled 
       "Databases: MongoDB, PostgreSQL, and MySQL",
       "API Integration: RESTful APIs, Third-party APIs",
       "AI/ML: Machine Learning (basic), OpenAI, Gemini API, Hugging Face, VAPI, Retrieval-Augmented Generation (RAG), LLM integration",
-      "DevOps & Tools: Git, GitHub, Docker, Kubernetes, Postman, Vercel, Netlify",
-      "Cloud: Supabase, Firebase, NeonDB",
+      "Cloud & Deployment: Supabase, Firebase, NeonDB, Vercel, Netlify",
+      "SDET & DevOps: Test Automation, Git, GitHub, CI/CD, Docker, Kubernetes, Postman",
     ],
     soft: [
       "Problem Solving",

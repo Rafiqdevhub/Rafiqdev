@@ -3,6 +3,14 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
+      fontFamily: {
+        // Tinos serif font for headings and expressive typography
+        tinos: ["'Tinos'", "Georgia", "serif"],
+        // System UI fonts for body text
+        sans: ["system-ui", "-apple-system", "sans-serif"],
+        // Serif fallback option
+        serif: ["'Tinos'", "Georgia", "serif"],
+      },
       screens: {
         xxs: "360px", // Adding smaller breakpoint for very small devices
         xs: "480px",
