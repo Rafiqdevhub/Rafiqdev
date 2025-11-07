@@ -1,19 +1,20 @@
 export const ProjectsList = {
   projects: [
     {
-      name: "JobPsych: AI-Powered Resume Analysis Platform",
+      name: "JobPsych: AI-Powered Career Intelligence Platform",
       description:
-        "A modern web application that revolutionizes HR processes by leveraging AI to analyze resumes and generate intelligent, context-aware interview questions. Features include smart resume analysis for PDF/DOCX formats, AI-powered question generation for technical and behavioral interviews, and a modern UI with drag-and-drop functionality. Built with FastAPI and React, it uses Google's Gemini AI for sophisticated resume parsing.",
+        "A comprehensive AI-powered career intelligence platform that transforms the job search and interview preparation experience. JobPsych combines cutting-edge artificial intelligence with intuitive design to provide personalized career guidance, AI-driven interview preparation, intelligent resume analysis, and role-based career suggestions. Features include an interactive AI Career Assistant for real-time career guidance, smart resume parsing with detailed feedback and improvement suggestions, AI-generated interview questions tailored to specific roles and experience levels, personalized role recommendations based on skills and experience, and comprehensive interview practice sessions with instant feedback. The platform leverages Google's Gemini AI for advanced natural language processing and context-aware responses, creating a seamless experience for job seekers to enhance their career prospects and interview performance.",
       technologies: [
-        "React",
-        "Vite",
+        "TypeScript",
+        "React.js",
+        "Next.js",
+        "TailwindCSS",
+        "Node.js",
+        "Express.js",
+        "Python",
         "FastAPI",
         "Google Gemini AI",
-        "TailwindCSS",
-        "Headless UI",
-        "PyPDF2",
-        "Pydantic",
-        "Stripe",
+        "AI/ML",
       ],
       liveLink: "https://jobpsych.vercel.app/",
     },
@@ -67,25 +68,7 @@ export const ProjectsList = {
       ],
       liveLink: "/",
     },
-    {
-      name: "AI Mock Interview Preparation",
-      description:
-        "An AI-powered interview practice platform that helps you prepare for job interviews with realistic simulations and instant feedback. Features include AI-powered interviews tailored to your desired role and tech stack, voice interaction for natural conversations, instant feedback and personalized analytics, technology-specific questions, and secure user authentication.",
-      technologies: [
-        "Next.js 15",
-        "React 19",
-        "TypeScript",
-        "Firebase",
-        "Firebase Admin",
-        "Vapi.ai",
-        "Google Gemini AI",
-        "Tailwind CSS",
-        "Zod",
-        "React Hook Form",
-        "Sonner",
-      ],
-      liveLink: "https://ai-mock-interview-preparation-seven.vercel.app/",
-    },
+
     {
       name: "LiteraryHub: MERN Digital Bookstore",
       description:

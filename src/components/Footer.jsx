@@ -1,10 +1,9 @@
 import { UserData } from "../data/UserData";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
-import { FaLinkedinIn, FaSquareXTwitter, FaHeart } from "react-icons/fa6";
+import { FaLinkedinIn, FaSquareXTwitter } from "react-icons/fa6";
 
 function Footer() {
   const { socialMedia } = UserData;
-  const currentYear = new Date().getFullYear();
 
   const socialIcons = {
     github: AiFillGithub,
@@ -34,16 +33,6 @@ function Footer() {
                 </a>
               );
             })}
-          </div>
-          <div className="flex flex-col items-center gap-2 text-center">
-            <div className="flex items-center gap-2 text-sm text-[#a3a3a3]">
-              <span>Made with</span>
-              <FaHeart className="text-[#f0c14b] animate-pulse" />
-              <span>by Muhammad Rafiq</span>
-            </div>
-            <p className="text-xs text-[#a3a3a3]">
-              © {currentYear} All Rights Reserved
-            </p>
           </div>
         </div>
       </div>

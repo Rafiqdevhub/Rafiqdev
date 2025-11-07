@@ -552,6 +552,15 @@ html {
   }
 }
 
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
 .animate-float {
   animation: float 3s ease-in-out infinite;
 }
@@ -585,4 +594,7 @@ html {
 .animate-border-flow {
   animation: border-flow 3s ease-in-out infinite;
   background-size: 200% 200%;
+}
+.animate-shimmer {
+  animation: shimmer 2s ease-in-out infinite;
 }

@@ -46,4 +46,7 @@ export const skillsData = [
   "Docker",
   "Kubernetes",
   "Postman",
+  "Playwright",
+  "Vitest",
+  "Jest",
 ];

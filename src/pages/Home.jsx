@@ -93,12 +93,6 @@ function Home() {
       <div className="relative z-10 mx-auto w-[94%] xxs:w-[92%] sm:w-[90%] lg:w-[85%] xl:w-[80%] py-12">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div className="space-y-8 text-center lg:text-left">
-            <div className="inline-flex items-center px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400/10 to-orange-500/10 border border-yellow-400/20 backdrop-blur-sm animate-fadeInUp">
-              <span className="text-yellow-400 text-sm font-medium">
-                👋 Welcome to my portfolio
-              </span>
-            </div>
-
             <div className="space-y-4">
               <h1 className="font-tinos font-bold text-3xl xs:text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-white leading-tight">
                 Hello, I&apos;m{" "}

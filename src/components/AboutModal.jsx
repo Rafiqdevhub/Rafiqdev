@@ -12,7 +12,7 @@ const AboutModal = ({ isOpen, onClose }) => {
   const skillCategories = useMemo(
     () => ({
       languages: ["JavaScript", "TypeScript", "Python"],
-      frontend: ["HTML", "CSS", "JavaScript", "React.js", "Next.js"],
+      frontend: ["HTML", "CSS", "React.js", "Next.js"],
       backend: [
         "Node.js",
         "Express.js",
@@ -21,7 +21,6 @@ const AboutModal = ({ isOpen, onClose }) => {
         "Django",
         "Flask",
         "RESTful APIs",
-        "Third-party APIs",
       ],
       mobile: ["React Native", "Expo"],
       database: ["MongoDB", "PostgreSQL", "MySQL"],
@@ -50,6 +49,9 @@ const AboutModal = ({ isOpen, onClose }) => {
         "Docker",
         "Kubernetes",
         "Postman",
+        "Playwright",
+        "Vitest",
+        "Jest",
       ],
     }),
     []
