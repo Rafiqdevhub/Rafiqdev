@@ -98,7 +98,7 @@ const AboutModal = ({ isOpen, onClose }) => {
           <img
             src={profileImg}
             alt="Profile"
-            className="h-12 w-12 xs:h-14 xs:w-14 rounded-full object-cover ring-2 ring-[#f0c14b]/40"
+            className="h-12 w-12 xs:h-14 xs:w-14 rounded-full object-cover object-center ring-2 ring-[#f0c14b]/40"
             loading="lazy"
           />
           <div>

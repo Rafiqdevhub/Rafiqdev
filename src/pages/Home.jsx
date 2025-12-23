@@ -155,15 +155,16 @@ function Home() {
                 <div className="absolute inset-2 bg-gradient-to-br from-slate-800 to-slate-900 rounded-full border border-slate-700/50"></div>
                 <div className="absolute inset-4 bg-gradient-to-br from-slate-800/80 to-slate-900/80 rounded-full backdrop-blur-sm border border-slate-600/30"></div>
 
-                <div className="absolute inset-6 rounded-full overflow-hidden border-4 border-gradient-to-br from-yellow-400/50 to-orange-500/50">
+                <div className="absolute inset-6 rounded-full overflow-hidden border-4 border-gradient-to-br from-yellow-400/50 to-orange-500/50 bg-transparent">
                   <img
-                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                    className="w-full h-full object-contain transform hover:scale-[1.05] transition-transform duration-700"
                     src={RafiqImageSrc}
                     alt="Muhammad Rafiq - Full-Stack Developer & AI Engineer"
                     loading="eager"
                     decoding="async"
                     width="320"
                     height="320"
+                    style={{ objectPosition: "center top" }}
                   />
                 </div>
 
