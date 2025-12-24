@@ -106,7 +106,7 @@ export const generateGeminiResponse = async (prompt, portfolioContext) => {
       return "System unavailable. Please try again later.";
     }
 
-    const modelName = getEnv("VITE_GEMINI_MODEL", "gemini-2.0-flash");
+    const modelName = getEnv("VITE_GEMINI_MODEL", "gemini-2.5-flash");
     const model = genAI.getGenerativeModel({
       model: modelName,
       safetySettings: [
