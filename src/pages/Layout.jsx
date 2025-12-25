@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { scroller } from "react-scroll";
 import Header from "../components/Header";
 import Home from "./Home";
-import Footer from "../components/Footer";
 import Project from "./Project";
 import Experiences from "./experiences";
 import { Element } from "react-scroll";
@@ -62,7 +61,7 @@ function Layout() {
       >
         <Project />
       </Element>
-      <Footer />
+
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
       <ContactModal
         isOpen={contactOpen}

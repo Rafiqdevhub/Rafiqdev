@@ -376,48 +376,6 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
                 Services
               </p>
             </button>
-            <button
-              onClick={() => onOpenContact?.()}
-              onMouseEnter={() => setHoverItem("Contact-section")}
-              onMouseLeave={() => setHoverItem(null)}
-              className="animate-fadeInDown bg-transparent"
-              style={{ animationDelay: "400ms" }}
-            >
-              <p
-                className={`link-hover-effect ${getActiveClass(
-                  "Contact-section"
-                )}`}
-              >
-                Contact
-              </p>
-            </button>
-            <div
-              className="transform transition-transform duration-300 hover:scale-105 animate-fadeInDown"
-              style={{ animationDelay: "500ms" }}
-              onMouseEnter={() => setHoverItem("resume")}
-              onMouseLeave={() => setHoverItem(null)}
-            >
-              <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                download="Rafiq_CV.pdf"
-                className={`button-UI w-[120px] rounded-lg px-4 py-1.5 font-bold tracking-wider text-[#0f0f1a] shadow-xl transition-all duration-300 
-                  hover:opacity-90 hover:shadow-[0_8px_30px_rgba(240,193,75,0.3)]
-                  ${
-                    hoverItem === "resume" ? "animate-float" : ""
-                  } inline-block text-center`}
-                style={{
-                  animation:
-                    hoverItem === "resume"
-                      ? "float 2s ease-in-out infinite"
-                      : "none",
-                  background: "linear-gradient(to right, #f0c14b, #e57e31)",
-                }}
-              >
-                Resume
-              </a>
-            </div>
 
             {showScrollTop && (
               <div

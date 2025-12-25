@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { UserData } from "../data/UserData";
 import { skillsData } from "../data/SkillsData";
-import profileImg from "../Assets/images/profile.png";
 import PropTypes from "prop-types";
 
 const AboutModal = ({ isOpen, onClose }) => {
@@ -95,12 +94,6 @@ const AboutModal = ({ isOpen, onClose }) => {
         </button>
 
         <div className="flex items-center gap-4 p-5 xs:p-6 pb-0">
-          <img
-            src={profileImg}
-            alt="Profile"
-            className="h-12 w-12 xs:h-14 xs:w-14 rounded-full object-cover object-center ring-2 ring-[#f0c14b]/40"
-            loading="lazy"
-          />
           <div>
             <h2 className="text-xl xs:text-2xl font-bold text-white">
               About Me
