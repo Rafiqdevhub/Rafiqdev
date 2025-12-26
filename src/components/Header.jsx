@@ -2,10 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import { Link, Events, scrollSpy } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
-import { UserData } from "../data/UserData";
 import PropTypes from "prop-types";
 
-const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
+const Header = ({ onOpenAbout, onOpenServices }) => {
   const [isScrolling, setIsScrolling] = useState(false);
   const [activeSection, setActiveSection] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -13,8 +12,6 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const headerRef = useRef(null);
-
-  const { resumeUrl } = UserData;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -279,29 +276,6 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
 
         <nav className="flex">
           <div className="flex cursor-pointer items-center justify-center space-x-8">
-            <Link
-              activeClass="active"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={800}
-              delay={0}
-              isDynamic={true}
-              to="Home-section"
-              onMouseEnter={() => setHoverItem("Home-section")}
-              onMouseLeave={() => setHoverItem(null)}
-              className="animate-fadeInDown"
-              style={{ animationDelay: "100ms" }}
-            >
-              <p
-                className={`link-hover-effect ${getActiveClass(
-                  "Home-section"
-                )}`}
-              >
-                Home
-              </p>
-            </Link>
-
             <button
               onClick={() => onOpenAbout?.()}
               onMouseEnter={() => setHoverItem("About-section")}
@@ -430,27 +404,6 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
       {mobileMenuOpen && (
         <nav className="absolute left-0 top-full block w-full cursor-pointer lg:hidden">
           <div className="bg-gradient-to-br from-slate-950/95 via-slate-900/90 to-slate-950/95 backdrop-blur-md mx-4 mt-2 flex flex-col items-center justify-center space-y-5 py-5 animate-fadeInDown border border-slate-800/50 rounded-lg shadow-lg">
-            <Link
-              activeClass="active"
-              spy={true}
-              smooth={true}
-              offset={-70}
-              duration={800}
-              delay={0}
-              isDynamic={true}
-              to="Home-section"
-              onMouseEnter={() => setHoverItem("Home-section")}
-              onMouseLeave={() => setHoverItem(null)}
-            >
-              <p
-                className={`link-hover-effect ${getActiveClass(
-                  "Home-section"
-                )}`}
-                onClick={toggleMobileMenu}
-              >
-                Home
-              </p>
-            </Link>
             <button
               onClick={() => {
                 onOpenAbout?.();
@@ -525,37 +478,6 @@ const Header = ({ onOpenAbout, onOpenContact, onOpenServices }) => {
                 Services
               </p>
             </button>
-            <button
-              onClick={() => {
-                onOpenContact?.();
-                toggleMobileMenu();
-              }}
-              onMouseEnter={() => setHoverItem("Contact-section")}
-              onMouseLeave={() => setHoverItem(null)}
-            >
-              <p
-                className={`link-hover-effect ${getActiveClass(
-                  "Contact-section"
-                )}`}
-              >
-                Contact
-              </p>
-            </button>
-            <div className="transform transition-transform duration-300 hover:scale-105">
-              <a
-                href={resumeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                download="Rafiq_CV.pdf"
-                className="button-UI w-[120px] rounded-lg px-4 py-1.5 font-bold tracking-wider text-[#0f0f1a] shadow-xl transition-all duration-300 hover:opacity-90 hover:shadow-[0_8px_30px_rgba(240,193,75,0.3)] inline-block text-center"
-                style={{
-                  background: "linear-gradient(to right, #f0c14b, #e57e31)",
-                }}
-                onClick={toggleMobileMenu}
-              >
-                Resume
-              </a>
-            </div>
           </div>
         </nav>
       )}

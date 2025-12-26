@@ -244,7 +244,7 @@ function Home() {
     () => [
       { end: 10, suffix: "+", label: "Projects Completed", delay: 200 },
       { end: 2, suffix: "+", label: "Years Experience", delay: 400 },
-      { end: 30, suffix: "+", label: "Technologies", delay: 600 },
+      { end: 20, suffix: "+", label: "Technologies", delay: 600 },
       { end: 100, suffix: "%", label: "Client Satisfaction", delay: 800 },
     ],
     []
@@ -295,10 +295,9 @@ function Home() {
               className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl animate-fadeInUp"
               style={{ animationDelay: "300ms" }}
             >
-              Crafting digital experiences that blend innovation with
-              functionality. Specialized in building scalable applications,
-              intelligent automation, and robust testing frameworks. Passionate
-              about solving complex problems with clean, efficient code.
+              Self-driven developer and continuous learner with a passion for
+              turning ideas into real-world solutions guided by the belief that
+              “a great developer doesn’t just write code, they solve problems.”
             </p>
 
             <div
@@ -332,7 +331,6 @@ function Home() {
               </a>
             </div>
 
-            {/* Social Links */}
             <div
               className="flex gap-4 justify-center lg:justify-start animate-fadeInUp"
               style={{ animationDelay: "600ms" }}
@@ -451,11 +449,7 @@ function Home() {
           ))}
         </div>
       </div>
-      {/* Contact Modal */}
-      <ContactModal
-        isOpen={isContactModalOpen}
-        onClose={closeContactModal}
-      />{" "}
+      <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />{" "}
     </div>
   );
 }
