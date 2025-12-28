@@ -98,7 +98,7 @@ const Project = memo(() => {
             <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-slate-800/50 to-slate-900/50 border border-slate-700/50 backdrop-blur-sm">
               <FaCode className="text-yellow-400" />
               <div className="text-left">
-                <div className="text-white font-bold text-sm">18+</div>
+                <div className="text-white font-bold text-sm">10+</div>
                 <div className="text-slate-400 text-xs">Projects</div>
               </div>
             </div>
