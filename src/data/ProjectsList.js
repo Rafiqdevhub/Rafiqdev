@@ -38,6 +38,21 @@ export const ProjectsList = {
       liveLink: "https://codify-omega.vercel.app/",
     },
     {
+      name: "HireDesk: AI-Powered Recruitment Platform",
+      description:
+        "A modern, AI-powered recruitment platform that revolutionizes the hiring process. HireDesk enables intelligent resume analysis, automated candidate profiling, smart skills matching to job requirements, and AI-generated role-specific interview questions. Features include comprehensive candidate scoring with detailed reasoning, data persistence across sessions, secure user authentication with JWT, real-time processing with loading states, and a responsive mobile-first UI with glassmorphism effects. The platform integrates with advanced AI services for resume analysis and question generation, making data-driven hiring decisions seamless and confident.",
+      technologies: [
+        "React",
+        "TypeScript",
+        "React Router",
+        "TailwindCSS",
+        "Vite",
+        "Docker",
+        "AI Backend API",
+      ],
+      liveLink: "https://hiredesk.vercel.app/",
+    },
+    {
       name: "HisabKitab: Personal Budget Tracker",
       description:
         "A comprehensive personal budget tracking application built with React Native and Expo. Features include month-wise budget tracking, category management with preset categories, smart features like data persistence, multiple currency support, and an enhanced user experience with beautiful gradient UI design and haptic feedback.",

@@ -14,7 +14,7 @@ import {
   FaBriefcase,
   FaGithub,
   FaLinkedin,
-  FaEnvelope,
+  FaInstagram,
 } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi";
 import RafiqImageSrc from "../Assets/images/profile.png";
@@ -348,10 +348,10 @@ function Home() {
                 color="blue"
               />
               <SocialButton
-                icon={FaEnvelope}
-                href="mailto:rafkhan9323@gmail.com"
-                label="Email Me"
-                color="yellow"
+                icon={FaInstagram}
+                href="https://www.instagram.com/rafiqdevhub/"
+                label="Instagram Profile"
+                color="pink"
               />
             </div>
           </div>

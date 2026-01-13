@@ -2,7 +2,9 @@ import { useEffect, useState, useRef } from "react";
 import { Link, Events, scrollSpy } from "react-scroll";
 import { CgMenuRight } from "react-icons/cg";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import { HiChatBubbleLeftRight, HiSparkles } from "react-icons/hi2";
 import PropTypes from "prop-types";
+import Chatbot from "./Chatbot";
 
 const Header = ({ onOpenAbout, onOpenServices }) => {
   const [isScrolling, setIsScrolling] = useState(false);
@@ -11,7 +13,10 @@ const Header = ({ onOpenAbout, onOpenServices }) => {
   const [hoverItem, setHoverItem] = useState(null);
   const [showScrollIndicator, setShowScrollIndicator] = useState(true);
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+  const [showChatbotHint, setShowChatbotHint] = useState(false);
   const headerRef = useRef(null);
+  const chatbotRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,7 +35,14 @@ const Header = ({ onOpenAbout, onOpenServices }) => {
       }
     };
 
+    const handleClickOutside = (event) => {
+      if (chatbotRef.current && !chatbotRef.current.contains(event.target)) {
+        setIsChatbotOpen(false);
+      }
+    };
+
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("mousedown", handleClickOutside);
     Events.scrollEvent.register("begin", function (to) {
       setActiveSection(to);
     });
@@ -41,12 +53,22 @@ const Header = ({ onOpenAbout, onOpenServices }) => {
       setShowScrollIndicator(false);
     }, 5000);
 
+    // Show chatbot hint after some time if not opened
+    const hintTimer = setTimeout(() => {
+      if (!isChatbotOpen) {
+        setShowChatbotHint(true);
+        setTimeout(() => setShowChatbotHint(false), 6000);
+      }
+    }, 8000);
+
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("mousedown", handleClickOutside);
       Events.scrollEvent.remove("begin");
       clearTimeout(timer);
+      clearTimeout(hintTimer);
     };
-  }, []);
+  }, [isChatbotOpen]);
 
   const scrollToTop = () => {
     window.scrollTo({
@@ -255,6 +277,19 @@ const Header = ({ onOpenAbout, onOpenServices }) => {
           border-radius: 30px;
           z-index: -1;
         }
+        @keyframes slide-up-fade {
+          from {
+            opacity: 0;
+            transform: translate(-50%, 10px);
+          }
+          to {
+            opacity: 1;
+            transform: translate(-50%, 0);
+          }
+        }
+        .animate-slide-up-fade {
+          animation: slide-up-fade 0.3s ease-out;
+        }
       `}</style>
 
       <div className="hidden w-full lg:flex items-center justify-between">
@@ -350,6 +385,40 @@ const Header = ({ onOpenAbout, onOpenServices }) => {
                 Services
               </p>
             </button>
+
+            <div className="relative group">
+              <button
+                onClick={() => setIsChatbotOpen(!isChatbotOpen)}
+                onMouseEnter={() => {
+                  setHoverItem("Chatbot");
+                  setShowChatbotHint(false);
+                }}
+                onMouseLeave={() => setHoverItem(null)}
+                className="animate-fadeInDown bg-transparent flex items-center space-x-1"
+                style={{ animationDelay: "400ms" }}
+                title="Open AI Assistant"
+              >
+                <p className={`link-hover-effect ${getActiveClass("Chatbot")}`}>
+                  <HiChatBubbleLeftRight className="text-lg" />
+                </p>
+              </button>
+
+              {/* Chatbot Hint */}
+              {showChatbotHint && !isChatbotOpen && (
+                <div className="absolute -bottom-24 left-1/2 transform -translate-x-1/2 animate-slide-up-fade z-40">
+                  <div className="relative bg-indigo-600 text-white text-xs rounded-2xl px-3 py-2 shadow-2xl border border-white/20 backdrop-blur-sm whitespace-nowrap">
+                    {/* Arrow pointer */}
+                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full w-0 h-0 border-l-3 border-r-3 border-b-3 border-transparent border-b-indigo-600"></div>
+
+                    <div className="flex items-center space-x-1">
+                      <HiChatBubbleLeftRight className="text-sm text-yellow-300" />
+                      <span className="font-semibold">Ask me anything!</span>
+                      <HiSparkles className="text-xs text-pink-300 animate-ping" />
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
 
             {showScrollTop && (
               <div
@@ -497,6 +566,16 @@ const Header = ({ onOpenAbout, onOpenServices }) => {
             <span className="text-xs text-yellow-400 mb-1">Scroll</span>
             <FaChevronDown className="text-yellow-400" />
           </Link>
+        </div>
+      )}
+
+      {/* Chatbot Dropdown */}
+      {isChatbotOpen && (
+        <div
+          ref={chatbotRef}
+          className="fixed top-20 right-4 z-50 animate-fadeInDown"
+        >
+          <Chatbot isDropdown={true} onClose={() => setIsChatbotOpen(false)} />
         </div>
       )}
     </header>

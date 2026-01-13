@@ -12,7 +12,6 @@ import "./App.css";
 const Layout = lazy(() => import("./pages/Layout"));
 const ArchiveProjects = lazy(() => import("./pages/ArchiveProjects"));
 const NotFound = lazy(() => import("./pages/NotFound"));
-const Chatbot = lazy(() => import("./components/Chatbot"));
 
 const PageLoader = () => (
   <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950">
@@ -60,13 +59,6 @@ function App() {
                 <Route path="/projectlist" element={<ArchiveProjects />} />
                 <Route path="/*" element={<NotFound />} />
               </Routes>
-            </Suspense>
-            <Suspense
-              fallback={<div className="loading-chatbot">Loading...</div>}
-            >
-              <ErrorBoundary>
-                <Chatbot />
-              </ErrorBoundary>
             </Suspense>
           </div>
         </div>

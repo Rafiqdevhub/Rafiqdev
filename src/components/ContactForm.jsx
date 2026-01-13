@@ -1,19 +1,61 @@
 import { memo } from "react";
 import PropTypes from "prop-types";
 import { FaPaperPlane } from "react-icons/fa";
+import { useForm } from "@formspree/react";
 
-const ContactForm = memo(
-  ({
-    formRef,
-    handleSubmit,
-    formData,
-    handleChange,
-    isSubmitting,
-    submitStatus,
-    envError,
-  }) => (
+const ContactForm = memo(({ formId = import.meta.env.VITE_FORMSPREE_ID }) => {
+  const cleanFormId = formId?.split("/").pop() || formId;
+  const [state, handleSubmit] = useForm(cleanFormId);
+
+  if (!formId) {
+    return (
+      <div
+        className="font-poppins rounded-lg bg-red-500 bg-opacity-20 px-2 xxs:px-3 xs:px-4 py-1.5 xxs:py-2 xs:py-3 text-xs xxs:text-xs xs:text-sm text-red-200 flex items-center"
+        role="alert"
+      >
+        <svg
+          className="w-3 h-3 xxs:w-3.5 xxs:h-3.5 xs:w-4 xs:h-4 mr-1.5 xxs:mr-1.5 xs:mr-2"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 002 0V6a1 1 0 00-1-1z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+        Contact form is currently unavailable. Please reach out directly via
+        email.
+      </div>
+    );
+  }
+
+  if (state.succeeded) {
+    return (
+      <div
+        className="font-poppins rounded-lg bg-green-500 bg-opacity-20 px-2 xxs:px-3 xs:px-4 py-1.5 xxs:py-2 xs:py-3 text-xs xxs:text-xs xs:text-sm text-green-200 flex items-center"
+        role="alert"
+      >
+        <svg
+          className="w-3 h-3 xxs:w-3.5 xxs:h-3.5 xs:w-4 xs:h-4 mr-1.5 xxs:mr-1.5 xs:mr-2"
+          fill="currentColor"
+          viewBox="0 0 20 20"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fillRule="evenodd"
+            d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clipRule="evenodd"
+          ></path>
+        </svg>
+        Thank you! Your message has been sent successfully.
+      </div>
+    );
+  }
+
+  return (
     <form
-      ref={formRef}
       onSubmit={handleSubmit}
       className="space-y-2 xxs:space-y-3 xs:space-y-5"
     >
@@ -28,8 +70,6 @@ const ContactForm = memo(
           type="text"
           id="name"
           name="name"
-          value={formData.name}
-          onChange={handleChange}
           required
           placeholder="Enter your name"
           className="font-poppins w-full rounded-lg bg-[#12122a] px-2 xxs:px-3 xs:px-4 py-1.5 xxs:py-2 xs:py-3 text-xs xxs:text-xs xs:text-sm text-white placeholder-[#a3a3a3] outline-none border border-[#2a2a4e] focus:border-[#f0c14b] transition-all duration-300"
@@ -48,8 +88,6 @@ const ContactForm = memo(
           type="email"
           id="email"
           name="email"
-          value={formData.email}
-          onChange={handleChange}
           required
           placeholder="Enter your email"
           className="font-poppins w-full rounded-lg bg-[#12122a] px-2 xxs:px-3 xs:px-4 py-1.5 xxs:py-2 xs:py-3 text-xs xxs:text-xs xs:text-sm text-white placeholder-[#a3a3a3] outline-none border border-[#2a2a4e] focus:border-[#f0c14b] transition-all duration-300"
@@ -67,8 +105,6 @@ const ContactForm = memo(
         <textarea
           id="message"
           name="message"
-          value={formData.message}
-          onChange={handleChange}
           required
           rows="4"
           placeholder="Tell me about your project"
@@ -77,28 +113,7 @@ const ContactForm = memo(
         ></textarea>
       </div>
 
-      {submitStatus === "success" && (
-        <div
-          className="font-poppins rounded-lg bg-green-500 bg-opacity-20 px-2 xxs:px-3 xs:px-4 py-1.5 xxs:py-2 xs:py-3 text-xs xxs:text-xs xs:text-sm text-green-200 flex items-center"
-          role="alert"
-        >
-          <svg
-            className="w-3 h-3 xxs:w-3.5 xxs:h-3.5 xs:w-4 xs:h-4 mr-1.5 xxs:mr-1.5 xs:mr-2"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-          Thank you! Your message has been sent successfully.
-        </div>
-      )}
-
-      {submitStatus === "error" && (
+      {state.errors && state.errors.length > 0 && (
         <div
           className="font-poppins rounded-lg bg-red-500 bg-opacity-20 px-2 xxs:px-3 xs:px-4 py-1.5 xxs:py-2 xs:py-3 text-xs xxs:text-xs xs:text-sm text-red-200 flex items-center"
           role="alert"
@@ -119,35 +134,13 @@ const ContactForm = memo(
         </div>
       )}
 
-      {envError && (
-        <div
-          className="font-poppins rounded-lg bg-yellow-500 bg-opacity-20 px-2 xxs:px-3 xs:px-4 py-1.5 xxs:py-2 xs:py-3 text-xs xxs:text-xs xs:text-sm text-yellow-200 flex items-center"
-          role="alert"
-        >
-          <svg
-            className="w-3 h-3 xxs:w-3.5 xxs:h-3.5 xs:w-4 xs:h-4 mr-1.5 xxs:mr-1.5 xs:mr-2"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fillRule="evenodd"
-              d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z"
-              clipRule="evenodd"
-            ></path>
-          </svg>
-          Contact form is currently unavailable. Please reach out directly via
-          email.
-        </div>
-      )}
-
       <button
         type="submit"
-        disabled={isSubmitting || envError}
+        disabled={state.submitting}
         className="send-button button-UI flex h-8 xxs:h-10 xs:h-12 w-full items-center justify-center gap-1.5 xxs:gap-2 xs:gap-3 rounded-lg px-3 xxs:px-4 xs:px-6 py-1 xxs:py-1.5 xs:py-2 font-bold tracking-wider text-[#0f0f1a] shadow-xl transition-all duration-300 hover:opacity-90 hover:shadow-2xl disabled:opacity-70 text-xs xxs:text-xs xs:text-sm"
         aria-label="Send message"
       >
-        {isSubmitting ? (
+        {state.submitting ? (
           <span className="flex items-center">
             <svg
               className="animate-spin -ml-0.5 mr-1.5 h-3 w-3 xxs:h-4 xxs:w-4 xs:h-5 xs:w-5 text-[#0f0f1a]"
@@ -179,17 +172,11 @@ const ContactForm = memo(
         )}
       </button>
     </form>
-  )
-);
+  );
+});
 
 ContactForm.propTypes = {
-  formRef: PropTypes.object.isRequired,
-  handleSubmit: PropTypes.func.isRequired,
-  formData: PropTypes.object.isRequired,
-  handleChange: PropTypes.func.isRequired,
-  isSubmitting: PropTypes.bool.isRequired,
-  submitStatus: PropTypes.string,
-  envError: PropTypes.bool.isRequired,
+  formId: PropTypes.string,
 };
 
 ContactForm.displayName = "ContactForm";

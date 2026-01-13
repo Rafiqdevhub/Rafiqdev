@@ -1,20 +1,8 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect } from "react";
 import PropTypes from "prop-types";
-import emailjs from "@emailjs/browser";
-import { getEnv, validateEnv } from "../utils/env";
 import ContactForm from "./ContactForm";
 
 const ContactModal = ({ isOpen, onClose }) => {
-  const formRef = useRef();
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-  const [envError, setEnvError] = useState(false);
-
   useEffect(() => {
     document.body.style.overflow = isOpen ? "hidden" : "";
     return () => {
@@ -22,58 +10,7 @@ const ContactModal = ({ isOpen, onClose }) => {
     };
   }, [isOpen]);
 
-  useEffect(() => {
-    if (!isOpen) return;
-    const isValid = validateEnv([
-      "VITE_EMAILJS_SERVICE_ID",
-      "VITE_EMAILJS_TEMPLATE_ID",
-      "VITE_EMAILJS_PUBLIC_KEY",
-    ]);
-    if (!isValid) {
-      setEnvError(true);
-      console.error(
-        "Missing required environment variables for the contact form"
-      );
-    } else {
-      setEnvError(false);
-    }
-  }, [isOpen]);
-
   if (!isOpen) return null;
-
-  const resetForm = () => {
-    setFormData({ name: "", email: "", message: "" });
-    setTimeout(() => setSubmitStatus(null), 5000);
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (envError) {
-      setSubmitStatus("error");
-      return;
-    }
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-    try {
-      const result = await emailjs.sendForm(
-        getEnv("VITE_EMAILJS_SERVICE_ID"),
-        getEnv("VITE_EMAILJS_TEMPLATE_ID"),
-        formRef.current,
-        getEnv("VITE_EMAILJS_PUBLIC_KEY")
-      );
-      if (result.text === "OK") {
-        setSubmitStatus("success");
-        resetForm();
-      } else {
-        setSubmitStatus("error");
-      }
-    } catch (error) {
-      console.error("Email sending failed:", error);
-      setSubmitStatus("error");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
 
   const handleOverlayClick = (e) => {
     if (e.target === e.currentTarget) onClose?.();
@@ -99,17 +36,7 @@ const ContactModal = ({ isOpen, onClose }) => {
           Get in Touch
         </h2>
 
-        <ContactForm
-          formRef={formRef}
-          handleSubmit={handleSubmit}
-          formData={formData}
-          handleChange={(e) =>
-            setFormData({ ...formData, [e.target.name]: e.target.value })
-          }
-          isSubmitting={isSubmitting}
-          submitStatus={submitStatus}
-          envError={envError}
-        />
+        <ContactForm />
 
         <div className="mt-4 border-t border-[#2a2a4e] pt-3">
           <p className="font-poppins mb-1.5 text-xs text-[#a3a3a3] flex items-center">
