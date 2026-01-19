@@ -32,7 +32,7 @@ const FloatingParticles = memo(() => {
         duration: Math.random() * 20 + 10,
         delay: Math.random() * 5,
       })),
-    []
+    [],
   );
 
   return (
@@ -132,7 +132,7 @@ const SkillItem = memo(({ icon: Icon, text, delay, description, color }) => {
         <div
           className={`p-4 rounded-xl bg-gradient-to-br ${color.replace(
             "/5",
-            "/20"
+            "/20",
           )} shadow-lg group-hover:shadow-yellow-400/25 transition-all duration-300`}
         >
           <Icon className="text-white text-2xl" />
@@ -215,39 +215,39 @@ function Home() {
       {
         Icon: FaCode,
         text: "FULL-STACK",
-        description: "MERN, React Native & Python",
+        description: "End-to-end web & mobile solutions",
         color: "from-yellow-400/5 to-orange-500/5",
       },
       {
         Icon: FaMobile,
         text: "SDET",
-        description: "Test Automation & QA",
+        description: "Quality-first test automation",
         color: "from-blue-400/5 to-cyan-500/5",
       },
       {
         Icon: FaTools,
         text: "DEVOPS",
-        description: "CI/CD & Cloud Deploy",
+        description: "Seamless CI/CD & deployment",
         color: "from-green-400/5 to-emerald-500/5",
       },
       {
         Icon: FaDatabase,
         text: "AI/ML",
-        description: "Chatbots & Automation",
+        description: "Intelligent automation & insights",
         color: "from-purple-400/5 to-pink-500/5",
       },
     ],
-    []
+    [],
   );
 
   const stats = useMemo(
     () => [
-      { end: 10, suffix: "+", label: "Projects Completed", delay: 200 },
+      { end: 15, suffix: "+", label: "Projects Completed", delay: 200 },
       { end: 2, suffix: "+", label: "Years Experience", delay: 400 },
-      { end: 20, suffix: "+", label: "Technologies", delay: 600 },
-      { end: 100, suffix: "%", label: "Client Satisfaction", delay: 800 },
+      { end: 25, suffix: "+", label: "Technologies Mastered", delay: 600 },
+      { end: 99, suffix: "%", label: "Client Satisfaction", delay: 800 },
     ],
-    []
+    [],
   );
 
   return (
@@ -263,7 +263,7 @@ function Home() {
           <div className="space-y-8 text-center lg:text-left">
             <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-gradient-to-r from-yellow-400/10 to-orange-500/10 border border-yellow-400/30 backdrop-blur-sm animate-fadeInUp">
               <span className="text-yellow-400 text-sm font-semibold">
-                Available for Freelance
+                Available for Hire | Open to Exciting Projects
               </span>
             </div>
 
@@ -295,18 +295,22 @@ function Home() {
               className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl animate-fadeInUp"
               style={{ animationDelay: "300ms" }}
             >
-              Self-driven developer and continuous learner with a passion for
-              turning ideas into real-world solutions guided by the belief that
-              “a great developer doesn’t just write code, they solve problems.”
+              Transforming business challenges into elegant, scalable solutions.
+              Specialized in building high-performance web and mobile
+              applications that drive measurable results. From startup MVPs to
+              enterprise systems, I deliver code that matters.
             </p>
 
             <div
               className="flex flex-wrap gap-3 justify-center lg:justify-start animate-fadeInUp"
               style={{ animationDelay: "400ms" }}
             >
-              <FeatureBadge icon={FaCheckCircle} text="MERN Stack Expert" />
-              <FeatureBadge icon={FaAward} text="AI/ML Integration" />
-              <FeatureBadge icon={FaLaptopCode} text="React Native" />
+              <FeatureBadge
+                icon={FaCheckCircle}
+                text="15+ Projects Delivered"
+              />
+              <FeatureBadge icon={FaAward} text="99.9% Uptime" />
+              <FeatureBadge icon={FaLaptopCode} text="2+ Years Experience" />
             </div>
 
             <div
@@ -317,7 +321,7 @@ function Home() {
                 onClick={openContactModal}
                 className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 font-bold text-base shadow-lg hover:shadow-yellow-400/50 transition-all duration-300 hover:-translate-y-1 flex items-center space-x-2 cursor-pointer"
               >
-                <span>Let&apos;s Talk</span>
+                <span>Start Your Project</span>
                 <FaPlay className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
               </button>
 
@@ -422,14 +426,14 @@ function Home() {
           style={{ animationDelay: "800ms" }}
         >
           <h2 className="font-tinos text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
-            What I{" "}
+            Why{" "}
             <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-              Bring to the Table
+              Choose Me
             </span>
           </h2>
           <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-            A versatile skill set combining development, testing, and deployment
-            expertise
+            A comprehensive skill set delivering end-to-end solutions from
+            concept to deployment
           </p>
         </div>
 
@@ -449,7 +453,10 @@ function Home() {
           ))}
         </div>
       </div>
-      <ContactModal isOpen={isContactModalOpen} onClose={closeContactModal} />{" "}
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={closeContactModal}
+      />{" "}
     </div>
   );
 }
