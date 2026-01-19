@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Home from "./Home";
 import Project from "./Project";
 import Experiences from "./experiences";
+import ChatbotSection from "./ChatbotSection";
 import { Element } from "react-scroll";
 import { useState, useEffect as useEffectReact } from "react";
 import AboutModal from "../components/AboutModal";
@@ -60,6 +61,12 @@ function Layout() {
         className="w-full pt-2 xxs:pt-3 xs:pt-4 md:pt-8"
       >
         <Project />
+      </Element>
+      <Element
+        name="Chatbot-section"
+        className="w-full pt-2 xxs:pt-3 xs:pt-4 md:pt-8"
+      >
+        <ChatbotSection />
       </Element>
 
       <AboutModal isOpen={aboutOpen} onClose={() => setAboutOpen(false)} />
