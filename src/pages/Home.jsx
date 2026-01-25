@@ -7,10 +7,7 @@ import {
   FaRocket,
   FaDownload,
   FaPlay,
-  FaCheckCircle,
   FaStar,
-  FaAward,
-  FaLaptopCode,
   FaBriefcase,
   FaGithub,
   FaLinkedin,
@@ -285,7 +282,7 @@ function Home() {
                   </span>
                   {" & "}
                   <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-blue-300 bg-clip-text text-transparent font-semibold">
-                    AI/ML Engineer
+                    AI/ML Enthusiast
                   </span>
                 </h2>
               </div>
@@ -302,18 +299,6 @@ function Home() {
             </p>
 
             <div
-              className="flex flex-wrap gap-3 justify-center lg:justify-start animate-fadeInUp"
-              style={{ animationDelay: "400ms" }}
-            >
-              <FeatureBadge
-                icon={FaCheckCircle}
-                text="15+ Projects Delivered"
-              />
-              <FeatureBadge icon={FaAward} text="99.9% Uptime" />
-              <FeatureBadge icon={FaLaptopCode} text="2+ Years Experience" />
-            </div>
-
-            <div
               className="flex flex-wrap gap-4 justify-center lg:justify-start animate-fadeInUp"
               style={{ animationDelay: "500ms" }}
             >
@@ -321,7 +306,7 @@ function Home() {
                 onClick={openContactModal}
                 className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-yellow-400 to-orange-500 text-slate-900 font-bold text-base shadow-lg hover:shadow-yellow-400/50 transition-all duration-300 hover:-translate-y-1 flex items-center space-x-2 cursor-pointer"
               >
-                <span>Start Your Project</span>
+                <span>Let&apos;s Talk</span>
                 <FaPlay className="text-sm group-hover:translate-x-1 transition-transform duration-300" />
               </button>
 
