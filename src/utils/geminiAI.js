@@ -18,7 +18,7 @@ const initializeGenerativeAI = () => {
 
   const apiKey = getEnv("VITE_GEMINI_API_KEY", "");
   if (!apiKey) {
-    console.error("❌ Gemini API key missing in environment variables.");
+    console.error("Gemini API key missing in environment variables.");
     return null;
   }
 
@@ -69,7 +69,7 @@ const prepareContextData = (portfolioContext) => {
 
     return JSON.stringify(comprehensiveContext, null, 2);
   } catch (error) {
-    console.error("⚠️ Error preparing context:", error);
+    console.error("Error preparing context:", error);
     return JSON.stringify({
       owner: { name: UserData.name || "Rafiq", role: "Full Stack Developer" },
       error: "Context preparation failed",
